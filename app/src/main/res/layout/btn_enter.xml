@@ -4,8 +4,8 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content" >
 
     <TextView
-        style="@style/ButtonStyle"
         android:id="@+id/btn_base"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_btn"
         android:foreground="?attr/selectableItemBackgroundBorderless"

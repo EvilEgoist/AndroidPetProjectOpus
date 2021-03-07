@@ -15,6 +15,5 @@
         style="@style/TextFormStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_form"
-        android:hint="@string/hint_user_name"
         android:inputType="text" />
 </com.google.android.material.textfield.TextInputLayout>
