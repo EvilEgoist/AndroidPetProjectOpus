@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_screen_margins">36dp</dimen>
+    <dimen name="height_btn">55dp</dimen>
+    <dimen name="height_form">48dp</dimen>
+    <dimen name="greeting_form">42dp</dimen>
+</resources>
