@@ -3,12 +3,13 @@ package com.android.opus.ui.screen
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+
+
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.Fragment
 import com.android.opus.R
-import com.android.opus.R.*
 import com.android.opus.domain.MainScreenInteractor
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +21,7 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
         mainDispatcher = Dispatchers.Main.immediate
     )
 
-    private var state: State? = null
+    private var state: State = State.MAIN
 
     private var topBarrier: View? = null
 
@@ -48,7 +49,7 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(layout.fragment_main_screen, container, false)
+        return inflater.inflate(R.layout.fragment_main_screen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -356,7 +357,7 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
         temp?.text = resources.getString(text)
     }
 
-    enum class State {
+    private enum class State {
         MAIN,
         LOGIN,
         SIGN_UP

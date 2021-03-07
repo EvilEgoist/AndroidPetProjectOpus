@@ -14,3 +14,7 @@
 .cxx
 local.properties
 .idea
+/app/src/test
+/app/src/androidTest
+gradlew
+gradlew.bat
