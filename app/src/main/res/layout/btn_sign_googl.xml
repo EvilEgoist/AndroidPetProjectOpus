@@ -15,9 +15,5 @@
         android:gravity="left|center"
         android:paddingStart="36dp"
         android:paddingEnd="24dp"
-        app:drawableLeftCompat="@drawable/ic_google"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:drawableLeftCompat="@drawable/ic_google" />
 </RelativeLayout>
