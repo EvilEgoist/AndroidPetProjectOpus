@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_screen_margins">36dp</dimen>
+    <dimen name="height_btn">55dp</dimen>
+    <dimen name="height_form">48dp</dimen>
+    <dimen name="greeting_form">42dp</dimen>
+    <dimen name="distance_between_forms">3dp</dimen>
+    <dimen name="distance_between_btns">16dp</dimen>
+
+    <dimen name="ic_googl_size">32dp</dimen>
+    <dimen name="button_text_size">20dp</dimen>
+    <dimen name="greeting_text_size">20dp</dimen>
+    <dimen name="form_text_size">18dp</dimen>
+    <dimen name="app_title_text_size">40dp</dimen>
+</resources>

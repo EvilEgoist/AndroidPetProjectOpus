@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Opus</string>
+    <string name="sign_up_with_google">Sign up with Google</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="hint_email_title">E-mail</string>
+    <string name="hint_first_password_form">Пароль</string>
+    <string name="hint_user_name">Имя</string>
+    <string name="hint_user_surname">Фамилия</string>
+    <string name="hint_second_password_from">Повторите пароль</string>
+    <string name="enter">Войти</string>
+    <string name="sign_up_enter">Продолжить</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="main_screen_greeting_title">У вас уже есть аккаунт?</string>
+    <string name="login_screen_greeting_title">Давно не заходили</string>
+    <string name="sign_up_screen_greeting_title">Рады с Вами познакомиться</string>
+
+    <string name="error_name">Неправильно введено имя</string>
+    <string name="error_surname">Неправильно введена фамилия</string>
+    <string name="error_email">Неправильно введен e-mail</string>
+    <string name="error_password">Неправильно введён пароль</string>
+    <string name="error_confirmed_password">Пароли не совпадают</string>
+
+    <string name="success_confirmed_password">Пароли совпали</string>
+</resources>
