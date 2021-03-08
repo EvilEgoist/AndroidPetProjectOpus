@@ -13,8 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
-.idea
-/app/src/test
-/app/src/androidTest
+/.idea
+/app/src/test/*
+/app/src/androidTest/*
 gradlew
 gradlew.bat
