@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="@dimen/height_btn"
+    android:background="@drawable/shape_btn_sign_up"
+    android:gravity="center"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <ImageView
+        android:layout_width="@dimen/ic_googl_size"
+        android:layout_height="@dimen/ic_googl_size"
+        android:layout_marginEnd="6dp"
+        android:src="@drawable/ic_google" />
 
     <TextView
         android:id="@+id/btn_googl_sign"
         style="@style/ButtonGooglStyle"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_btn"
-        android:background="@drawable/shape_btn_sign_up"
-        android:drawablePadding="6dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:gravity="left|center"
-        android:paddingStart="36dp"
-        android:paddingEnd="24dp"
-        app:drawableLeftCompat="@drawable/ic_google" />
-</RelativeLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        tools:text="@string/sign_in_with_google" />
+
+</LinearLayout>
