@@ -1,6 +1,6 @@
 package com.android.opus.domain
 
-import com.android.opus.untils.CheckCorrectUserData
+import com.android.opus.utils.CheckCorrectUserData
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
