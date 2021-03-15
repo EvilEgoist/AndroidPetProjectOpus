@@ -19,6 +19,25 @@
     <string name="error_email">Неправильно введен e-mail</string>
     <string name="error_password">Неправильно введён пароль</string>
     <string name="error_confirmed_password">Пароли не совпадают</string>
-
     <string name="success_confirmed_password">Пароли совпали</string>
+
+    <string name="radio_button_office">Офис</string>
+    <string name="radio_button_support">Поддержка</string>
+    <string name="radio_button_apps">Приложения</string>
+    <string name="radio_button_sales">Продажи</string>
+    <string name="radio_button_software_engineering">Разарботка ПО</string>
+    <string name="radio_button_telecom">Телеком</string>
+    <string name="radio_button_testing">Тестирование</string>
+    <string name="radio_button_frondend">Фронтенд</string>
+    <string name="radio_button_other">Другое</string>
+    <string name="radio_button_adm">Администрирование</string>
+    <string name="radio_button_analytic">Аналитика</string>
+    <string name="radio_button_backend">Бэкенд</string>
+    <string name="radio_button_design">Дизайн</string>
+    <string name="radio_button_inf_security">Информационная безопасность</string>
+    <string name="radio_button_hr">Кадры</string>
+    <string name="radio_button_content">Контент</string>
+    <string name="radio_button_marketing">Маркетинг</string>
+    <string name="radio_button_management">Менеджмент</string>
+    <string name="info_title_field_of_activity">Чем Вы занимаетесь?</string>
 </resources>

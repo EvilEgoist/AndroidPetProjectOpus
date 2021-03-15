@@ -1,4 +1,4 @@
-package com.android.opus.untils
+package com.android.opus.utils
 
 import android.util.Patterns
 import java.util.regex.Pattern

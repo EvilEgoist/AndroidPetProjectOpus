@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="main_screen_margins">36dp</dimen>
+    <dimen name="vertical_border_screen_margins">36dp</dimen>
     <dimen name="height_btn">56dp</dimen>
     <dimen name="height_form">48dp</dimen>
     <dimen name="greeting_form">42dp</dimen>
@@ -11,5 +11,8 @@
     <dimen name="button_text_size">20dp</dimen>
     <dimen name="greeting_text_size">20dp</dimen>
     <dimen name="form_text_size">18dp</dimen>
+    <dimen name="check_box_field_of_activity_text_size">12dp</dimen>
     <dimen name="app_title_text_size">40dp</dimen>
+
+    <dimen name="min_height_check_box">32dp</dimen>
 </resources>

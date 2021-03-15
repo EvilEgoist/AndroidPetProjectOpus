@@ -2,4 +2,7 @@
 <resources>
     <dimen name="button_text_size">24dp</dimen>
     <dimen name="greeting_text_size">24dp</dimen>
+
+    <dimen name="min_height_check_box">32dp</dimen>
+    <dimen name="check_box_field_of_activity_text_size">14dp</dimen>
 </resources>
