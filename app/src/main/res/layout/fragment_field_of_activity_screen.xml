@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_left_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/vertical_border_screen_margins" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_right_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/vertical_border_screen_margins" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_middle_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.56" />
+
+    <TextView
+        android:id="@+id/app_title_form"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_form"
+        android:text="@string/app_name"
+        android:layout_marginTop="24dp"
+        android:textAppearance="@style/AppTitleAppearance.SecondAppTitleAppearance"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/info_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/info_title_field_of_activity"
+        android:textAppearance="@style/SubtitleTextAppearance.SecondSubtitleAppearance"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/app_title_form" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_adm"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/radio_button_adm"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/info_title" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_office"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_office"
+        app:layout_constraintBottom_toBottomOf="@id/check_box_adm"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@+id/check_box_adm" />
+
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_analytic"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_analytic"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_adm" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_support"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_support"
+        app:layout_constraintBottom_toBottomOf="@+id/check_box_analytic"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@+id/check_box_analytic" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_backend"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_backend"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_analytic" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_app"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_apps"
+        app:layout_constraintBottom_toBottomOf="@id/check_box_backend"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@id/check_box_backend" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_design"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_design"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_backend" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_sales"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_sales"
+        app:layout_constraintBottom_toBottomOf="@id/check_box_design"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@id/check_box_design" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_inf_security"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_inf_security"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_design" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_software_engineering"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_software_engineering"
+        app:layout_constraintBottom_toBottomOf="@id/check_box_inf_security"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@id/check_box_inf_security" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_hr"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_hr"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_inf_security" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_telecom"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_telecom"
+        app:layout_constraintBottom_toBottomOf="@id/check_box_hr"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@id/check_box_hr" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_content"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_content"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_hr" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_testing"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_sales"
+        app:layout_constraintBottom_toBottomOf="@id/check_box_content"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@id/check_box_content" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_marketing"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_marketing"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_content" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_frontend"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_sales"
+        app:layout_constraintBottom_toBottomOf="@+id/check_box_marketing"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@id/check_box_marketing" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_management"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/radio_button_management"
+        app:layout_constraintEnd_toEndOf="@id/root_middle_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/check_box_marketing" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/check_box_other"
+        style="@style/CheckBoxFieldOfActivityStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/radio_button_other"
+        app:layout_constraintBottom_toBottomOf="@+id/check_box_management"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_middle_border"
+        app:layout_constraintTop_toTopOf="@+id/check_box_management" />
+
+
+    <TextView
+        android:id="@+id/btn_base"
+        android:textAppearance="@style/ButtonTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_btn"
+        android:layout_marginBottom="51dp"
+        android:background="@drawable/shape_btn_enter_with_stroke"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/sign_up_enter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
