@@ -2,4 +2,8 @@
 <resources>
     <dimen name="button_text_size">24dp</dimen>
     <dimen name="greeting_text_size">24dp</dimen>
+    <dimen name="flow_text_size">20sp</dimen>
+    <dimen name="search_view_width">340sp</dimen>
+    <dimen name ="flow_margin_start">35dp</dimen>
+    <dimen name ="flow_margin_end">45dp</dimen>
 </resources>

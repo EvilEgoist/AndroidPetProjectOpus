@@ -10,6 +10,10 @@
     <dimen name="ic_googl_size">32dp</dimen>
     <dimen name="button_text_size">20dp</dimen>
     <dimen name="greeting_text_size">20dp</dimen>
+    <dimen name="search_view_width">340sp</dimen>
+    <dimen name="flow_text_size">10sp</dimen>
     <dimen name="form_text_size">18dp</dimen>
     <dimen name="app_title_text_size">40dp</dimen>
+    <dimen name ="flow_margin_start">35dp</dimen>
+    <dimen name ="flow_margin_end">35dp</dimen>
 </resources>

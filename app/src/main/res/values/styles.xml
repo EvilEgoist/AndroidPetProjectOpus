@@ -26,10 +26,21 @@
         <item name="android:textSize">@dimen/app_title_text_size</item>
     </style>
 
+    <style name="AppTitleStyleBlack" parent="Theme.AppCompat">
+        <item name="android:fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/app_title_text_size</item>
+    </style>
+
     <style name="GreetingTitleStyle" parent="Theme.AppCompat">
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/yellow</item>
         <item name="android:textSize">@dimen/greeting_text_size</item>
+    </style>
+
+    <style name="CaptionUnderAppTitle">
+        <item name="android:textSize">@dimen/greeting_text_size</item>
+        <item name="android:textColor">#73726A</item>
     </style>
 
 </resources>

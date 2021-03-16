@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBEBEB"
+    tools:context=".SkillsScreen">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="@dimen/search_view_width"
+        android:layout_height="46dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="400dp"
+        android:background="@drawable/search_view_style"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caption_under_title"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <TextView
+        android:id="@+id/app_title"
+        style="@style/AppTitleStyleBlack"
+        android:layout_width="364dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="1dp"
+        android:gravity="top"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <TextView
+        android:id="@+id/caption_under_title"
+        android:layout_width="354dp"
+        android:layout_height="43dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:gravity="center_vertical"
+        android:text="@string/caption_under_app_title"
+        android:textAppearance="@style/CaptionUnderAppTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_title"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <View
+        android:id="@+id/rectangle_7"
+        android:layout_width="414dp"
+        android:layout_height="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/screen_separator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/screen_barrier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="bottom"
+        app:barrierMargin="120dp"
+        app:constraint_referenced_ids="app_title,caption_under_title,searchView"
+        />
+
+    <TextView
+        android:id="@+id/skill1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="@dimen/flow_text_size"
+        />
+
+    <TextView
+        android:id="@+id/skill2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="@dimen/flow_text_size"
+        />
+
+    <TextView
+        android:id="@+id/skill3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="@dimen/flow_text_size"
+        />
+
+    <TextView
+        android:id="@+id/skill4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="@dimen/flow_text_size"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="240dp" />
+
+    <TextView
+        android:id="@+id/skill5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="@dimen/flow_text_size"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="263dp" />
+
+    <TextView
+        android:id="@+id/skill6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="112dp"
+        android:textSize="@dimen/flow_text_size"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        />
+
+    <TextView
+        android:id="@+id/skill7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/flow_text_size"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        />
+
+    <TextView
+        android:id="@+id/skill8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="112dp"
+        android:textSize="@dimen/flow_text_size"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        />
+
+    <TextView
+        android:id="@+id/skill9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="112dp"
+        android:textSize="@dimen/flow_text_size"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        />
+
+    <TextView
+        android:id="@+id/skill10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:textSize="@dimen/flow_text_size"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        />
+
+    <TextView
+        android:id="@+id/skill11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/flow_text_size"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        />
+
+    <TextView
+        android:id="@+id/skill12"
+        android:tag="sk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/flow_text_size"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/shape_rounded_rectangle"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/flow_margin_start"
+        android:layout_marginEnd="@dimen/flow_margin_end"
+        app:constraint_referenced_ids="skill1,skill2,skill3,skill4,skill5,skill6,skill7,skill8,skill9,skill10,skill11,skill12"
+        app:flow_wrapMode="aligned"
+        app:flow_horizontalStyle="spread_inside"
+        app:flow_verticalStyle="spread_inside"
+        app:flow_verticalGap="15dp"
+        app:flow_horizontalGap="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/screen_barrier" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
