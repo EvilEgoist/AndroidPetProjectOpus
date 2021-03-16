@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.android.opus.ui.screen.MainScreenFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -11,14 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .add(R.id.fragment_container, MainScreenFragment.newInstance()).commit()
-//        }
-//        Intent(this, SkillsScreen::class.java)
-
-        val textViewArray = arrayOfNulls<TextView>(10)
-        textViewArray[0]
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, MainScreenFragment.newInstance()).commit()
+        }
 
     }
 }
