@@ -40,4 +40,26 @@
     <string name="radio_button_marketing">Маркетинг</string>
     <string name="radio_button_management">Менеджмент</string>
     <string name="info_title_field_of_activity">Чем Вы занимаетесь?</string>
+
+    <string-array name="activity_fields">
+        <item>Администрирование</item>
+        <item>Офис</item>
+        <item>Аналитика</item>
+        <item>Поддержка</item>
+        <item>Бэкэнд</item>
+        <item>Приложения</item>
+        <item>Дизайн</item>
+        <item>Продажи</item>
+        <item>Информационная безопасность</item>
+        <item>Разработка ПО</item>
+        <item>Кадры</item>
+        <item>Телеком</item>
+        <item>Контент</item>
+        <item>Тестирование</item>
+        <item>Марткетинг</item>
+        <item>Фронтенд</item>
+        <item>Менеджмент</item>
+        <item>Другое</item>
+    </string-array>
+
 </resources>
