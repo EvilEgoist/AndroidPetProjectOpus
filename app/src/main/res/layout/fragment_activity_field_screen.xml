@@ -7,65 +7,59 @@
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/root_left_border"
+        android:id="@+id/rootLeftBorder"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="@dimen/vertical_border_screen_margins" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/root_right_border"
+        android:id="@+id/rootRightBorder"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/vertical_border_screen_margins" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/root_middle_border"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.56" />
 
     <TextView
-        android:id="@+id/app_title_form"
+        android:id="@+id/appTitleForm"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_form"
         android:text="@string/app_name"
         android:layout_marginTop="24dp"
         android:textAppearance="@style/AppTitleAppearance.SecondAppTitleAppearance"
-        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
-        android:id="@+id/info_title"
+        android:id="@+id/infoTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/info_title_field_of_activity"
         android:textAppearance="@style/SubtitleTextAppearance.SecondSubtitleAppearance"
-        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/root_left_border"
-        app:layout_constraintTop_toBottomOf="@id/app_title_form" />
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintTop_toBottomOf="@id/appTitleForm" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/items_field_of_activity"
+        android:id="@+id/itemsFieldOfActivity"
         android:layout_width="0dp"
         android:overScrollMode="never"
         android:layout_height="0dp"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="51dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_base"
-        app:layout_constraintEnd_toStartOf="@id/root_right_border"
-        app:layout_constraintStart_toEndOf="@id/root_left_border"
-        app:layout_constraintTop_toBottomOf="@id/info_title" />
+        app:layout_constraintBottom_toTopOf="@+id/btnBase"
+        app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
+        app:layout_constraintStart_toEndOf="@id/rootLeftBorder"
+        app:layout_constraintTop_toBottomOf="@id/infoTitle" />
 
 
     <TextView
-        android:id="@+id/btn_base"
+        android:id="@+id/btnBase"
         android:textAppearance="@style/ButtonTextStyle"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_btn"
@@ -75,8 +69,8 @@
         android:gravity="center"
         android:text="@string/sign_up_enter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/root_right_border"
-        app:layout_constraintStart_toStartOf="@id/root_left_border" />
+        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

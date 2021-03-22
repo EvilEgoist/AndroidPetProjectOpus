@@ -2,7 +2,6 @@ package com.android.opus.ui.screen.activityfield
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
@@ -35,8 +34,8 @@ class ActivityFieldFragment : Fragment(R.layout.fragment_activity_field_screen) 
         )
     }
     private fun setUpActivityFieldAdapter() {
-        items_field_of_activity?.layoutManager = GridLayoutManager(requireContext(), 2)
-        items_field_of_activity?.adapter = activityFieldAdapter
+        itemsFieldOfActivity?.layoutManager = GridLayoutManager(requireContext(), 2)
+        itemsFieldOfActivity?.adapter = activityFieldAdapter
     }
 
     private fun updateAdapter(activityFields: List<String>?) {
