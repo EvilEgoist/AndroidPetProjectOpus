@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rootLeftBorder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/vertical_border_screen_margins" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rootRightBorder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/vertical_border_screen_margins" />
+
+
+    <TextView
+        android:id="@+id/appTitleForm"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_form"
+        android:text="@string/app_name"
+        android:layout_marginTop="24dp"
+        android:textAppearance="@style/AppTitleAppearance.SecondAppTitleAppearance"
+        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/infoTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/info_title_field_of_activity"
+        android:textAppearance="@style/SubtitleTextAppearance.SecondSubtitleAppearance"
+        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintTop_toBottomOf="@id/appTitleForm" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemsFieldOfActivity"
+        android:layout_width="0dp"
+        android:overScrollMode="never"
+        android:layout_height="0dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="51dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBase"
+        app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
+        app:layout_constraintStart_toEndOf="@id/rootLeftBorder"
+        app:layout_constraintTop_toBottomOf="@id/infoTitle" />
+
+
+    <TextView
+        android:id="@+id/btnBase"
+        android:textAppearance="@style/ButtonTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_btn"
+        android:layout_marginBottom="51dp"
+        android:background="@drawable/shape_btn_enter_with_stroke"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/sign_up_enter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
