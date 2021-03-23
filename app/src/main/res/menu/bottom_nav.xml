@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/vacancy"
+        android:icon="@drawable/ic_vacancy"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/messages"
+        android:icon="@drawable/ic_message"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/peopleGroup"
+        android:icon="@drawable/ic_group"
+        tools:ignore="MenuTitle" />
+</menu>
