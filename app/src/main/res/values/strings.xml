@@ -13,6 +13,7 @@
     <string name="main_screen_greeting_title">У вас уже есть аккаунт?</string>
     <string name="login_screen_greeting_title">Давно не заходили</string>
     <string name="sign_up_screen_greeting_title">Рады с Вами познакомиться</string>
+    <string name="caption_under_app_title">Расскажите о Ваших навыках</string>
 
     <string name="error_name">Неправильно введено имя</string>
     <string name="error_surname">Неправильно введена фамилия</string>
