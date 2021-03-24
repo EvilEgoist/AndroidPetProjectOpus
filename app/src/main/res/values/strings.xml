@@ -43,6 +43,8 @@
     <string name="title_vacancy">Vacancy</string>
     <string name="title_messages">Messages</string>
     <string name="title_people_group">Peoples</string>
+    <string name="watch_more">Узнать больше</string>
+    <string name="vacancies">Вакансии</string>
 
     <string-array name="activity_fields">
         <item>Администрирование</item>

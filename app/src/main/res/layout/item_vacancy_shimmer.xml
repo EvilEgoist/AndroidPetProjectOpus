@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_item_left_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/border_item_vacancy_margins" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_item_right_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/border_item_vacancy_margins" />
+
+    <TextView
+        android:id="@+id/titleVacancy"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:background="@color/gray_500"
+        app:layout_constraintEnd_toStartOf="@+id/employerImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/salary"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:background="@color/gray_500"
+        app:layout_constraintEnd_toStartOf="@+id/employerImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toBottomOf="@+id/employerName" />
+
+    <ImageView
+        android:id="@+id/employerImage"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/gray_500"
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/employerName"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:background="@color/gray_500"
+        app:layout_constraintEnd_toStartOf="@+id/employerImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toBottomOf="@+id/titleVacancy" />
+
+    <TextView
+        android:id="@+id/vacancyDescription"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray_500"
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toBottomOf="@+id/salary" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/skillsGroup"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray_500"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toBottomOf="@+id/vacancyDescription" />
+
+    <TextView
+        android:id="@+id/watchMore"
+        android:layout_width="100dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/gray_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
+        app:layout_constraintTop_toBottomOf="@+id/skillsGroup" />
+</androidx.constraintlayout.widget.ConstraintLayout>

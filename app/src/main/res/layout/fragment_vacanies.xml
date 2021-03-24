@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray_400">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/root_left_border"
@@ -23,13 +23,17 @@
         android:id="@+id/vacancySearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/search_view_borders_margin"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="@dimen/search_view_borders_margin"
         android:background="@drawable/shape_search_view_lists"
-        app:layout_constraintEnd_toEndOf="@id/root_right_border"
-        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:queryHint="Search" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vacancies"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="36dp"
@@ -37,6 +41,39 @@
         app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/vacancySearch" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerViewContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
+        app:duration="800"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/vacancySearch">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/item_vacancy_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" />
+
+            <include
+                layout="@layout/item_vacancy_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" />
+
+            <include layout="@layout/item_vacancy_shimmer" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -3,102 +3,120 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:backgroundTint="@color/gray_200"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/gray_200" >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_item_left_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/border_item_vacancy_margins" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_item_right_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/border_item_vacancy_margins" />
 
     <TextView
-        android:id="@+id/jobName"
-        android:layout_width="wrap_content"
+        android:id="@+id/titleVacancy"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:ellipsize="end"
         android:fontFamily="@font/work_sans_bold"
-        tools:text="iOS Разработчик"
-        tools:textSize="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/item_vacancy_job_position_text"
+        app:layout_constraintEnd_toStartOf="@+id/employerImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="iOS Разработчик" />
 
     <TextView
         android:id="@+id/salary"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        tools:text="10 000 - 20 000 руб"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:ellipsize="end"
         android:fontFamily="@font/lato"
-        tools:textSize="12sp"
+        android:maxLines="1"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jobName" />
+        android:textSize="@dimen/item_vacancy_salary_text"
+        app:layout_constraintEnd_toStartOf="@+id/employerImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toBottomOf="@+id/employerName"
+        tools:text="10 000 - 20 000 руб" />
 
     <ImageView
         android:id="@+id/employerImage"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginTop="18dp"
-        android:layout_marginEnd="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/employerName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:textColor="@color/black"
-        tools:text="Мастерская фотографии Светопись"
-        tools:textSize="8dp"
-        android:maxWidth="120dp"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:ellipsize="end"
         android:fontFamily="@font/lato"
+        android:maxWidth="120dp"
         android:maxLines="2"
-        app:layout_constraintBottom_toBottomOf="@+id/employerImage"
+        android:textColor="@color/black"
+        android:textSize="@dimen/item_vacancy_employ_name_text"
         app:layout_constraintEnd_toStartOf="@+id/employerImage"
-        app:layout_constraintTop_toTopOf="@+id/employerImage" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toBottomOf="@+id/titleVacancy"
+        tools:text="Мастерская фотографии Светопись" />
 
     <TextView
         android:id="@+id/vacancyDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="16dp"
         android:ellipsize="end"
-        android:maxLines="4"
         android:fontFamily="@font/lato"
+        android:lineSpacingExtra="2dp"
+        android:maxLines="4"
         android:textColor="@color/second_text_color"
-        tools:textSize="10dp"
-        android:lineSpacingExtra="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/skillsGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/item_vacancy_description_text"
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
         app:layout_constraintTop_toBottomOf="@+id/salary"
         tools:text="Таким образом укрепление и развитие структуры влечет за собой процесс внедрения и модернизации систем массового участия. Равным образом начало повседневной работы по формированию позиции способствует подготовки и реализации позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение соответствующий условий активизации.
 Таким образом укрепление и развитие структуры влечет за собой процесс внедрения и модернизации систем массового участия. Равным образом начало повседневной работы по формированию позиции способствует подготовки и реализации позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение соответствующий условий активизации.
 Таким образом укрепление и развитие структуры влечет за собой процесс внедрения и модернизации систем массового участия. Равным образом начало повседневной работы по формированию позиции способствует подготовки и реализации позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение соответствующий условий активизации." />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/skillsGroup"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintBottom_toBottomOf="@+id/watchMore"
-        app:layout_constraintEnd_toStartOf="@id/watchMore"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/watchMore" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="18dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/watchMore"
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
+        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
+        app:layout_constraintTop_toBottomOf="@+id/vacancyDescription" />
 
     <TextView
         android:id="@+id/watchMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
         android:layout_marginBottom="15dp"
-        tools:text="Узнать больше"
         android:fontFamily="@font/lato"
         android:textColor="@color/second_text_color"
-        tools:textSize="8dp"
+        android:textSize="@dimen/item_vacancy_watch_more_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
+        android:text="@string/watch_more" />
 </androidx.constraintlayout.widget.ConstraintLayout>
