@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.opus.R
-import com.android.opus.common.DefaultItemDecorator
 import com.android.opus.domain.VacancyInteractor
 import com.android.opus.model.Vacancy
 import kotlinx.android.synthetic.main.fragment_vacanies.*
@@ -40,7 +39,6 @@ class VacancyScreenFragment : Fragment(R.layout.fragment_vacanies) {
 
     private fun setUpVacancyAdapter() {
         vacancies?.layoutManager = LinearLayoutManager(requireContext())
-        vacancies?.addItemDecoration(DefaultItemDecorator(50))
         vacancies?.adapter = vacancyListAdapter
     }
 

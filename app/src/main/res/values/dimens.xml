@@ -17,7 +17,11 @@
     <dimen name="min_height_check_box">32dp</dimen>
     <dimen name="border_list_screen_margins">8dp</dimen>
     <dimen name="border_item_vacancy_margins">20dp</dimen>
+    <dimen name="border_item_vacancy_top_margins">16dp</dimen>
+    <dimen name="item_vacancy_inside_minimum_margin">8dp</dimen>
+    <dimen name="item_vacancy_inside_middle_margin">18dp</dimen>
     <dimen name="search_view_borders_margin">26dp</dimen>
+
     <dimen name="item_vacancy_job_position_text">24sp</dimen>
     <dimen name="item_vacancy_employ_name_text">16sp</dimen>
     <dimen name="item_vacancy_salary_text">18sp</dimen>

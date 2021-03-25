@@ -1,98 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/root_item_left_border"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/border_item_vacancy_margins" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/border_item_vacancy_margins"
+        android:layout_marginTop="@dimen/border_item_vacancy_top_margins"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:gravity="start"
+        android:orientation="horizontal">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/root_item_right_border"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/border_item_vacancy_margins" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginEnd="@dimen/item_vacancy_inside_minimum_margin"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/gray_500" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/gray_500" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:background="@color/gray_500" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@color/gray_500" />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/titleVacancy"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginStart="@dimen/border_item_vacancy_margins"
+        android:layout_marginTop="@dimen/item_vacancy_inside_middle_margin"
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
+        android:background="@color/gray_500" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="@dimen/border_item_vacancy_margins"
+        android:layout_marginTop="@dimen/item_vacancy_inside_middle_margin"
         android:layout_marginEnd="@dimen/border_item_vacancy_margins"
         android:background="@color/gray_500"
-        app:layout_constraintEnd_toStartOf="@+id/employerImage"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal" />
 
     <TextView
-        android:id="@+id/salary"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
-        android:background="@color/gray_500"
-        app:layout_constraintEnd_toStartOf="@+id/employerImage"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toBottomOf="@+id/employerName" />
-
-    <ImageView
-        android:id="@+id/employerImage"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="18dp"
-        android:background="@color/gray_500"
-        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/employerName"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
-        android:background="@color/gray_500"
-        app:layout_constraintEnd_toStartOf="@+id/employerImage"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toBottomOf="@+id/titleVacancy" />
-
-    <TextView
-        android:id="@+id/vacancyDescription"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/gray_500"
-        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
-        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toBottomOf="@+id/salary" />
-
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/skillsGroup"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/gray_500"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
-        app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toBottomOf="@+id/vacancyDescription" />
-
-    <TextView
-        android:id="@+id/watchMore"
         android:layout_width="100dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/gray_500"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
-        app:layout_constraintTop_toBottomOf="@+id/skillsGroup" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="18dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/item_vacancy_inside_middle_margin"
+        android:layout_marginEnd="@dimen/border_item_vacancy_top_margins"
+        android:layout_marginBottom="@dimen/border_item_vacancy_top_margins"
+        android:background="@color/gray_500" />
+</LinearLayout>
