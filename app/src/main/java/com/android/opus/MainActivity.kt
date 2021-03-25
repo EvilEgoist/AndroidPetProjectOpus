@@ -2,7 +2,6 @@ package com.android.opus
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.opus.ui.screen.MainScreenFragment
 import com.android.opus.ui.screen.activityfield.ActivityFieldFragment
@@ -23,6 +22,5 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                     .add(R.id.fragment_container, SkillsScreenFragment.newInstance()).commit()
         }
-
     }
 }
