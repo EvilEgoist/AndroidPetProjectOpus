@@ -1,8 +1,12 @@
 package com.android.opus.ui.screen.vacancy
 
+import android.app.ActionBar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.view.marginEnd
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -64,6 +68,7 @@ private class VacancyDelegate(
                 val view = Chip(itemView.context)
                 view.text = skill.title
                 view.id = View.generateViewId()
+                view.isEnabled = false
                 itemView.skillsGroup.addView(view)
             }
 

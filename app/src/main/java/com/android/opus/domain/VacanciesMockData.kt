@@ -12,7 +12,7 @@ object VacanciesMockData {
             "10 000 - 20 000 руб",
             "Ищем разработчика в основную команду. Все требования кандидатам в личку, если у вас нет реального опыта работы, то пропускайте  личку, если у вас нет реального опыта работы, то пропускайте",
             "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
-            listOf(Skill(12, "ios"))
+            listOf(Skill(12, "iOS"), Skill(12, "Администрирование"), Skill(12, "Android"), Skill(12, "Администрирование"))
         )
         val vacancy2 = Vacancy(
             124,
@@ -21,7 +21,7 @@ object VacanciesMockData {
             "10 000 - 20 000 руб",
             "Ищем разработчика в основную команду. Все требования кандидатам в личку, если у вас нет реального опыта работы, то пропускайте  личку, если у вас нет реального опыта работы, то пропускайте",
             "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
-            listOf(Skill(12, "ios"))
+            listOf(Skill(12, "iOS"))
         )
         val vacancy3 = Vacancy(
             125,
@@ -30,7 +30,7 @@ object VacanciesMockData {
             "10 000 - 20 000 руб",
             "Ищем разработчика в основную команду. Все требования кандидатам в личку, если у вас нет реального опыта работы, то пропускайте  личку, если у вас нет реального опыта работы, то пропускайте",
             "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
-            listOf(Skill(12, "ios"))
+            listOf(Skill(12, "iOS"))
         )
 
         return listOf(vacancy, vacancy2, vacancy3)
