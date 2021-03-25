@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemVacancyLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/gray_200" >
@@ -34,8 +34,7 @@
         app:layout_constraintEnd_toStartOf="@+id/employerImage"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="iOS Разработчик" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/salary"
@@ -50,8 +49,7 @@
         app:layout_constraintEnd_toStartOf="@+id/employerImage"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toBottomOf="@+id/employerName"
-        tools:text="10 000 - 20 000 руб" />
+        app:layout_constraintTop_toBottomOf="@+id/employerName" />
 
     <ImageView
         android:id="@+id/employerImage"
@@ -75,8 +73,7 @@
         app:layout_constraintEnd_toStartOf="@+id/employerImage"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toBottomOf="@+id/titleVacancy"
-        tools:text="Мастерская фотографии Светопись" />
+        app:layout_constraintTop_toBottomOf="@+id/titleVacancy" />
 
     <TextView
         android:id="@+id/vacancyDescription"
@@ -91,17 +88,16 @@
         android:textSize="@dimen/item_vacancy_description_text"
         app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"
         app:layout_constraintStart_toStartOf="@+id/root_item_left_border"
-        app:layout_constraintTop_toBottomOf="@+id/salary"
-        tools:text="Таким образом укрепление и развитие структуры влечет за собой процесс внедрения и модернизации систем массового участия. Равным образом начало повседневной работы по формированию позиции способствует подготовки и реализации позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение соответствующий условий активизации.
-Таким образом укрепление и развитие структуры влечет за собой процесс внедрения и модернизации систем массового участия. Равным образом начало повседневной работы по формированию позиции способствует подготовки и реализации позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение соответствующий условий активизации.
-Таким образом укрепление и развитие структуры влечет за собой процесс внедрения и модернизации систем массового участия. Равным образом начало повседневной работы по формированию позиции способствует подготовки и реализации позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет оценить значение соответствующий условий активизации." />
+        app:layout_constraintTop_toBottomOf="@+id/salary" />
 
-    <androidx.constraintlayout.helper.widget.Flow
+    <LinearLayout
         android:id="@+id/skillsGroup"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="18dp"
+        android:showDividers="middle"
+        android:divider="@drawable/divider_skills_group"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/watchMore"
         app:layout_constraintEnd_toStartOf="@+id/root_item_right_border"

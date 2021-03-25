@@ -33,6 +33,7 @@ class VacancyScreenFragment : Fragment(R.layout.fragment_vacanies) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        shimmerViewContainer.visibility = View.GONE
         setUpVacancyAdapter()
         viewModel.vacancies.observe(this.viewLifecycleOwner, this::updateAdapter)
     }
