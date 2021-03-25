@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.opus.ui.screen.MainScreenFragment
+import com.android.opus.ui.screen.activityfield.ActivityFieldFragment
+import com.android.opus.ui.screen.skillscreen.SkillsScreenFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -12,9 +14,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        if (savedInstanceState == null) {
+//            supportFragmentManager.beginTransaction()
+//                .add(R.id.fragment_container, MainScreenFragment.newInstance()).commit()
+//        }
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, MainScreenFragment.newInstance()).commit()
+                    .add(R.id.fragment_container, SkillsScreenFragment.newInstance()).commit()
         }
 
     }

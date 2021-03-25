@@ -63,4 +63,19 @@
         <item>Другое</item>
     </string-array>
 
+    <string-array name="skills_arr">
+        <item>android</item>
+        <item>C++</item>
+        <item>MVVM</item>
+        <item>C#</item>
+        <item>Kotlin</item>
+        <item>CI/CD</item>
+        <item>android</item>
+        <item>C++</item>
+        <item>MVVM</item>
+        <item>C#</item>
+        <item>Kotlin</item>
+        <item>CI/CD</item>
+    </string-array>
+
 </resources>

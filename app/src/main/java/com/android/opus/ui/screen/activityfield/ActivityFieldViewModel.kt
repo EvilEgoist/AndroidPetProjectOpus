@@ -8,11 +8,11 @@ import com.android.opus.domain.ActivityFieldInteractor
 import kotlinx.coroutines.launch
 
 class ActivityFieldViewModel(
-    private val interactor: ActivityFieldInteractor
+        private val interactor: ActivityFieldInteractor
 ) : ViewModel() {
 
     private val _mutableActivityFields = MutableLiveData<List<String>?>()
-    val activityFields: LiveData<List<String>?> get() =  _mutableActivityFields
+    val activityFields: LiveData<List<String>?> get() = _mutableActivityFields
 
     fun loadActivityFieldList() {
         viewModelScope.launch {
