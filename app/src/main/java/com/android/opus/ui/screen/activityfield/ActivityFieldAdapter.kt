@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
 import kotlinx.android.synthetic.main.item_activity_field.view.*
 
-class ActivityFieldAdapter : ListAdapter<String, ActivityFieldViewHolder>(ActivityFieldDiffCallback()) {
+class ActivityFieldAdapter : ListAdapter<String, ActivityFieldAdapter.ActivityFieldViewHolder>(ActivityFieldDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityFieldViewHolder =
         ActivityFieldViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_activity_field, parent, false)
@@ -17,6 +17,11 @@ class ActivityFieldAdapter : ListAdapter<String, ActivityFieldViewHolder>(Activi
 
     override fun onBindViewHolder(holder: ActivityFieldViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+    class ActivityFieldViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(title: String) {
+            itemView.fieldOfActivity.text = title
+        }
     }
 }
 
@@ -28,8 +33,4 @@ private class ActivityFieldDiffCallback : DiffUtil.ItemCallback<String>() {
         (oldItem == newItem)
 }
 
-class ActivityFieldViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bind(title: String) {
-        itemView.fieldOfActivity.text = title
-    }
-}
+
