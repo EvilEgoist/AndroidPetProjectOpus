@@ -14,7 +14,11 @@ class ActivityFieldViewModel(
     private val _mutableActivityFields = MutableLiveData<List<String>?>()
     val activityFields: LiveData<List<String>?> get() = _mutableActivityFields
 
-    fun loadActivityFieldList() {
+    init {
+        loadActivityFieldList()
+    }
+
+    private fun loadActivityFieldList() {
         viewModelScope.launch {
             _mutableActivityFields.postValue(interactor.loadActivityFieldList())
         }
