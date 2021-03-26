@@ -1,3 +1,6 @@
 package com.android.opus.common
 
-interface DisplayableItem
+interface DisplayableItem {
+    fun id(): Any
+    fun content(): Any
+}

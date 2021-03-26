@@ -16,14 +16,10 @@ class DisplayableItemsDiffUtilCallback(
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        val oldItem = oldItems[oldItemPosition]
-        val newItem = newItems[newItemPosition]
-        return oldItem == newItem
+        return oldItems[oldItemPosition].id() == newItems[newItemPosition].id()
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        val oldItem = oldItems[oldItemPosition]
-        val newItem = newItems[newItemPosition]
-        return oldItem == newItem
+        return oldItems[oldItemPosition].content() == newItems[newItemPosition].content()
     }
 }
