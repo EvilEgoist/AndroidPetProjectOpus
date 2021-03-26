@@ -22,7 +22,7 @@ import kotlin.collections.ArrayList
 class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen){
 
     private lateinit var viewModel: SkillsScreenViewModel
-    val res: Resources = resources
+    //val res: Resources = resources
     val list = ArrayList<String>()
     private lateinit var skillsScreenAdapter: SkillsScreenAdapter
 
@@ -45,7 +45,7 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen){
     }
 
     fun setUpSkillsScreenAdapter(){
-        val data = res.getStringArray(R.array.skills_arr)
+        val data = resources.getStringArray(R.array.skills_arr)
         list.addAll(data)
         skillsScreenAdapter = SkillsScreenAdapter(list)
         offeredSkills?.layoutManager = GridLayoutManager(requireContext(), 4)

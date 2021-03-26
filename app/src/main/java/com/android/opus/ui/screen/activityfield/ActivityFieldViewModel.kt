@@ -5,14 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.opus.domain.ActivityFieldInteractor
+import com.android.opus.model.FieldOfActivity
 import kotlinx.coroutines.launch
 
 class ActivityFieldViewModel(
         private val interactor: ActivityFieldInteractor
 ) : ViewModel() {
 
-    private val _mutableActivityFields = MutableLiveData<List<String>?>()
-    val activityFields: LiveData<List<String>?> get() = _mutableActivityFields
+    private val _mutableActivityFields = MutableLiveData<List<FieldOfActivity>?>()
+    val activityFields: LiveData<List<FieldOfActivity>?> get() = _mutableActivityFields
 
     init {
         loadActivityFieldList()
