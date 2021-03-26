@@ -1,11 +1,10 @@
 package com.android.opus
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.android.opus.ui.screen.MainScreenFragment
 import com.android.opus.ui.screen.activityfield.ActivityFieldFragment
 import com.android.opus.ui.screen.skillscreen.SkillsScreenFragment
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .add(R.id.fragment_container, SkillsScreenFragment.newInstance()).commit()
+                    .add(R.id.fragment_container,  SkillsScreenFragment.newInstance()).commit()
         }
     }
 }

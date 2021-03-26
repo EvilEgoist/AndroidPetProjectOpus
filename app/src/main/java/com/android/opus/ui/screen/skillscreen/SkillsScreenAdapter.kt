@@ -13,9 +13,7 @@ import kotlinx.android.synthetic.main.item_activity_field.view.*
 import kotlinx.android.synthetic.main.item_skills_screen.*
 import kotlinx.android.synthetic.main.item_skills_screen.view.*
 
-class ContentItem(val name: String)
-
-class SkillsScreenAdapter:ListAdapter <String, SkillsScreenViewHolder>(SkillsScreenDiffCallback()){
+class SkillsScreenAdapter(private val items: ArrayList<String>): RecyclerView.Adapter<SkillsScreenViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillsScreenViewHolder =
         SkillsScreenViewHolder(
@@ -23,7 +21,12 @@ class SkillsScreenAdapter:ListAdapter <String, SkillsScreenViewHolder>(SkillsScr
         )
 
     override fun onBindViewHolder(holder: SkillsScreenViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val item = items[position]
+        holder.itemView.item_skills.text = item
+    }
+
+    override fun getItemCount(): Int {
+        return items.size
     }
 }
 
