@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TextFormStyle" >
+
+    <style name="TextFormStyle">
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:padding">2dp</item>
@@ -8,14 +9,14 @@
         <item name="android:textColorHint">@color/gray_500</item>
     </style>
 
-    <style name="ButtonTextStyle" >
+    <style name="ButtonTextStyle">
         <item name="android:gravity">center</item>
         <item name="android:fontFamily">@font/work_sans_bold</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/button_text_size</item>
     </style>
 
-    <style name="AppTitleAppearance" >
+    <style name="AppTitleAppearance">
         <item name="android:fontFamily">@font/work_sans_bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/app_title_text_size</item>
@@ -56,8 +57,13 @@
     </style>
 
     <style name="ChosenSkill">
-        <item name ="android:textSize">@dimen/flow_text_size</item>
+        <item name="android:textSize">@dimen/flow_text_size</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="Widget.Theme.Opus.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 </resources>

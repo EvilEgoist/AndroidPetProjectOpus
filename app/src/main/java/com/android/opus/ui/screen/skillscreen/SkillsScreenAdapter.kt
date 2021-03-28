@@ -13,7 +13,11 @@ import kotlinx.android.synthetic.main.item_activity_field.view.*
 import kotlinx.android.synthetic.main.item_skills_screen.*
 import kotlinx.android.synthetic.main.item_skills_screen.view.*
 
-class SkillsScreenAdapter(private val items: ArrayList<String>): RecyclerView.Adapter<SkillsScreenViewHolder>(){
+class SkillsScreenAdapter(private val items: ArrayList<String>): RecyclerView.Adapter<SkillsScreenAdapter.SkillsScreenViewHolder>(){
+
+    inner class SkillsScreenViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val item: TextView = itemView.findViewById(R.id.item_skills) as TextView
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillsScreenViewHolder =
         SkillsScreenViewHolder(
@@ -29,18 +33,3 @@ class SkillsScreenAdapter(private val items: ArrayList<String>): RecyclerView.Ad
         return items.size
     }
 }
-
-private class SkillsScreenDiffCallback:DiffUtil.ItemCallback<String>(){
-    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
-        areContentsTheSame(oldItem, newItem)
-
-    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
-        (oldItem == newItem)
-}
-
-class SkillsScreenViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-    fun bind(title: String) {
-        itemView.item_skills.text = title
-    }
-}
-

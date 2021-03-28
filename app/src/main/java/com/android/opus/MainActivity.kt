@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 //                .add(R.id.fragment_container, MainScreenFragment.newInstance()).commit()
 //        }
 
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                     .add(R.id.fragment_container,  SkillsScreenFragment.newInstance()).commit()
