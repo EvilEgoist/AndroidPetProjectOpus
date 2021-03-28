@@ -7,9 +7,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
+import com.android.opus.model.FieldOfActivity
 import kotlinx.android.synthetic.main.item_activity_field.view.*
 
-class ActivityFieldAdapter : ListAdapter<String, ActivityFieldViewHolder>(ActivityFieldDiffCallback()) {
+class ActivityFieldAdapter :
+    ListAdapter<FieldOfActivity, ActivityFieldAdapter.ActivityFieldViewHolder>(
+        ActivityFieldDiffCallback()
+    ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityFieldViewHolder =
         ActivityFieldViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_activity_field, parent, false)
@@ -18,18 +22,22 @@ class ActivityFieldAdapter : ListAdapter<String, ActivityFieldViewHolder>(Activi
     override fun onBindViewHolder(holder: ActivityFieldViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-}
 
-private class ActivityFieldDiffCallback : DiffUtil.ItemCallback<String>() {
-    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
-        areContentsTheSame(oldItem, newItem)
-
-    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
-        (oldItem == newItem)
-}
-
-class ActivityFieldViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bind(title: String) {
-        itemView.fieldOfActivity.text = title
+    class ActivityFieldViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(item: FieldOfActivity) {
+            itemView.fieldOfActivity.text = item.title
+            itemView.fieldOfActivity.isChecked = item.isChecked
+            itemView.fieldOfActivity.setOnCheckedChangeListener { _, isChecked ->
+                item.isChecked = isChecked
+            }
+        }
     }
+}
+
+private class ActivityFieldDiffCallback : DiffUtil.ItemCallback<FieldOfActivity>() {
+    override fun areItemsTheSame(oldItem: FieldOfActivity, newItem: FieldOfActivity): Boolean =
+        oldItem.id == newItem.id
+
+    override fun areContentsTheSame(oldItem: FieldOfActivity, newItem: FieldOfActivity): Boolean =
+        (oldItem == newItem)
 }

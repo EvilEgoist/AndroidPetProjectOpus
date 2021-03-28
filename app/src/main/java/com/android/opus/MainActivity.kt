@@ -2,25 +2,17 @@ package com.android.opus
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.android.opus.ui.screen.activityfield.ActivityFieldFragment
-import com.android.opus.ui.screen.skillscreen.SkillsScreenFragment
 
-
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ActivityFieldFragment.BtnNextClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
 
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .add(R.id.fragment_container, MainScreenFragment.newInstance()).commit()
-//        }
-
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .add(R.id.fragment_container,  SkillsScreenFragment.newInstance()).commit()
-        }
+    override fun onClick() {
+        Navigation.findNavController(this, R.id.nav_host_fragment_main)
+            .navigate(R.id.action_activityFieldFragment_to_skillsScreenFragment)
     }
 }
