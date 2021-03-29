@@ -19,7 +19,6 @@ class ActivityFieldFragment : Fragment(R.layout.fragment_activity_field_screen) 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.loadActivityFieldList()
         setUpActivityFieldAdapter()
         viewModel.activityFields.observe(this.viewLifecycleOwner, this::updateAdapter)
     }
@@ -27,10 +26,7 @@ class ActivityFieldFragment : Fragment(R.layout.fragment_activity_field_screen) 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         viewModel = ActivityFieldViewModel(
-            ActivityFieldInteractor(
-                dispatcher = Dispatchers.Default,
-                context = context
-            )
+            ActivityFieldInteractor(dispatcher = Dispatchers.Default)
         )
     }
     private fun setUpActivityFieldAdapter() {
