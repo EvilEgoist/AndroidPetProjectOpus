@@ -4,26 +4,26 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.opus.domain.ActivityFieldInteractor
+import com.android.opus.domain.ChosenSkillInteractor
 import com.android.opus.domain.SkillsScreenInteractor
 import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
 import kotlinx.coroutines.launch
 
-class SkillsScreenViewModel(
-    private val interactor: SkillsScreenInteractor
+class ChosenSkillViewModel(
+        private val interactor: ChosenSkillInteractor
 ) : ViewModel() {
 
-    private val _mutableSCFields = MutableLiveData<List<SkillsScreenField>?>()
-    val SCFields: LiveData<List<SkillsScreenField>?> get() = _mutableSCFields
+    private val _newMutableSCFields = MutableLiveData<List<SkillsScreenField>?>()
+    val newSCFields: LiveData<List<SkillsScreenField>?> get() = _newMutableSCFields
 
     init {
-        loadSkillsScreenLists()
+        loadSkillsScreenList()
     }
 
-    private fun loadSkillsScreenLists() {
+    private fun loadSkillsScreenList() {
         viewModelScope.launch {
-            _mutableSCFields.postValue(interactor.loadSkillsScreenList())
+            _newMutableSCFields.postValue(interactor.loadNewDataList())
         }
     }
 }

@@ -1,62 +1,68 @@
 package com.android.opus.ui.screen.skillscreen
 
+
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
 import com.android.opus.R
+import com.android.opus.domain.ChosenSkillInteractor
+import com.android.opus.domain.SkillsScreenInteractor
+import com.android.opus.domain.SkillsScreenMockData
+import com.android.opus.model.SkillsScreenField
 import kotlinx.android.synthetic.main.activity_skills_screen.*
+import kotlinx.coroutines.Dispatchers
 
-class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen){
+class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
 
-    private lateinit var viewModel: SkillsScreenViewModel
-    private lateinit var skillsScreenAdapter: SkillsScreenAdapter
-    var res = resources
+    private lateinit var viewModel : SkillsScreenViewModel
+    private lateinit var newViewModel :ChosenSkillViewModel
+    //private var listenerSkillClick: SCClickListener? = null
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        //return super.onCreateView(inflater, container, savedInstanceState)
-        val rootView = inflater.inflate(R.layout.activity_skills_screen, container, false)
+//    private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId ->
+//        listenerSkillClick?.ChosenSkill(skillId = skillId)}
 
-        return rootView
+    private val chosenSkillAdapter = ChosenSkillAdapter()
+    private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId) }
+    //private val chosenSkillAdapter: ChosenSkillAdapter? = ChosenSkillAdapter { itemId -> SkillsScreenMockData.removeData(itemId)}
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        viewModel = SkillsScreenViewModel(
+            SkillsScreenInteractor(dispatcher = Dispatchers.Default)
+        )
+        newViewModel = ChosenSkillViewModel(
+                ChosenSkillInteractor(dispatcher = Dispatchers.Default)
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            offeredSkills.apply {
-                val list = ArrayList<String>()
-                list.add("sad")
-                val data = res?.getStringArray(R.array.skills_arr)
-                list.addAll(data)
-                skillsScreenAdapter = SkillsScreenAdapter(list)
-                offeredSkills?.layoutManager = GridLayoutManager(requireContext(), 4)
-                offeredSkills?.adapter = skillsScreenAdapter
-            }
-        }
+        setUpSCAdapter()
+        viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
+        newViewModel.newSCFields.observe(this.viewLifecycleOwner, this::updateAdapterOfCS)
+    }
 
+    private fun setUpSCAdapter() {
+        offeredSkills?.layoutManager = GridLayoutManager(requireContext(), 4)
+        offeredSkills?.adapter = SCAdapter
+        chosenSkills?.layoutManager =GridLayoutManager(requireContext(), 4)
+        chosenSkills?.adapter = chosenSkillAdapter
+    }
 
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        viewModel = SkillsScreenViewModel(
-//                SkillsScreenInteractor(
-//                        dispatcher = Dispatchers.Default,
-//                        context = context
-//                )
-//        )
-//    }
+    private fun updateAdapter(list: List<SkillsScreenField>?) {
+        SCAdapter?.submitList(list)
+    }
 
-//    fun setUpSkillsScreenAdapter(){
-//        var data = res.getStringArray(R.array.skills_arr)
-//        list.addAll(data);
-//        skillsScreenAdapter = SkillsScreenAdapter(list)
-//        offeredSkills?.layoutManager = GridLayoutManager(requireContext(),4)
-//        offeredSkills?.adapter = skillsScreenAdapter
-//    }
+    private fun updateAdapterOfCS(list: List<SkillsScreenField>?){
+        chosenSkillAdapter?.submitList(list)
+    }
+
+    interface SCClickListener {
+        fun ChosenSkill(item: Int)
+    }
 
     companion object {
         fun newInstance(): SkillsScreenFragment = SkillsScreenFragment()
