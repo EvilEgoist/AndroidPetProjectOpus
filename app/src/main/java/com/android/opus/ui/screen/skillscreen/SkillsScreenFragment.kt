@@ -52,9 +52,9 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
     }
 
     private fun updateAdapterOfCS(list: List<SkillsScreenField>?){
-        chosenSkillAdapter?.submitList(list?.let { ArrayList(it) })
+        chosenSkillAdapter.submitList(list?.let { ArrayList(it) })
     }
-    
+
     companion object {
         fun newInstance(): SkillsScreenFragment = SkillsScreenFragment()
     }

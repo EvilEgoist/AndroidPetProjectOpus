@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.opus.domain.ActivityFieldInteractor
 import com.android.opus.domain.SkillsScreenInteractor
 import com.android.opus.model.FieldOfActivity
-import com.android.opus.model.SkillsScreenField
 import kotlinx.coroutines.launch
 
 class SkillsScreenViewModel(

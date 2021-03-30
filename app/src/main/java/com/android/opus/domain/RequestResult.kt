@@ -5,7 +5,7 @@ sealed class RequestResult {
     sealed class Success : RequestResult() {
         class Login : Success()
         class SignUp : Success()
-        class ConfirmedPassword() : Success()
+        class ConfirmedPassword : Success()
     }
 
     sealed class Error : RequestResult() {
@@ -13,6 +13,6 @@ sealed class RequestResult {
         class Surname : Error()
         class Password : Error()
         class Email : Error()
-        class ConfirmedPassword() : Error()
+        class ConfirmedPassword : Error()
     }
 }

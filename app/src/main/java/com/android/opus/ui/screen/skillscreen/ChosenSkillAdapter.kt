@@ -7,12 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
-import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
-import kotlinx.android.synthetic.main.item_activity_field.view.*
 import kotlinx.android.synthetic.main.item_chosen_skill.view.*
-import kotlinx.android.synthetic.main.item_skills_screen.*
-import kotlinx.android.synthetic.main.item_skills_screen.view.*
 
 class ChosenSkillAdapter(
         private val onClickListener: (Int) -> Unit

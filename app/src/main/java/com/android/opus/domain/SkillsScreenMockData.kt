@@ -20,7 +20,6 @@ object SkillsScreenMockData {
             FieldOfActivity(10, "Java", false),
             FieldOfActivity(11, "Go", false),
     )
-    private var indexArr = arrayOfNulls<Int>(mockData.size)
 
     fun getResult(): List<FieldOfActivity>? {
         return mockData
