@@ -15,7 +15,9 @@ import kotlinx.android.synthetic.main.item_skills_screen.*
 import kotlinx.android.synthetic.main.item_skills_screen.view.*
 
 class ChosenSkillAdapter(
-        //private val onClickListener: (Int) -> Unit
+        //private val elem: SkillsScreenField
+        //private var dataList :ArrayList<SkillsScreenField>
+        private val onClickListener: (Int) -> Unit
 ) :ListAdapter<SkillsScreenField, ChosenSkillAdapter.ChosenSkillViewHolder>(
         ChosenSkillDiffCallback()
 ) {
@@ -31,7 +33,7 @@ class ChosenSkillAdapter(
     inner class ChosenSkillViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: SkillsScreenField) {
             itemView.item_chosen_skill.text = item.title
-            //itemView.item_chosen_skill.setOnClickListener {onClickListener.invoke(item.id) }
+            itemView.item_chosen_skill.setOnClickListener {onClickListener.invoke(item.id) }
         }
     }
 }

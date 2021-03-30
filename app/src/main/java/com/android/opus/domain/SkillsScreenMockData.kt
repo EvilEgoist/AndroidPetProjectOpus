@@ -4,11 +4,11 @@ import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
 
 object SkillsScreenMockData {
-    var chosenSkillsDataList = ArrayList<SkillsScreenField>()
+    private var chosenSkillsDataList = ArrayList<SkillsScreenField>()
     private var counter = 0
-     var mockData = listOf(
+    private var mockData = listOf(
         SkillsScreenField(1,"android"),
-        SkillsScreenField(2,"C++",),
+        SkillsScreenField(2, "C++",),
         SkillsScreenField(3,"MVVM",),
         SkillsScreenField(4,"C#", ),
         SkillsScreenField(5,"Kotlin", ),
@@ -34,8 +34,12 @@ object SkillsScreenMockData {
         return chosenSkillsDataList
     }
 
+    fun getElem(pos:Int):SkillsScreenField{
+        return mockData[pos]
+    }
+
     fun removeData(position: Int){
-        chosenSkillsDataList.removeAt(position-1)
+        chosenSkillsDataList.removeAt(position)
     }
 
 //    fun getMockData(position:Int):String {

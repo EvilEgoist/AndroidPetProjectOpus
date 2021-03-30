@@ -24,8 +24,9 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
 //    private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId ->
 //        listenerSkillClick?.ChosenSkill(skillId = skillId)}
 
-    private val chosenSkillAdapter = ChosenSkillAdapter()
-    private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId) }
+    private val chosenSkillAdapter = ChosenSkillAdapter{Id -> SkillsScreenMockData.removeData(Id);updateAdapterOfCS((SkillsScreenMockData.getNewData()))}
+    private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId);updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
+    //private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId -> chosenSkillAdapter.(SkillsScreenMockData.getElem(skillId)) }
     //private val chosenSkillAdapter: ChosenSkillAdapter? = ChosenSkillAdapter { itemId -> SkillsScreenMockData.removeData(itemId)}
 
     override fun onAttach(context: Context) {
@@ -42,13 +43,12 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
         super.onViewCreated(view, savedInstanceState)
         setUpSCAdapter()
         viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
-        newViewModel.newSCFields.observe(this.viewLifecycleOwner, this::updateAdapterOfCS)
     }
 
     private fun setUpSCAdapter() {
         offeredSkills?.layoutManager = GridLayoutManager(requireContext(), 4)
         offeredSkills?.adapter = SCAdapter
-        chosenSkills?.layoutManager =GridLayoutManager(requireContext(), 4)
+        chosenSkills?.layoutManager =GridLayoutManager(requireContext(), 4 )
         chosenSkills?.adapter = chosenSkillAdapter
     }
 
@@ -57,12 +57,14 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
     }
 
     private fun updateAdapterOfCS(list: List<SkillsScreenField>?){
-        chosenSkillAdapter?.submitList(list)
+//        chosenSkillAdapter?.submitList(null);
+//        chosenSkillAdapter?.submitList(list)
+        chosenSkillAdapter?.submitList(list?.let { ArrayList(it) })
     }
 
-    interface SCClickListener {
-        fun ChosenSkill(item: Int)
-    }
+//    interface SCClickListener {
+//        fun ChosenSkill(item: Int)
+//    }
 
     companion object {
         fun newInstance(): SkillsScreenFragment = SkillsScreenFragment()
