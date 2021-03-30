@@ -15,8 +15,6 @@ import kotlinx.android.synthetic.main.item_skills_screen.*
 import kotlinx.android.synthetic.main.item_skills_screen.view.*
 
 class ChosenSkillAdapter(
-        //private val elem: SkillsScreenField
-        //private var dataList :ArrayList<SkillsScreenField>
         private val onClickListener: (Int) -> Unit
 ) :ListAdapter<SkillsScreenField, ChosenSkillAdapter.ChosenSkillViewHolder>(
         ChosenSkillDiffCallback()

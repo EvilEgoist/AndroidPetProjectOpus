@@ -11,6 +11,7 @@ import com.android.opus.R
 import com.android.opus.domain.ChosenSkillInteractor
 import com.android.opus.domain.SkillsScreenInteractor
 import com.android.opus.domain.SkillsScreenMockData
+import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
 import kotlinx.android.synthetic.main.activity_skills_screen.*
 import kotlinx.coroutines.Dispatchers
@@ -19,15 +20,9 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
 
     private lateinit var viewModel : SkillsScreenViewModel
     private lateinit var newViewModel :ChosenSkillViewModel
-    //private var listenerSkillClick: SCClickListener? = null
-
-//    private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId ->
-//        listenerSkillClick?.ChosenSkill(skillId = skillId)}
 
     private val chosenSkillAdapter = ChosenSkillAdapter{Id -> SkillsScreenMockData.removeData(Id);updateAdapterOfCS((SkillsScreenMockData.getNewData()))}
     private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId);updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
-    //private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId -> chosenSkillAdapter.(SkillsScreenMockData.getElem(skillId)) }
-    //private val chosenSkillAdapter: ChosenSkillAdapter? = ChosenSkillAdapter { itemId -> SkillsScreenMockData.removeData(itemId)}
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -52,20 +47,14 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
         chosenSkills?.adapter = chosenSkillAdapter
     }
 
-    private fun updateAdapter(list: List<SkillsScreenField>?) {
+    private fun updateAdapter(list: List<FieldOfActivity>?) {
         SCAdapter?.submitList(list)
     }
 
     private fun updateAdapterOfCS(list: List<SkillsScreenField>?){
-//        chosenSkillAdapter?.submitList(null);
-//        chosenSkillAdapter?.submitList(list)
         chosenSkillAdapter?.submitList(list?.let { ArrayList(it) })
     }
-
-//    interface SCClickListener {
-//        fun ChosenSkill(item: Int)
-//    }
-
+    
     companion object {
         fun newInstance(): SkillsScreenFragment = SkillsScreenFragment()
     }

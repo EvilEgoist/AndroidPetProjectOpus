@@ -7,42 +7,44 @@ object SkillsScreenMockData {
     private var chosenSkillsDataList = ArrayList<SkillsScreenField>()
     private var counter = 0
     private var mockData = listOf(
-        SkillsScreenField(1,"android"),
-        SkillsScreenField(2, "C++",),
-        SkillsScreenField(3,"MVVM",),
-        SkillsScreenField(4,"C#", ),
-        SkillsScreenField(5,"Kotlin", ),
-        SkillsScreenField(6,"CI/CD", ),
-        SkillsScreenField(7,"android"),
-        SkillsScreenField(8,"C++",),
-        SkillsScreenField(9,"MVVM",),
-        SkillsScreenField(10,"C#", ),
-        SkillsScreenField(11,"Kotlin", ),
-        SkillsScreenField(12,"CI/CD", ),
+            FieldOfActivity(0, "android", false),
+            FieldOfActivity(1, "C++", false),
+            FieldOfActivity(2, "MVVM", false),
+            FieldOfActivity(3, "C#", false),
+            FieldOfActivity(4, "Kotlin", false),
+            FieldOfActivity(5, "CI/CD", false),
+            FieldOfActivity(6, "Frontend", false),
+            FieldOfActivity(7, "Backend", false),
+            FieldOfActivity(8, "Swift", false),
+            FieldOfActivity(9, "Python", false),
+            FieldOfActivity(10, "Java", false),
+            FieldOfActivity(11, "Go", false),
     )
+    private var indexArr = arrayOfNulls<Int>(mockData.size)
 
-    fun getResult(): List<SkillsScreenField>? {
+    fun getResult(): List<FieldOfActivity>? {
         return mockData
     }
 
-    fun addData (position:Int){
-        chosenSkillsDataList.add(SkillsScreenField(counter, mockData[position-1].title))
-        ++counter
+    fun addData(position: Int) {
+        if (!mockData[position].isChecked) {
+            chosenSkillsDataList.add(SkillsScreenField(counter, position, mockData[position].title))
+            mockData[position].isChecked = true
+            ++counter
+        }
     }
 
-    fun getNewData():List<SkillsScreenField>?{
+    fun getNewData(): List<SkillsScreenField>? {
         return chosenSkillsDataList
     }
 
-    fun getElem(pos:Int):SkillsScreenField{
-        return mockData[pos]
-    }
-
-    fun removeData(position: Int){
+    fun removeData(position: Int) {
+        mockData[chosenSkillsDataList[position].addId].isChecked = false
         chosenSkillsDataList.removeAt(position)
+        for (i in position until chosenSkillsDataList.size) {
+            chosenSkillsDataList[i].id--
+        }
+        --counter
     }
 
-//    fun getMockData(position:Int):String {
-//        return mockData[position].title
-//    }
 }

@@ -14,8 +14,8 @@ class SkillsScreenViewModel(
     private val interactor: SkillsScreenInteractor
 ) : ViewModel() {
 
-    private val _mutableSCFields = MutableLiveData<List<SkillsScreenField>?>()
-    val SCFields: LiveData<List<SkillsScreenField>?> get() = _mutableSCFields
+    private val _mutableSCFields = MutableLiveData<List<FieldOfActivity>?>()
+    val SCFields: LiveData<List<FieldOfActivity>?> get() = _mutableSCFields
 
     init {
         loadSkillsScreenLists()
