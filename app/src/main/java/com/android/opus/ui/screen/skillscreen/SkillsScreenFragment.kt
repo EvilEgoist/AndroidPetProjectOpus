@@ -43,7 +43,7 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
     private fun setUpSCAdapter() {
         offeredSkills?.layoutManager = GridLayoutManager(requireContext(), 4)
         offeredSkills?.adapter = SCAdapter
-        chosenSkills?.layoutManager =GridLayoutManager(requireContext(), 4 )
+        chosenSkills?.layoutManager =GridLayoutManager(requireContext(), 4)
         chosenSkills?.adapter = chosenSkillAdapter
     }
 
