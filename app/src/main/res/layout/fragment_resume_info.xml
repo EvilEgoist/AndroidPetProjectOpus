@@ -1,148 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="18dp"
-        android:background="@color/gray_200">
+        android:layout_margin="12dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/age_title"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Возраст:"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/experience_title"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/photo" />
+            android:background="@color/gray_200">
 
-        <TextView
-            android:id="@+id/age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="20 лет"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/age_title"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@id/age_title"
-            app:layout_constraintTop_toBottomOf="@id/age_title" />
+            <TextView
+                android:id="@+id/last_visit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAppearance="@style/DescriptionTextAppearance.MinimumTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/experience_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Стаж:"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/level_title"
-            app:layout_constraintStart_toEndOf="@id/age_title"
-            app:layout_constraintTop_toBottomOf="@id/photo" />
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="12dp"
+                android:maxLines="2"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.TitleAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/photo"
+                app:layout_constraintTop_toTopOf="@+id/photo" />
 
-        <TextView
-            android:id="@+id/experience"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 года и 4 месяца"
-            android:maxLength="10"
-            android:minLines="2"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/experience_title"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@id/experience_title"
-            app:layout_constraintTop_toBottomOf="@id/experience_title" />
+            <TextView
+                android:id="@+id/min_salary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="10dp"
+                android:maxLines="1"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance"
+                app:layout_constraintBottom_toBottomOf="@+id/photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/photo"
+                app:layout_constraintTop_toBottomOf="@id/user_name"
+                app:layout_constraintVertical_bias="0.631" />
 
-        <TextView
-            android:id="@+id/level_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Уровень:"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/experience_title"
-            app:layout_constraintTop_toBottomOf="@id/photo" />
-        <TextView
-            android:id="@+id/level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Senior"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/level_title"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@id/level_title"
-            app:layout_constraintTop_toBottomOf="@id/level_title" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/photo"
+                style="@style/VacancyDescriptionCircleImageViewStyle"
+                android:layout_width="@dimen/resume_circle_image_view_size"
+                android:layout_height="@dimen/resume_circle_image_view_size"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/last_entrance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="был 21/11/2021" />
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/main_description"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="age_title, experience_title, level_title, age, experience, level" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/age_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/age"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/photo" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:textAppearance="@style/DescriptionTextAppearance.MainAppearance"
+                app:layout_constraintEnd_toStartOf="@+id/experience"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="@id/age_title"
+                app:layout_constraintTop_toBottomOf="@id/age_title" />
+
+            <TextView
+                android:id="@+id/experience_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/experience"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.TitleAppearance"
+                app:layout_constraintStart_toEndOf="@id/age_title"
+                app:layout_constraintTop_toBottomOf="@id/photo" />
+
+            <TextView
+                android:id="@+id/experience"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:textAppearance="@style/DescriptionTextAppearance.MainAppearance"
+                app:layout_constraintEnd_toStartOf="@+id/level"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="@id/experience_title"
+                app:layout_constraintTop_toBottomOf="@id/experience_title" />
+
+            <TextView
+                android:id="@+id/level_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/level"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.TitleAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/experience_title"
+                app:layout_constraintTop_toBottomOf="@id/photo" />
+
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:textAppearance="@style/DescriptionTextAppearance.MainAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="@id/level_title"
+                app:layout_constraintTop_toBottomOf="@id/level_title" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="12dp"
+                android:textAppearance="@style/DescriptionTextAppearance.SecondTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/main_description" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_message"
+                style="@style/MessageFabStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/status" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
             android:layout_marginTop="10dp"
-            android:maxLines="2"
-            android:text="Аркадий Рокфеллеров"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/photo"
-            app:layout_constraintTop_toTopOf="@+id/photo" />
+            android:background="@color/gray_200"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/min_salary"
-            android:layout_width="107dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginBottom="10dp"
-            android:maxLines="1"
-            android:text="От 30 000 руб"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/photo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/photo"
-            app:layout_constraintTop_toBottomOf="@id/name"
-            app:layout_constraintVertical_bias="0.631" />
+            <TextView
+                android:id="@+id/skills_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/skills"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.HeaderAppearance" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/photo"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:src="@drawable/ic_google"
-            app:civ_border_color="@color/yellow"
-            app:civ_border_width="2dp"
-            app:civ_circle_background_color="@color/gray_200"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/skills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:overScrollMode="never" />
 
-</ScrollView>
+            <TextView
+                android:id="@+id/self_description_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/self_description"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.HeaderAppearance" />
+
+            <include layout="@layout/divider_horizontal" />
+
+            <TextView
+                android:id="@+id/self_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:textAppearance="@style/DescriptionTextAppearance.SecondTextAppearance" />
+
+            <TextView
+                android:id="@+id/work_experience_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/work_experience"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.HeaderAppearance" />
+
+            <include layout="@layout/divider_horizontal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/work_experience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:overScrollMode="never" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
