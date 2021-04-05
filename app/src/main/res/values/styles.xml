@@ -44,37 +44,61 @@
         <item name="android:textSize">@dimen/check_box_field_of_activity_text_size</item>
     </style>
 
-    <style name="AppTitleStyleBlack" parent="Theme.AppCompat">
+
+    <style name="DescriptionTitleTextAppearance">
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DescriptionTitleTextAppearance.HeaderAppearance">
+        <item name="android:textSize">@dimen/header_description_text_size</item>
+    </style>
+
+    <style name="DescriptionTitleTextAppearance.TitleAppearance">
+        <item name="android:textSize">@dimen/title_description_text_size</item>
+    </style>
+
+    <style name="DescriptionTitleTextAppearance.SubtitleAppearance">
+        <item name="android:textSize">@dimen/main_text_description_size</item>
+    </style>
+
+    <style name="DescriptionTextAppearance">
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DescriptionTextAppearance.MainAppearance">
+        <item name="android:textSize">@dimen/main_text_description_size</item>
+    </style>
+
+    <style name="DescriptionTextAppearance.SecondTextAppearance">
+        <item name="android:textSize">@dimen/main_text_description_size</item>
+        <item name="android:textColor">@color/second_text_color</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="DescriptionTextAppearance.MinimumTextAppearance">
+        <item name="android:textSize">@dimen/minimum_text_size</item>
+        <item name="android:textColor">@color/second_text_color</item>
+    </style>
+
+    <style name="DescriptionActiveTextAppearance">
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DescriptionActiveTextAppearance.MainAppearance">
+        <item name="android:textSize">@dimen/main_text_description_size</item>
+    </style>
+
+    <style name="DescriptionActiveTextAppearance.TitleAppearance">
+        <item name="android:textSize">@dimen/header_active_text_size</item>
         <item name="android:fontFamily">@font/work_sans_bold</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/app_title_text_size</item>
     </style>
 
-    <style name="CaptionUnderAppTitle">
-        <item name="android:textSize">@dimen/greeting_text_size</item>
-        <item name="android:textColor">#73726A</item>
+    <style name="DescriptionTextAppearance.TitleSecondTextColorAppearance">
+        <item name="android:textSize">@dimen/title_description_text_size</item>
+        <item name="android:textColor">@color/second_text_color</item>
     </style>
 
-    <style name="ChosenSkillsCaption">
-        <item name="android:textSize">@dimen/greeting_text_size</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">@font/work_sans_medium</item>
-    </style>
-
-    <style name="ChosenSkill">
-        <item name="android:textSize">@dimen/flow_text_size</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">@font/lato</item>
-    </style>
-
-    <style name="CSCaptionStyle">
-        <item name="android:textSize">@dimen/greeting_text_size</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">@font/work_sans_medium</item>
-    </style>
-
-    <style name="Widget.Theme.Opus.ButtonBar.Fullscreen" parent="">
-        <item name="android:background">@color/black_overlay</item>
-        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
-    </style>
 </resources>

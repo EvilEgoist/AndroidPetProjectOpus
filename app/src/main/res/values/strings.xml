@@ -47,5 +47,8 @@
     <string name="title_people_group">Peoples</string>
     <string name="watch_more">Узнать больше</string>
     <string name="vacancies">Вакансии</string>
+    <string name="work_experience">Стаж работы:</string>
+    <string name="salary">Зарплата:</string>
+    <string name="level">Уровень:</string>
 
 </resources>

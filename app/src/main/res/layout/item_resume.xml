@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_200"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/resume_photo"
+            android:layout_width="@dimen/resume_photo_size"
+            android:layout_height="@dimen/resume_photo_size"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/job_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@style/DescriptionActiveTextAppearance.TitleAppearance"
+                tools:text="Дарт Вейдер" />
+
+            <TextView
+                android:id="@+id/employee_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@style/DescriptionTextAppearance.TitleSecondTextColorAppearance"
+                tools:text="Дарт Вейдер" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/work_experience"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance" />
+
+            <TextView
+                android:id="@+id/experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@style/DescriptionActiveTextAppearance.MainAppearance"
+                tools:text="300 0000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/salary"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance" />
+
+            <TextView
+                android:id="@+id/salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@style/DescriptionActiveTextAppearance.MainAppearance"
+                tools:text="30 000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/level"
+                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance" />
+
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@style/DescriptionActiveTextAppearance.MainAppearance"
+                tools:text="Middle" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/self_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:textAppearance="@style/DescriptionTextAppearance.SecondTextAppearance"
+        tools:text="Работаю за еду, готов работать удалленно, люблю сладких дамочек, которые готовы работать со сладким мальчиком, я очень красивый и всегда иду на контакт, но если вы буде..." />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/skills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp" />
+
+    <TextView
+        android:id="@+id/watch_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/watch_more"
+        android:textAppearance="@style/DescriptionTextAppearance.SecondTextAppearance" />
+</LinearLayout>
