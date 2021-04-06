@@ -1,18 +1,32 @@
 package com.android.opus
 
 import android.os.Bundle
-import android.os.PersistableBundle
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import com.android.opus.ui.screen.MainScreenFragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import kotlinx.android.synthetic.main.activity_lists.*
 
 class MainNavigationActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lists)
+        setupViews()
+    }
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.nav_host_container, MainScreenFragment.newInstance()).commit()
-        }
+    private fun setupViews() {
+        val navController = findNavController(R.id.nav_host_container)
+        bottomNav.setupWithNavController(navController)
+
+        setSupportActionBar(nav_title)
+        val appBarConfiguration = AppBarConfiguration(
+            topLevelDestinationIds = setOf (
+                R.id.vacancyScreenFragment,
+                R.id.resumeScreenFragment
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 }

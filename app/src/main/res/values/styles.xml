@@ -101,4 +101,9 @@
         <item name="android:textColor">@color/second_text_color</item>
     </style>
 
+    <style name="ToolBarTextAppearance">
+        <item name="android:textSize">@dimen/vacancy_activity_top_title</item>
+        <item name="titleTextColor">@color/second_text_color</item>
+    </style>
+
 </resources>

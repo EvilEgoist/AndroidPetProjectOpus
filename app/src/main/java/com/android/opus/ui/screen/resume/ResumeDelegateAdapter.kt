@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
+import com.android.opus.common.CommonSkillsAdapter
 import com.android.opus.common.DisplayableItem
 import com.android.opus.common.DisplayableItemsDiffUtilCallback
 import com.android.opus.model.Resume
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
+import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
 import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
@@ -52,18 +54,32 @@ private class ResumeDelegate(
             Glide.with(context)
                 .load(item.imageUrl)
                 .into(resume_photo)
+
             job_position.text = item.jobPosition
             employee_name.text = item.employeeName
             experience.text = item.experience
             salary.text = item.salary
             level.text = item.level
             self_description.text = item.description
-            //skills.adapter =
-            skills.layoutManager = ChipsLayoutManager.newBuilder(context).build()
+
+            skills.adapter = CommonSkillsAdapter().apply {
+                submitList(item.skills)
+            }
             watch_more.setOnClickListener { onVacancyAction.invoke(item.id) }
         }
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            with(itemView) {
+                skills.layoutManager = ChipsLayoutManager.newBuilder(itemView.context)
+                    .setScrollingEnabled(false)
+                    .setOrientation(ChipsLayoutManager.HORIZONTAL)
+                    .setRowStrategy(ChipsLayoutManager.STRATEGY_DEFAULT)
+                    .build()
+                skills.addItemDecoration(SpacingItemDecoration(8, 2))
+            }
+        }
+    }
 }
 

@@ -15,21 +15,16 @@ import kotlinx.coroutines.Dispatchers
 
 class ResumeScreenFragment : Fragment(R.layout.fragment_vacanies) {
     private var viewModel = ResumeScreenViewModel(
-        ResumeInteractor(dispatcher = Dispatchers.Default)
+        ResumeInteractor(dispatcher = Dispatchers.IO)
     )
 
-   /* private val vacancyListAdapter: VacancyDelegateAdapter? = VacancyDelegateAdapter { vacancyId ->
-        listenerVacancyClick?.onVacancySelected(vacancyId = vacancyId)
-    }*/
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
+    private val resumeListAdapter: ResumeDelegateAdapter? = ResumeDelegateAdapter{
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       // shimmerViewContainer.visibility = View.GONE
+        shimmerViewContainer.visibility = View.GONE
         setUpResumeAdapter()
         viewModel.resumes.observe(this.viewLifecycleOwner, this::updateAdapter)
     }
@@ -38,11 +33,12 @@ class ResumeScreenFragment : Fragment(R.layout.fragment_vacanies) {
         vacancies?.layoutManager = LinearLayoutManager(requireContext())
         vacancies?.adapter = resumeListAdapter
         vacancies?.bindFloatingActionButton(fab)
-
     }
 
     private fun updateAdapter(vacancies: List<Resume>?) {
-        resumeListAdapter
+        if (vacancies != null) {
+            resumeListAdapter?.setData(vacancies)
+        }
     }
 
     companion object {

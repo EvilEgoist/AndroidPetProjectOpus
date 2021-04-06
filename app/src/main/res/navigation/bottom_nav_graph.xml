@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/vacancyScreenFragment">
+    <fragment
+        android:id="@+id/vacancyScreenFragment"
+        android:name="com.android.opus.ui.screen.vacancy.VacancyScreenFragment"
+        android:label="Вакансии" />
+    <fragment
+        android:id="@+id/resumeScreenFragment"
+        android:name="com.android.opus.ui.screen.resume.ResumeScreenFragment"
+        android:label="Резюме" />
+</navigation>
