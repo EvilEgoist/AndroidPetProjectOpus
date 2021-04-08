@@ -5,4 +5,12 @@
 
     <dimen name="min_height_check_box">32dp</dimen>
     <dimen name="check_box_field_of_activity_text_size">14dp</dimen>
+
+    <dimen name="header_description_text_size">20sp</dimen>
+    <dimen name="title_description_text_size">18sp</dimen>
+    <dimen name="main_text_description_size">16sp</dimen>
+    <dimen name="minimum_text_size">14sp</dimen>
+    <dimen name="header_active_text_size">24sp</dimen>
+
+    <dimen name="skill_text_size">16sp</dimen>
 </resources>

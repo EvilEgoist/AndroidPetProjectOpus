@@ -37,6 +37,8 @@ private class ResumeDelegate(
     private val onVacancyAction: (Int) -> Unit
 ) : AbsListItemAdapterDelegate<Resume, DisplayableItem, ResumeDelegate.ViewHolder>() {
 
+    val viewPool = RecyclerView.RecycledViewPool()
+
     override fun isForViewType(
         item: DisplayableItem,
         items: List<DisplayableItem>,
@@ -61,7 +63,7 @@ private class ResumeDelegate(
             salary.text = item.salary
             level.text = item.level
             self_description.text = item.description
-
+            skills.setRecycledViewPool(viewPool)
             skills.adapter = CommonSkillsAdapter().apply {
                 submitList(item.skills)
             }

@@ -20,16 +20,6 @@
             android:layout_height="wrap_content"
             android:background="@color/black">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/nav_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:fontFamily="@font/lato_light"
-                android:textSize="@dimen/vacancy_activity_top_title"
-                app:titleTextColor="@color/white" />
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView"
                 android:layout_width="30dp"
