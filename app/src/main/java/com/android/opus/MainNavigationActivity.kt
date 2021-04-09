@@ -19,7 +19,7 @@ class MainNavigationActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_container)
         bottomNav.setupWithNavController(navController)
 
-        setSupportActionBar(nav_title)
+        setSupportActionBar(toolbar)
         val appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf (
                 R.id.vacancyScreenFragment,
