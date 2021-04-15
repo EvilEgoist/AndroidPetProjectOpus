@@ -41,20 +41,11 @@
     <string name="radio_button_marketing">Маркетинг</string>
     <string name="radio_button_management">Менеджмент</string>
     <string name="info_title_field_of_activity">Чем Вы занимаетесь?</string>
-
-    <string-array name="skills_arr">
-        <item>android</item>
-        <item>C++</item>
-        <item>MVVM</item>
-        <item>C#</item>
-        <item>Kotlin</item>
-        <item>CI/CD</item>
-        <item>android</item>
-        <item>C++</item>
-        <item>MVVM</item>
-        <item>C#</item>
-        <item>Kotlin</item>
-        <item>CI/CD</item>
-    </string-array>
+    <string name="title_vacancy">Vacancy</string>
+    <string name="title_messages">Messages</string>
+    <string name="title_people_group">Peoples</string>
+    <string name="watch_more">Узнать больше</string>
+    <string name="vacancies">Вакансии</string>
 
 </resources>
+
