@@ -2,8 +2,6 @@ package com.android.opus
 
 import android.R
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 

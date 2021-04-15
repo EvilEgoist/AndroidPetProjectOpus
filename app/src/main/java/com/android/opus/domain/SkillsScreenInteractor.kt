@@ -1,8 +1,6 @@
 package com.android.opus.domain
 
-import android.app.Activity
 import android.content.Context
-import android.util.Log
 import com.android.opus.R
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
