@@ -31,6 +31,8 @@ data class WorkPlace(
         private val responsibilities: String?,
         private val skills: List<Skill>?
     ) {
+        private val PRIME: Int = 31
+
         override fun equals(other: Any?): Boolean {
             if (other is WorkPlaceContent) {
                 return title == other.title && placeDescription == other.placeDescription
@@ -42,11 +44,11 @@ data class WorkPlace(
 
         override fun hashCode(): Int {
             var result = title.hashCode()
-            result = 31 * result + placeDescription.hashCode()
-            result = 31 * result + jobPosition.hashCode()
-            result = 31 * result + workPeriod.hashCode()
-            result = 31 * result + responsibilities.hashCode()
-            result = 31 * result + skills.hashCode()
+            result = PRIME * result + placeDescription.hashCode()
+            result = PRIME * result + jobPosition.hashCode()
+            result = PRIME * result + workPeriod.hashCode()
+            result = PRIME * result + responsibilities.hashCode()
+            result = PRIME * result + skills.hashCode()
             return result
         }
     }

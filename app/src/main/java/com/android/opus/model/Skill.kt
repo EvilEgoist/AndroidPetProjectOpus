@@ -15,6 +15,8 @@ data class Skill(
     inner class SkillContent(
         private val title: String
     ) {
+        private val PRIME: Int = 31
+
         override fun equals(other: Any?): Boolean {
             if (other is SkillContent) {
                 return title == other.title
@@ -23,7 +25,7 @@ data class Skill(
         }
 
         override fun hashCode(): Int {
-            val result = 31 * title.hashCode()
+            val result = PRIME * title.hashCode()
             return result
         }
     }

@@ -1,6 +1,5 @@
 package com.android.opus.model
 
-import android.R.attr.name
 import com.android.opus.common.DisplayableItem
 
 data class Vacancy(
@@ -26,6 +25,8 @@ data class Vacancy(
         private val description: String?,
         private val skills: List<Skill>
     ) {
+        private val PRIME: Int = 31
+
         override fun equals(other: Any?): Boolean {
             if (other is VacancyContent) {
                 return salary == other.salary && description == other.description && skills == other.skills
@@ -35,8 +36,8 @@ data class Vacancy(
 
         override fun hashCode(): Int {
             var result = salary.hashCode()
-            result = 31 * result + description.hashCode()
-            result = 31 * result + skills.hashCode()
+            result = PRIME * result + description.hashCode()
+            result = PRIME * result + skills.hashCode()
             return result
         }
     }
