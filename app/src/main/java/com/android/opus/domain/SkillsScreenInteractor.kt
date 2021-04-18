@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 class SkillsScreenInteractor(
     private val dispatcher: CoroutineDispatcher,
 ) {
-    suspend fun loadSkillsScreenList() : List<FieldOfActivity>? =
+    suspend fun loadSkillsScreenList() : List<SkillsScreenField>? =
         withContext(dispatcher) {
             SkillsScreenMockData.getResult()
         }

@@ -5,32 +5,36 @@ import com.android.opus.model.SkillsScreenField
 
 object SkillsScreenMockData {
     private var chosenSkillsDataList = ArrayList<SkillsScreenField>()
-    private var counter = 0
-    private var mockData = listOf(
-            FieldOfActivity(0, "android", false),
-            FieldOfActivity(1, "C++", false),
-            FieldOfActivity(2, "MVVM", false),
-            FieldOfActivity(3, "C#", false),
-            FieldOfActivity(4, "Kotlin", false),
-            FieldOfActivity(5, "CI/CD", false),
-            FieldOfActivity(6, "Frontend", false),
-            FieldOfActivity(7, "Backend", false),
-            FieldOfActivity(8, "Swift", false),
-            FieldOfActivity(9, "Python", false),
-            FieldOfActivity(10, "Java", false),
-            FieldOfActivity(11, "Go", false),
+    private var counter1 = 0
+    private var counter2 = 0
+    private var mockData = mutableListOf<SkillsScreenField>(
+        SkillsScreenField(0, "android"),
+        SkillsScreenField(1, "C++"),
+        SkillsScreenField(2, "MVVM"),
+        SkillsScreenField(3, "C#",),
+        SkillsScreenField(4, "Kotlin"),
+        SkillsScreenField(5, "CI/CD"),
+        SkillsScreenField(6, "Frontend"),
+        SkillsScreenField(7, "Backend"),
+        SkillsScreenField(8, "Swift"),
+        SkillsScreenField(9, "Python"),
+        SkillsScreenField(10,  "Java"),
+        SkillsScreenField(11, "Go"),
     )
 
-    fun getResult(): List<FieldOfActivity>? {
+    fun getResult(): List<SkillsScreenField>? {
         return mockData
     }
 
     fun addData(position: Int) {
-        if (!mockData[position].isChecked) {
-            chosenSkillsDataList.add(SkillsScreenField(counter, position, mockData[position].title))
-            mockData[position].isChecked = true
-            ++counter
+        chosenSkillsDataList.add(SkillsScreenField(counter1, mockData[position].title))
+        mockData.removeAt(position)
+        for (i in position until mockData.size) {
+            mockData[i].id--
         }
+        ++counter1
+        if (counter2 > 0 ) --counter2
+
     }
 
     fun getNewData(): List<SkillsScreenField>? {
@@ -38,12 +42,13 @@ object SkillsScreenMockData {
     }
 
     fun removeData(position: Int) {
-        mockData[chosenSkillsDataList[position].addId].isChecked = false
+        mockData.add(SkillsScreenField(counter2, chosenSkillsDataList[position].title ))
         chosenSkillsDataList.removeAt(position)
         for (i in position until chosenSkillsDataList.size) {
             chosenSkillsDataList[i].id--
         }
-        --counter
+        if (counter1 > 0 ) --counter1
+        ++counter2
     }
 
 }

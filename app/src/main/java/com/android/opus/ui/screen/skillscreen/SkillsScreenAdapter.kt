@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
 import com.android.opus.model.FieldOfActivity
+import com.android.opus.model.SkillsScreenField
 import kotlinx.android.synthetic.main.item_skills_screen.view.*
 
 class SkillsScreenAdapter(
     private val onClickListener: (Int) -> Unit
-) :ListAdapter<FieldOfActivity, SkillsScreenAdapter.SkillsScreenViewHolder>(
+) :ListAdapter<SkillsScreenField, SkillsScreenAdapter.SkillsScreenViewHolder>(
         SkillsScreenDiffCallback()
     ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillsScreenViewHolder =
@@ -25,18 +26,18 @@ class SkillsScreenAdapter(
     }
 
    inner class SkillsScreenViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: FieldOfActivity) {
+        fun bind(item: SkillsScreenField) {
             itemView.item_skills.text = item.title
             itemView.item_skills.setOnClickListener {onClickListener.invoke(item.id) }
         }
     }
 }
 
-private class SkillsScreenDiffCallback : DiffUtil.ItemCallback<FieldOfActivity>() {
-    override fun areItemsTheSame(oldItem: FieldOfActivity, newItem: FieldOfActivity): Boolean =
+private class SkillsScreenDiffCallback : DiffUtil.ItemCallback<SkillsScreenField>() {
+    override fun areItemsTheSame(oldItem: SkillsScreenField, newItem: SkillsScreenField): Boolean =
         oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: FieldOfActivity, newItem: FieldOfActivity): Boolean =
+    override fun areContentsTheSame(oldItem: SkillsScreenField, newItem: SkillsScreenField): Boolean =
         (oldItem == newItem)
 }
 

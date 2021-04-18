@@ -3,6 +3,7 @@ package com.android.opus.ui.screen.skillscreen
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
@@ -13,6 +14,8 @@ import com.android.opus.domain.SkillsScreenInteractor
 import com.android.opus.domain.SkillsScreenMockData
 import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
+import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
+import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
 import kotlinx.android.synthetic.main.activity_skills_screen.*
 import kotlinx.coroutines.Dispatchers
 
@@ -21,8 +24,8 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
     private lateinit var viewModel : SkillsScreenViewModel
     private lateinit var newViewModel :ChosenSkillViewModel
 
-    private val chosenSkillAdapter = ChosenSkillAdapter{Id -> SkillsScreenMockData.removeData(Id);updateAdapterOfCS((SkillsScreenMockData.getNewData()))}
-    private val SCAdapter: SkillsScreenAdapter? = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId);updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
+    private val chosenSkillAdapter = ChosenSkillAdapter{Id -> SkillsScreenMockData.removeData(Id);updateAdapter(SkillsScreenMockData.getResult());updateAdapterOfCS((SkillsScreenMockData.getNewData()))}
+    private val SCAdapter = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId);updateAdapter(SkillsScreenMockData.getResult());updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -41,14 +44,25 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
     }
 
     private fun setUpSCAdapter() {
-        offeredSkills?.layoutManager = GridLayoutManager(requireContext(), 4)
+         offeredSkills.layoutManager = ChipsLayoutManager.newBuilder(context)
+            .setScrollingEnabled(false)
+            .setOrientation(ChipsLayoutManager.HORIZONTAL)
+            .setRowStrategy(ChipsLayoutManager.STRATEGY_DEFAULT)
+            .build()
+        offeredSkills.addItemDecoration(SpacingItemDecoration(25, 10))
         offeredSkills?.adapter = SCAdapter
-        chosenSkills?.layoutManager =GridLayoutManager(requireContext(), 4)
+
+        chosenSkills?.layoutManager =ChipsLayoutManager.newBuilder(context)
+            .setScrollingEnabled(true)
+            .setOrientation(ChipsLayoutManager.HORIZONTAL)
+            .setRowStrategy(ChipsLayoutManager.STRATEGY_DEFAULT)
+            .build()
         chosenSkills?.adapter = chosenSkillAdapter
+        chosenSkills.addItemDecoration(SpacingItemDecoration(25, 10))
     }
 
-    private fun updateAdapter(list: List<FieldOfActivity>?) {
-        SCAdapter?.submitList(list)
+    private fun updateAdapter(list: List<SkillsScreenField>?) {
+        SCAdapter.submitList(list?.let { ArrayList(it) })
     }
 
     private fun updateAdapterOfCS(list: List<SkillsScreenField>?){

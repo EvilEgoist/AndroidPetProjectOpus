@@ -56,6 +56,12 @@
         <item name="android:textColor">#73726A</item>
     </style>
 
+    <style name="ChosenSkillsCaption">
+        <item name="android:textSize">@dimen/greeting_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
     <style name="ChosenSkill">
         <item name="android:textSize">@dimen/flow_text_size</item>
         <item name="android:textColor">@color/black</item>

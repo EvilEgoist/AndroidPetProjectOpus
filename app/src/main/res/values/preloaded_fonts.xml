@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/lato</item>
         <item>@font/work_sans_bold</item>
+        <item>@font/work_sans_medium</item>
     </array>
 </resources>
