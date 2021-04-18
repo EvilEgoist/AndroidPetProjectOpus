@@ -1,18 +1,12 @@
 package com.android.opus.ui.screen.skillscreen
 
-
-import android.content.Context
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
-import androidx.recyclerview.widget.GridLayoutManager
 import com.android.opus.R
-import com.android.opus.domain.ChosenSkillInteractor
 import com.android.opus.domain.SkillsScreenInteractor
 import com.android.opus.domain.SkillsScreenMockData
-import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
@@ -21,21 +15,17 @@ import kotlinx.coroutines.Dispatchers
 
 class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
 
-    private lateinit var viewModel : SkillsScreenViewModel
-    private lateinit var newViewModel :ChosenSkillViewModel
-
-    private val chosenSkillAdapter = ChosenSkillAdapter{Id -> SkillsScreenMockData.removeData(Id);updateAdapter(SkillsScreenMockData.getResult());updateAdapterOfCS((SkillsScreenMockData.getNewData()))}
-    private val SCAdapter = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId);updateAdapter(SkillsScreenMockData.getResult());updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        viewModel = SkillsScreenViewModel(
+    private var viewModel = SkillsScreenViewModel(
             SkillsScreenInteractor(dispatcher = Dispatchers.Default)
-        )
-//        newViewModel = ChosenSkillViewModel(
-//                ChosenSkillInteractor(dispatcher = Dispatchers.Default)
-//        )
-    }
+    )
+
+    private val chosenSkillAdapter = ChosenSkillAdapter{Id -> SkillsScreenMockData.removeData(Id);
+        updateAdapter(SkillsScreenMockData.getResult());
+        updateAdapterOfCS((SkillsScreenMockData.getNewData()))}
+
+    private val SCAdapter = SkillsScreenAdapter { skillId -> SkillsScreenMockData.addData(skillId);
+        updateAdapter(SkillsScreenMockData.getResult());
+        updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

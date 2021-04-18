@@ -1,6 +1,5 @@
 package com.android.opus.domain
 
-import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
 
 object SkillsScreenMockData {
@@ -9,7 +8,7 @@ object SkillsScreenMockData {
         SkillsScreenField(0, "android"),
         SkillsScreenField(1, "C++"),
         SkillsScreenField(2, "MVVM"),
-        SkillsScreenField(3, "C#",),
+        SkillsScreenField(3, "C#"),
         SkillsScreenField(4, "Kotlin"),
         SkillsScreenField(5, "CI/CD"),
         SkillsScreenField(6, "Frontend"),
@@ -43,5 +42,4 @@ object SkillsScreenMockData {
             chosenSkillsDataList[i].id--
         }
     }
-
 }

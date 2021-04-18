@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
-import com.android.opus.model.FieldOfActivity
 import com.android.opus.model.SkillsScreenField
 import kotlinx.android.synthetic.main.item_skills_screen.view.*
 
@@ -40,4 +39,3 @@ private class SkillsScreenDiffCallback : DiffUtil.ItemCallback<SkillsScreenField
     override fun areContentsTheSame(oldItem: SkillsScreenField, newItem: SkillsScreenField): Boolean =
         (oldItem == newItem)
 }
-
