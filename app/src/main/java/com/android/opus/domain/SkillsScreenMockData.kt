@@ -5,8 +5,6 @@ import com.android.opus.model.SkillsScreenField
 
 object SkillsScreenMockData {
     private var chosenSkillsDataList = ArrayList<SkillsScreenField>()
-    private var counter1 = 0
-    private var counter2 = 0
     private var mockData = mutableListOf<SkillsScreenField>(
         SkillsScreenField(0, "android"),
         SkillsScreenField(1, "C++"),
@@ -27,14 +25,11 @@ object SkillsScreenMockData {
     }
 
     fun addData(position: Int) {
-        chosenSkillsDataList.add(SkillsScreenField(counter1, mockData[position].title))
+        chosenSkillsDataList.add(SkillsScreenField(chosenSkillsDataList.size, mockData[position].title))
         mockData.removeAt(position)
         for (i in position until mockData.size) {
             mockData[i].id--
         }
-        ++counter1
-        if (counter2 > 0 ) --counter2
-
     }
 
     fun getNewData(): List<SkillsScreenField>? {
@@ -42,13 +37,11 @@ object SkillsScreenMockData {
     }
 
     fun removeData(position: Int) {
-        mockData.add(SkillsScreenField(counter2, chosenSkillsDataList[position].title ))
+        mockData.add(SkillsScreenField(mockData.size, chosenSkillsDataList[position].title ))
         chosenSkillsDataList.removeAt(position)
         for (i in position until chosenSkillsDataList.size) {
             chosenSkillsDataList[i].id--
         }
-        if (counter1 > 0 ) --counter1
-        ++counter2
     }
 
 }

@@ -32,9 +32,9 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
         viewModel = SkillsScreenViewModel(
             SkillsScreenInteractor(dispatcher = Dispatchers.Default)
         )
-        newViewModel = ChosenSkillViewModel(
-                ChosenSkillInteractor(dispatcher = Dispatchers.Default)
-        )
+//        newViewModel = ChosenSkillViewModel(
+//                ChosenSkillInteractor(dispatcher = Dispatchers.Default)
+//        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

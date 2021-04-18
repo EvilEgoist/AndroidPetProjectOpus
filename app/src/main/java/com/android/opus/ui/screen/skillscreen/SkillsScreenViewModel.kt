@@ -13,8 +13,8 @@ class SkillsScreenViewModel(
     private val interactor: SkillsScreenInteractor
 ) : ViewModel() {
 
-    private val _mutableSCFields = MutableLiveData<List<SkillsScreenField>?>()
-    val SCFields: LiveData<List<SkillsScreenField>?> get() = _mutableSCFields
+    val SCFields = MutableLiveData<List<SkillsScreenField>?>()
+    val newSCFields = MutableLiveData<List<SkillsScreenField>?>()
 
     init {
         loadSkillsScreenLists()
@@ -22,7 +22,8 @@ class SkillsScreenViewModel(
 
     private fun loadSkillsScreenLists() {
         viewModelScope.launch {
-            _mutableSCFields.postValue(interactor.loadSkillsScreenList())
+            SCFields.postValue(interactor.loadSkillsScreenList())
+            newSCFields.postValue(interactor.loadChosenSkillsDataList())
         }
     }
 }
