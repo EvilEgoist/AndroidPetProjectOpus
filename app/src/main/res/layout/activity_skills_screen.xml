@@ -32,7 +32,8 @@
         app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
         app:layout_constraintTop_toBottomOf="@+id/caption_under_title"
         app:layout_constraintBottom_toTopOf="@id/offeredSkills"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:queryHint="Search" />
 
     <TextView
         android:id="@+id/app_title"
