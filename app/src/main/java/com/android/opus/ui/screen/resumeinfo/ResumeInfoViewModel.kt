@@ -4,14 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.opus.domain.ResumeMainInfoInteractor
-import com.android.opus.model.Resume
+import com.android.opus.model.ResumeInfo
 import kotlinx.coroutines.launch
 
 class ResumeInfoViewModel(
     private val interactor: ResumeMainInfoInteractor,
 ) : ViewModel() {
 
-    val resume = MutableLiveData<Resume>();
+    val resume = MutableLiveData<ResumeInfo>();
 
     init {
        loadResume()

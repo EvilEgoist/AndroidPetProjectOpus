@@ -224,7 +224,7 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="4dp"
-                android:text="@string/work_experience"
+                android:text="@string/work_experience_description_title"
                 android:textAppearance="@style/DescriptionTitleTextAppearance.HeaderAppearance" />
 
             <include layout="@layout/divider_horizontal" />

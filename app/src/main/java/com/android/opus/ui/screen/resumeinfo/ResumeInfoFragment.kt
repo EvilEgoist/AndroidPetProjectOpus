@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.opus.R
 import com.android.opus.common.CommonSkillsAdapter
 import com.android.opus.domain.ResumeMainInfoInteractor
-import com.android.opus.model.Resume
+import com.android.opus.model.ResumeInfo
 import com.android.opus.model.Skill
 import com.android.opus.model.WorkPlace
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
@@ -16,7 +16,6 @@ import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_resume_info.*
 import kotlinx.coroutines.Dispatchers
-
 
 class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
 
@@ -33,7 +32,7 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
         setUpSkillsAdapter()
         setUpWorkPlaceAdapter()
 
-        viewModel.resume.observe(this.viewLifecycleOwner, this::updateResume)
+        viewModel.resume.observe(this.viewLifecycleOwner, this::updateResumeInfo)
     }
 
     private fun setUpSkillsAdapter() {
@@ -52,24 +51,24 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
         work_experience.isNestedScrollingEnabled = false
     }
 
-    private fun updateResume(resume: Resume) {
-        updateResumeMainInfo(resume)
-        updateSkillAdapter(resume.skills)
-        updateWorkExperienceAdapter(resume.workExperience)
+    private fun updateResumeInfo(resumeInfo: ResumeInfo) {
+        updateResumeMainInfo(resumeInfo)
+        updateSkillAdapter(resumeInfo.skills)
+        updateWorkExperienceAdapter(resumeInfo.workExperience)
     }
 
-    private fun updateResumeMainInfo(resume: Resume) {
+    private fun updateResumeMainInfo(resumeInfo: ResumeInfo) {
         Glide.with(this)
-            .load(resume.imageUrl)
+            .load(resumeInfo.imageUrl)
             .into(photo)
-        last_visit.text = resume.lastVisit
-        user_name.text = resume.username
-        min_salary.text = resume.minSalary
-        age.text = resume.age
-        experience.text = resume.experience
-        level.text = resume.level
-        status.text = resume.status
-        self_description.text = resume.selfDescription
+        last_visit.text = resumeInfo.lastVisit
+        user_name.text = resumeInfo.username
+        min_salary.text = resumeInfo.minSalary
+        age.text = resumeInfo.age
+        experience.text = resumeInfo.experience
+        level.text = resumeInfo.level
+        status.text = resumeInfo.status
+        self_description.text = resumeInfo.selfDescription
     }
 
     private fun updateSkillAdapter(skills: List<Skill>?) {
