@@ -1,7 +1,6 @@
 package com.android.opus
 
 import android.os.Bundle
-<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.android.opus.ui.screen.activityfield.ActivityFieldFragment

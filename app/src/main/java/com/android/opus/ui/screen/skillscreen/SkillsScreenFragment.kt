@@ -2,6 +2,7 @@ package com.android.opus.ui.screen.skillscreen
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import com.android.opus.R
@@ -10,10 +11,13 @@ import com.android.opus.domain.SkillsScreenMockData
 import com.android.opus.model.SkillsScreenField
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
+import kotlinx.android.synthetic.main.activity_lists.view.*
 import kotlinx.android.synthetic.main.activity_skills_screen.*
 import kotlinx.coroutines.Dispatchers
 
-class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
+class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
+        android.widget.SearchView.OnQueryTextListener,
+        android.widget.SearchView.OnCloseListener {
 
     private var viewModel = SkillsScreenViewModel(
             SkillsScreenInteractor(dispatcher = Dispatchers.Default)
@@ -27,10 +31,17 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
         updateAdapter(SkillsScreenMockData.getResult());
         updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
 
+    override fun onClose(): Boolean {
+        TODO("Not yet implemented")
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSCAdapter()
         viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
+        searchView?.isSubmitButtonEnabled = true
+        searchView?.setOnQueryTextListener(this)
+        searchView?.setOnCloseListener(this)
     }
 
     private fun setUpSCAdapter() {
@@ -57,6 +68,20 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen) {
 
     private fun updateAdapterOfCS(list: List<SkillsScreenField>?){
         chosenSkillAdapter.submitList(list?.let { ArrayList(it) })
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) searchSkill(query)
+        return true
+    }
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        if (query != null) searchSkill(query)
+        return true
+    }
+
+    private fun searchSkill(query: String){
+        updateAdapter(SkillsScreenMockData.searchItem(query))
     }
 
     companion object {

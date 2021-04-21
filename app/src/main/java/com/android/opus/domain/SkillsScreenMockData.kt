@@ -1,5 +1,6 @@
 package com.android.opus.domain
 
+import com.android.opus.model.Skill
 import com.android.opus.model.SkillsScreenField
 
 object SkillsScreenMockData {
@@ -11,7 +12,7 @@ object SkillsScreenMockData {
         SkillsScreenField(3, "C#"),
         SkillsScreenField(4, "Kotlin"),
         SkillsScreenField(5, "CI/CD"),
-        SkillsScreenField(6, "Frontend"),
+        SkillsScreenField(6, "Frontend developing"),
         SkillsScreenField(7, "Backend"),
         SkillsScreenField(8, "Swift"),
         SkillsScreenField(9, "Python"),
@@ -29,6 +30,16 @@ object SkillsScreenMockData {
         for (i in position until mockData.size) {
             mockData[i].id--
         }
+    }
+
+    fun searchItem( skill: String): ArrayList<SkillsScreenField> {
+        val list = ArrayList<SkillsScreenField>()
+        for(i in 0 until mockData.size){
+            if (mockData[i].title.contains(skill)){
+                list.add(SkillsScreenField(mockData[i].id, mockData[i].title))
+            }
+        }
+        return list
     }
 
     fun getNewData(): List<SkillsScreenField>? {
