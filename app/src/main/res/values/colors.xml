@@ -8,9 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FBE200</color>
-    <color name="gray_500">#9A9A9A</color>
     <color name="second_text_color">#73726A</color>
+    <color name="gray_100">#F0F0F0</color>
     <color name="gray_200">#EBEBEB</color>
+    <color name="gray_300">#C4C4C4</color>
+    <color name="gray_400">#CFCFCF</color>
+    <color name="gray_500">#9A9A9A</color>
+    <color name="light_background">#DADADA</color>
     <color name="green">#03AD00</color>
     <color name="red">#E40000</color>
     <color name="light_blue_600">#FF039BE5</color>

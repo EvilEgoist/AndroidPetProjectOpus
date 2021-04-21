@@ -1,6 +1,5 @@
 package com.android.opus.ui.screen.activityfield
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,8 +11,7 @@ class ActivityFieldViewModel(
         private val interactor: ActivityFieldInteractor
 ) : ViewModel() {
 
-    private val _mutableActivityFields = MutableLiveData<List<FieldOfActivity>?>()
-    val activityFields: LiveData<List<FieldOfActivity>?> get() = _mutableActivityFields
+    val activityFields = MutableLiveData<List<FieldOfActivity>?>()
 
     init {
         loadActivityFieldList()
@@ -21,7 +19,7 @@ class ActivityFieldViewModel(
 
     private fun loadActivityFieldList() {
         viewModelScope.launch {
-            _mutableActivityFields.postValue(interactor.loadActivityFieldList())
+            activityFields.postValue(interactor.loadActivityFieldList())
         }
     }
 }

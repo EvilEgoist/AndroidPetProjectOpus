@@ -39,7 +39,6 @@
     <style name="CheckBoxFieldOfActivityStyle">
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:button">@drawable/selector_check_box_field_of_activity</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:minHeight">@dimen/min_height_check_box</item>
         <item name="android:textSize">@dimen/check_box_field_of_activity_text_size</item>
