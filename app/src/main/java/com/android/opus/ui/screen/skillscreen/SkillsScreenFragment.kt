@@ -16,8 +16,7 @@ import kotlinx.android.synthetic.main.activity_skills_screen.*
 import kotlinx.coroutines.Dispatchers
 
 class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
-        android.widget.SearchView.OnQueryTextListener,
-        android.widget.SearchView.OnCloseListener {
+        android.widget.SearchView.OnQueryTextListener {
 
     private var viewModel = SkillsScreenViewModel(
             SkillsScreenInteractor(dispatcher = Dispatchers.Default)
@@ -31,17 +30,14 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
         updateAdapter(SkillsScreenMockData.getResult());
         updateAdapterOfCS(SkillsScreenMockData.getNewData()) }
 
-    override fun onClose(): Boolean {
-        TODO("Not yet implemented")
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSCAdapter()
+        SkillsScreenMockData.refreshDisplayableList()
         viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
-        searchView?.setOnCloseListener(this)
+        if (!searchView.isActivated) SkillsScreenMockData.refreshDisplayableList()
     }
 
     private fun setUpSCAdapter() {
@@ -60,6 +56,7 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
             .build()
         chosenSkills?.adapter = chosenSkillAdapter
         chosenSkills.addItemDecoration(SpacingItemDecoration(25, 10))
+
     }
 
     private fun updateAdapter(list: List<SkillsScreenField>?) {
@@ -79,6 +76,12 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
         if (query != null) searchSkill(query)
         return true
     }
+
+//    override fun onClose(): Boolean {
+//        SkillsScreenMockData.refreshDisplayableList()
+//        updateAdapter(SkillsScreenMockData.getResult())
+//        return true
+//    }
 
     private fun searchSkill(query: String){
         updateAdapter(SkillsScreenMockData.searchItem(query))
