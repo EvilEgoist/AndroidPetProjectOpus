@@ -10,7 +10,6 @@ import com.android.opus.domain.SkillsScreenMockData
 import com.android.opus.model.SkillsScreenField
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
-import kotlinx.android.synthetic.main.activity_lists.view.*
 import kotlinx.android.synthetic.main.activity_skills_screen.*
 import kotlinx.coroutines.Dispatchers
 
@@ -36,8 +35,6 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
         viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
-        //searchView?.setOnCloseListener(this)
-        //if (!searchView.isActivated) SkillsScreenMockData.refreshDisplayableList()
     }
 
     private fun setUpSCAdapter() {
@@ -80,14 +77,6 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
         if (query != null) searchSkill(query)
         return true
     }
-
-//    override fun onClose(): Boolean {
-//        SkillsScreenMockData.refreshDisplayableList()
-//        updateAdapter(SkillsScreenMockData.getResult())
-//        searchView.setQuery("", false);
-//        searchView.clearFocus();
-//        return true
-//    }
 
     private fun searchSkill(query: String){
         updateAdapter(SkillsScreenMockData.searchItem(query))
