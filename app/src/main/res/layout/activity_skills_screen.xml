@@ -70,7 +70,7 @@
         android:id="@+id/separator"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/screen_separator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,12 +90,11 @@
         android:id="@+id/offeredSkills"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
         app:layout_constraintTop_toBottomOf="@id/searchView"
         app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
-        app:layout_constraintBottom_toBottomOf="@id/separator"
+        app:layout_constraintBottom_toTopOf="@id/separator"
         />
 
     <androidx.recyclerview.widget.RecyclerView

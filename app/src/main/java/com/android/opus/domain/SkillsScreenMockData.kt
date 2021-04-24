@@ -5,21 +5,21 @@ import com.android.opus.model.SkillsScreenField
 object SkillsScreenMockData {
     private var chosenSkillsDataList = ArrayList<SkillsScreenField>()
     private var displayableDataList = ArrayList<SkillsScreenField>()
-    private var mockData = mutableListOf<SkillsScreenField>(
-            SkillsScreenField(0, "android", false),
-            SkillsScreenField(1, "C++", false),
-            SkillsScreenField(2, "MVVM", false),
-            SkillsScreenField(3, "C#", false),
-            SkillsScreenField(4, "Kotlin", false),
-            SkillsScreenField(5, "CI/CD", false),
-            SkillsScreenField(6, "Frontend developing", false),
-            SkillsScreenField(7, "Backend", false),
-            SkillsScreenField(8, "Swift", false),
-            SkillsScreenField(9, "Python", false),
-            SkillsScreenField(10,  "Java", false),
-            SkillsScreenField(11, "IOS", false),
-            SkillsScreenField(12,  "Java", false),
-            SkillsScreenField(13, "Machine Learning", false),
+    private var mockData = mutableMapOf<Int, SkillsScreenField>(
+            0 to SkillsScreenField(0, "android"),
+            1 to SkillsScreenField(1, "C++"),
+            2 to SkillsScreenField(2, "MVVM"),
+            3 to SkillsScreenField(3, "C#"),
+            4 to SkillsScreenField(4, "Kotlin"),
+            5 to SkillsScreenField(5, "CI/CD"),
+            6 to SkillsScreenField(6, "Frontend developing"),
+            7 to SkillsScreenField(7, "Backend"),
+            8 to SkillsScreenField(8, "Swift"),
+            9 to SkillsScreenField(9, "Python"),
+            10 to SkillsScreenField(10, "Java"),
+            11 to SkillsScreenField(11, "IOS"),
+            12 to SkillsScreenField(12, "Ruby"),
+            13 to SkillsScreenField(13, "Machine Learning"),
     )
 
     fun getResult(): List<SkillsScreenField>? {
@@ -27,32 +27,32 @@ object SkillsScreenMockData {
     }
 
     fun refreshDisplayableList(){
-        displayableDataList.clear()
         if(displayableDataList.size != 12) {
-            for (i in 0..11) {
-                displayableDataList.add(mockData[i])
+            displayableDataList.clear()
+            var iter = mockData.iterator()
+            while (iter.hasNext() && displayableDataList.size < 12) {
+                displayableDataList.add(iter.next().component2())
             }
         }
     }
 
     fun addData(position: Int) {
-        chosenSkillsDataList.add(SkillsScreenField(chosenSkillsDataList.size, displayableDataList[position].title, true))
-        displayableDataList[position].isAdded = true
         for (i in 0 until displayableDataList.size)
             if (displayableDataList[i].id == position) {
+                chosenSkillsDataList.add(displayableDataList[i])
                 displayableDataList.removeAt(i)
+                mockData.remove(position)
                 break
             }
-        for (i in position until displayableDataList.size) {
-            displayableDataList[i].id--
-        }
     }
 
-    fun searchItem( skill: String): ArrayList<SkillsScreenField> {
+    fun searchItem(skill: String): ArrayList<SkillsScreenField> {
         displayableDataList.clear()
-        for(i in 0 until mockData.size){
-            if (mockData[i].title.contains(skill)){
-                displayableDataList.add(SkillsScreenField(displayableDataList.size, mockData[i].title, false))
+        val iter = mockData.iterator()
+        while(iter.hasNext()){
+            val item = iter.next().component2()
+            if (item.title.contains(skill)){
+                displayableDataList.add(item)
             }
         }
         return displayableDataList
@@ -63,10 +63,12 @@ object SkillsScreenMockData {
     }
 
     fun removeData(position: Int) {
-        displayableDataList.add(SkillsScreenField(displayableDataList.size, chosenSkillsDataList[position].title , false))
-        chosenSkillsDataList.removeAt(position)
-        for (i in position until chosenSkillsDataList.size) {
-            chosenSkillsDataList[i].id--
-        }
+        for (i in 0 until chosenSkillsDataList.size)
+            if (chosenSkillsDataList[i].id == position) {
+                displayableDataList.add(chosenSkillsDataList[i])
+                mockData[position] = chosenSkillsDataList[i]
+                chosenSkillsDataList.removeAt(i)
+                break
+            }
     }
 }

@@ -2,7 +2,6 @@ package com.android.opus.ui.screen.skillscreen
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import com.android.opus.R
@@ -16,13 +15,13 @@ import kotlinx.android.synthetic.main.activity_skills_screen.*
 import kotlinx.coroutines.Dispatchers
 
 class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
-        android.widget.SearchView.OnQueryTextListener {
+    android.widget.SearchView.OnQueryTextListener{
 
     private var viewModel = SkillsScreenViewModel(
-            SkillsScreenInteractor(dispatcher = Dispatchers.Default)
+        SkillsScreenInteractor(dispatcher = Dispatchers.Default)
     )
 
-    private val chosenSkillAdapter = ChosenSkillAdapter{Id -> SkillsScreenMockData.removeData(Id);
+    private val chosenSkillAdapter = ChosenSkillAdapter{ Id -> SkillsScreenMockData.removeData(Id);
         updateAdapter(SkillsScreenMockData.getResult());
         updateAdapterOfCS((SkillsScreenMockData.getNewData()))}
 
@@ -37,7 +36,8 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
         viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
-        if (!searchView.isActivated) SkillsScreenMockData.refreshDisplayableList()
+        //searchView?.setOnCloseListener(this)
+        //if (!searchView.isActivated) SkillsScreenMockData.refreshDisplayableList()
     }
 
     private fun setUpSCAdapter() {
@@ -46,7 +46,7 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
             .setOrientation(ChipsLayoutManager.HORIZONTAL)
             .setRowStrategy(ChipsLayoutManager.STRATEGY_DEFAULT)
             .build()
-        offeredSkills.addItemDecoration(SpacingItemDecoration(25, 10))
+        offeredSkills.addItemDecoration(SpacingItemDecoration(25, 15))
         offeredSkills?.adapter = SCAdapter
 
         chosenSkills?.layoutManager =ChipsLayoutManager.newBuilder(context)
@@ -69,6 +69,10 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         if (query != null) searchSkill(query)
+        if (query == null) {
+            SkillsScreenMockData.refreshDisplayableList()
+            updateAdapter(SkillsScreenMockData.getResult())
+        }
         return true
     }
 
@@ -80,6 +84,8 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
 //    override fun onClose(): Boolean {
 //        SkillsScreenMockData.refreshDisplayableList()
 //        updateAdapter(SkillsScreenMockData.getResult())
+//        searchView.setQuery("", false);
+//        searchView.clearFocus();
 //        return true
 //    }
 
