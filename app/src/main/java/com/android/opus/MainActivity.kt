@@ -1,6 +1,7 @@
 package com.android.opus
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.android.opus.ui.screen.activityfield.ActivityFieldFragment
@@ -16,3 +17,4 @@ class MainActivity : AppCompatActivity(), ActivityFieldFragment.BtnNextClickList
             .navigate(R.id.action_activityFieldFragment_to_skillsScreenFragment)
     }
 }
+

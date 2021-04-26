@@ -14,7 +14,7 @@
     <string name="login_screen_greeting_title">Давно не заходили</string>
     <string name="sign_up_screen_greeting_title">Рады с Вами познакомиться</string>
     <string name="caption_under_app_title">Расскажите о Ваших навыках</string>
-    <string name="chosen_skills_caption">Выбранные навыки</string>
+    <string name="chosen_skills_caption_title">Выбранные навыки</string>
 
     <string name="error_name">Неправильно введено имя</string>
     <string name="error_surname">Неправильно введена фамилия</string>
@@ -42,9 +42,10 @@
     <string name="radio_button_marketing">Маркетинг</string>
     <string name="radio_button_management">Менеджмент</string>
     <string name="info_title_field_of_activity">Чем Вы занимаетесь?</string>
-
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-
+    <string name="title_vacancy">Vacancy</string>
+    <string name="title_messages">Messages</string>
+    <string name="title_people_group">Peoples</string>
+    <string name="watch_more">Узнать больше</string>
+    <string name="vacancies">Вакансии</string>
 
 </resources>

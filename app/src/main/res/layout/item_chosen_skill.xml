@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/item_chosen_skill"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingTop="20dp"
-    android:paddingEnd="5dp">
-
-    <TextView
-        android:id="@+id/item_chosen_skill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_rounded_rectangle_yellow"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="TextView"
-        style="@style/ChosenSkill"
-        android:drawableRight="@drawable/ic_cross"
-        android:textSize="@dimen/flow_text_size"
-        />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    app:chipBackgroundColor="@color/chosen_skill_chip_color"
+    android:gravity="center_horizontal|center_vertical"
+    android:textSize="@dimen/flow_text_size"
+    app:chipStrokeColor="@color/black"
+    app:chipStrokeWidth="1dp"
+    app:chipIcon="@drawable/ic_cross"
+    app:chipIconSize="10dp"
+    app:iconStartPadding="5dp"
+    app:chipIconVisible="true"
+    app:chipIconEnabled="true"
+    android:layoutDirection="rtl"
+    />

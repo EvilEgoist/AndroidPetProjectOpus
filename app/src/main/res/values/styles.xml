@@ -39,7 +39,6 @@
     <style name="CheckBoxFieldOfActivityStyle">
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:button">@drawable/selector_check_box_field_of_activity</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:minHeight">@dimen/min_height_check_box</item>
         <item name="android:textSize">@dimen/check_box_field_of_activity_text_size</item>
@@ -54,6 +53,12 @@
     <style name="CaptionUnderAppTitle">
         <item name="android:textSize">@dimen/greeting_text_size</item>
         <item name="android:textColor">#73726A</item>
+    </style>
+
+    <style name="ChosenSkillsCaption">
+        <item name="android:textSize">@dimen/greeting_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
     </style>
 
     <style name="ChosenSkill">
