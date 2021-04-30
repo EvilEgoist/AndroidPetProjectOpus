@@ -24,7 +24,7 @@
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"
-        android:layout_height="46dp"
+        android:layout_height="@dimen/search_view_height"
         android:layout_marginTop="20dp"
         android:background="@drawable/search_view_style"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:id="@+id/app_title"
         style="@style/AppTitleStyleBlack"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="1dp"
@@ -55,7 +55,7 @@
     <TextView
         android:id="@+id/caption_under_title"
         android:layout_width="0dp"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:text="@string/caption_under_app_title"
         android:textAppearance="@style/CaptionUnderAppTitle"
@@ -69,7 +69,7 @@
     <View
         android:id="@+id/separator"
         android:layout_width="0dp"
-        android:layout_height="2dp"
+        android:layout_height="@dimen/screen_separator_height"
         android:layout_marginTop="10dp"
         android:background="@drawable/screen_separator"
         app:layout_constraintBottom_toBottomOf="parent"

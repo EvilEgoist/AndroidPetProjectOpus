@@ -9,11 +9,11 @@ class SkillsScreenInteractor(
 ) {
     suspend fun loadSkillsScreenList() : List<SkillsScreenField>? =
         withContext(dispatcher) {
-            SkillsScreenMockData.getResult()
+            SkillsScreenFacade.getResult()
         }
 
     suspend fun loadChosenSkillsDataList() : List<SkillsScreenField>? =
             withContext(dispatcher) {
-                SkillsScreenMockData.getNewData()
+                SkillsScreenFacade.getNewData()
             }
 }
