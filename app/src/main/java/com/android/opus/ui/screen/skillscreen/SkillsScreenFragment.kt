@@ -18,9 +18,9 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
     android.widget.SearchView.OnQueryTextListener,
     android.widget.SearchView.OnCloseListener{
 
-    private val viewModel = SkillsScreenViewModel(
-        SkillsScreenInteractor(dispatcher = Dispatchers.Default)
-    )
+//    private val viewModel = SkillsScreenViewModel(
+//        SkillsScreenInteractor(dispatcher = Dispatchers.Default)
+//    )
 
     private val chosenSkillAdapter = ChosenSkillAdapter{ Id -> SkillsScreenFacade.removeData(Id);
         updateAdapter(SkillsScreenFacade.getResult());
@@ -33,8 +33,8 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSCAdapter()
-        SkillsScreenFacade.refreshDisplayableList()
-        viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
+        updateAdapter(SkillsScreenFacade.refreshDisplayableList())
+        //viewModel.SCFields.observe(this.viewLifecycleOwner, this::updateAdapter)
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
         searchView?.setOnCloseListener (this)
@@ -84,8 +84,7 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
     override fun onClose(): Boolean {
         searchView.setIconified(false);
         searchView.clearFocus();
-        SkillsScreenFacade.refreshDisplayableList()
-        updateAdapter(SkillsScreenFacade.getResult())
+        updateAdapter(SkillsScreenFacade.refreshDisplayableList())
         return true
     }
 
