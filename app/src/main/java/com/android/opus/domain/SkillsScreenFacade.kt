@@ -46,13 +46,16 @@ object SkillsScreenFacade{
     fun refreshDisplayableList(): ArrayList<SkillsScreenField> {
         if (displayableDataList.size != 12) {
             for (i in 0 until displayableDataList.size) {
-                nonAddedSkillsMap[displayableDataList[i].mapKey]
+                addedSkillsMap.remove(displayableDataList[i].mapKey)
+                nonAddedSkillsMap.add(displayableDataList[i])
             }
             displayableDataList.clear()
-            for (i in 0..11) {
-                nonAddedSkillsMap[i].mapKey = addedSkillsMap.size
-                addedSkillsMap[addedSkillsMap.size] = nonAddedSkillsMap[i]
-                nonAddedSkillsMap.removeAt(i)
+            var i = 0
+            while (displayableDataList.size != 12 && nonAddedSkillsMap.isNotEmpty()) {
+                nonAddedSkillsMap[0].mapKey = addedSkillsMap.size
+                addedSkillsMap[addedSkillsMap.size] = nonAddedSkillsMap[0]
+                displayableDataList.add(nonAddedSkillsMap[0])
+                nonAddedSkillsMap.removeAt(0)
             }
         }
         searchFlag = false
@@ -67,7 +70,7 @@ object SkillsScreenFacade{
                 displayableDataList.removeAt(i)
                 break
             }
-        if (displayableDataList.size == 11 && !searchFlag) {
+        if (displayableDataList.size == 11 && !searchFlag && nonAddedSkillsMap.isNotEmpty()) {
             displayableDataList.add(nonAddedSkillsMap[0])
             nonAddedSkillsMap[0].mapKey = addedSkillsMap.size
             addedSkillsMap[addedSkillsMap.size] = nonAddedSkillsMap[0]
@@ -77,22 +80,28 @@ object SkillsScreenFacade{
 
     fun searchItem(query: String): ArrayList<SkillsScreenField> {
         val temp = ArrayList<SkillsScreenField>()
+        var counter = 0
         for (i in 0 until displayableDataList.size){
             if(displayableDataList[i].title.contains((query))){
                temp.add(displayableDataList[i])
             }
             else {
-                nonAddedSkillsMap.a
+                nonAddedSkillsMap.add(counter, displayableDataList[i])
+                addedSkillsMap.remove(displayableDataList[i].mapKey)
+                counter++
             }
         }
         displayableDataList.clear()
         displayableDataList.addAll(temp)
-        val iter = nonAddedSkillsMap.iterator()
-        while(iter.hasNext()){
-            val item = iter.next().component2()
-            if (item.title.contains(query) && !item.isAdded){
-                displayableDataList.add(item)
+        var i = 0
+        while (i < nonAddedSkillsMap.size){
+            if (nonAddedSkillsMap[i].title.contains(query)){
+                nonAddedSkillsMap[i].mapKey = addedSkillsMap.size
+                addedSkillsMap[addedSkillsMap.size] = nonAddedSkillsMap[i]
+                displayableDataList.add(nonAddedSkillsMap[i])
+                nonAddedSkillsMap.removeAt(i)
             }
+            i++
         }
         searchFlag = true
         return displayableDataList
@@ -107,7 +116,8 @@ object SkillsScreenFacade{
             if (chosenSkillsDataList[i].id == skillId) {
                 if (displayableDataList.size < 12) displayableDataList.add(chosenSkillsDataList[i])
                 else {
-                    nonAddedSkillsMap[chosenSkillsDataList[i].mapKey]?.isAdded = false
+                    addedSkillsMap.remove(chosenSkillsDataList[i].mapKey)
+                    nonAddedSkillsMap.add(chosenSkillsDataList[i])
                 }
                 chosenSkillsDataList.removeAt(i)
                 break
