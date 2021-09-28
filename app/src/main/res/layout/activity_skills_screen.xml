@@ -74,6 +74,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/chosenSkillsCaption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/work_sans_medium"
+        android:text="@string/chosen_skills_caption"
+        android:layout_marginTop="15dp"
+        style="@style/CSCaptionStyle"
+        app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintTop_toBottomOf="@id/separator" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/offeredSkills"
@@ -91,9 +102,9 @@
         android:id="@+id/chosenSkills"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="15dp"
+        
         android:layout_marginBottom="30dp"
-        app:layout_constraintTop_toBottomOf="@id/separator"
+        app:layout_constraintTop_toBottomOf="@id/chosenSkillsCaption"
         app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
         app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
         app:layout_constraintBottom_toTopOf="@id/btnContinue"/>

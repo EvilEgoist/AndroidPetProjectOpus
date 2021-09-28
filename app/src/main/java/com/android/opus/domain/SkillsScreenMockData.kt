@@ -13,7 +13,7 @@ object SkillsScreenMockData {
             FieldOfActivity(3, "C#", false),
             FieldOfActivity(4, "Kotlin", false),
             FieldOfActivity(5, "CI/CD", false),
-            FieldOfActivity(6, "Frontend", false),
+            FieldOfActivity(6, "FrontendFronetdn", false),
             FieldOfActivity(7, "Backend", false),
             FieldOfActivity(8, "Swift", false),
             FieldOfActivity(9, "Python", false),
