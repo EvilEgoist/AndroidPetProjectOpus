@@ -1,4 +1,4 @@
-package com.android.opus.ui.screen.resumeinfo
+package com.android.opus.ui.screen.profile
 
 import android.os.Bundle
 import android.view.View
@@ -7,21 +7,21 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.opus.R
 import com.android.opus.common.CommonSkillsAdapter
-import com.android.opus.common.WorkPlaceAdapter
-import com.android.opus.domain.ResumeMainInfoInteractor
-import com.android.opus.model.ResumeInfo
+import com.android.opus.domain.ProfileInteractor
+import com.android.opus.model.Profile
 import com.android.opus.model.Skill
 import com.android.opus.model.WorkPlace
+import com.android.opus.common.WorkPlaceAdapter
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_resume_info.*
 import kotlinx.coroutines.Dispatchers
 
-class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
+class ProfileScreenFragment : Fragment(R.layout.fragment_profile) {
 
-    private val viewModel = ResumeInfoViewModel(
-        ResumeMainInfoInteractor(dispatcher = Dispatchers.Default)
+    private val viewModel = ProfileScreenViewModel(
+        ProfileInteractor(dispatcher = Dispatchers.Default)
     )
 
     private val skillsAdapter = CommonSkillsAdapter()
@@ -33,7 +33,7 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
         setUpSkillsAdapter()
         setUpWorkPlaceAdapter()
 
-        viewModel.resume.observe(this.viewLifecycleOwner, this::updateResumeInfo)
+        viewModel.resume.observe(this.viewLifecycleOwner, this::updateProfile)
     }
 
     private fun setUpSkillsAdapter() {
@@ -52,24 +52,22 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
         work_experience.isNestedScrollingEnabled = false
     }
 
-    private fun updateResumeInfo(resumeInfo: ResumeInfo) {
-        updateResumeMainInfo(resumeInfo)
-        updateSkillAdapter(resumeInfo.skills)
-        updateWorkExperienceAdapter(resumeInfo.workExperience)
+    private fun updateProfile(profile: Profile) {
+        updateProfileMainInfo(profile)
+        updateSkillAdapter(profile.skills)
+        updateWorkExperienceAdapter(profile.workExperience)
     }
 
-    private fun updateResumeMainInfo(resumeInfo: ResumeInfo) {
+    private fun updateProfileMainInfo(profile: Profile) {
         Glide.with(this)
-            .load(resumeInfo.imageUrl)
+            .load(profile.imageUrl)
             .into(photo)
-        last_visit.text = resumeInfo.lastVisit
-        user_name.text = resumeInfo.username
-        min_salary.text = resumeInfo.minSalary
-        age.text = resumeInfo.age
-        experience.text = resumeInfo.experience
-        level.text = resumeInfo.level
-        status.text = resumeInfo.status
-        self_description.text = resumeInfo.selfDescription
+        user_name.text = profile.username
+        age.text = profile.age
+        experience.text = profile.experience
+        level.text = profile.level
+        status.text = profile.status
+        self_description.text = profile.selfDescription
     }
 
     private fun updateSkillAdapter(skills: List<Skill>?) {
@@ -81,6 +79,6 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
     }
 
     companion object {
-        fun newInstance(): ResumeInfoFragment = ResumeInfoFragment()
+        fun newInstance(): ProfileScreenFragment = ProfileScreenFragment()
     }
 }

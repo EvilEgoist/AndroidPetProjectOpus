@@ -27,7 +27,7 @@ object WorkExperienceMockData {
             ),
             WorkPlace(
                 125,
-                "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
+                null,
                 "Мастерская фотографии СВЕТОПИСЬ",
                 "Более 500 тыс. человек",
                 "iOS Developer",
