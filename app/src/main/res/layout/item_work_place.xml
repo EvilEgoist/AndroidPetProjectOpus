@@ -11,7 +11,7 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/photo"
+            android:id="@+id/photo_work_place"
             style="@style/WorkPlaceCircleImageViewStyle"
             android:layout_width="@dimen/work_place_circle_image_view_size"
             android:layout_height="@dimen/work_place_circle_image_view_size"

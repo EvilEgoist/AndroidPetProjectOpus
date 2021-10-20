@@ -15,7 +15,15 @@ import com.android.opus.common.WorkPlaceAdapter
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.fragment_resume_info.*
+import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_resume_info.age
+import kotlinx.android.synthetic.main.fragment_resume_info.experience
+import kotlinx.android.synthetic.main.fragment_resume_info.level
+import kotlinx.android.synthetic.main.fragment_resume_info.self_description
+import kotlinx.android.synthetic.main.fragment_resume_info.skills
+import kotlinx.android.synthetic.main.fragment_resume_info.status
+import kotlinx.android.synthetic.main.fragment_resume_info.user_name
+import kotlinx.android.synthetic.main.fragment_resume_info.work_experience
 import kotlinx.coroutines.Dispatchers
 
 class ProfileScreenFragment : Fragment(R.layout.fragment_profile) {
@@ -61,7 +69,7 @@ class ProfileScreenFragment : Fragment(R.layout.fragment_profile) {
     private fun updateProfileMainInfo(profile: Profile) {
         Glide.with(this)
             .load(profile.imageUrl)
-            .into(photo)
+            .into(photo_profile)
         user_name.text = profile.username
         age.text = profile.age
         experience.text = profile.experience

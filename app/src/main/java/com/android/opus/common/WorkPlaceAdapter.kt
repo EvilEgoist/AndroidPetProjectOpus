@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
@@ -12,7 +11,6 @@ import com.android.opus.diff.WorkPlaceDiffCallback
 import com.android.opus.model.WorkPlace
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_work_place.view.*
-
 
 class WorkPlaceAdapter :
     ListAdapter<WorkPlace, WorkPlaceAdapter.WorkPlaceViewHolder>(WorkPlaceDiffCallback()) {
@@ -28,14 +26,19 @@ class WorkPlaceAdapter :
             if (workPlace.imageUrl != null) {
                 Glide.with(context)
                     .load(workPlace.imageUrl)
-                    .into(photo)
+                    .into(photo_work_place)
             } else {
                 val params =
                     job_title.layoutParams as LinearLayout.LayoutParams
-                params.setMargins(24, 0, 0, 0)
+                params.setMargins(
+                    LEFT_MARGIN_AFTER_CHANGE,
+                    TOP_MARGIN_AFTER_CHANGE,
+                    RIGHT_MARGIN_AFTER_CHANGE,
+                    BOTTOM_MARGIN_AFTER_CHANGE
+                )
                 job_title.layoutParams = params
                 place_description.layoutParams = params
-                photo.visibility = View.GONE
+                photo_work_place.visibility = View.GONE
             }
             job_title.text = workPlace.title
             place_description.text = workPlace.placeDescription
@@ -51,4 +54,11 @@ class WorkPlaceAdapter :
     }
 
     class WorkPlaceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    companion object {
+        const val LEFT_MARGIN_AFTER_CHANGE = 24
+        const val RIGHT_MARGIN_AFTER_CHANGE = 0
+        const val TOP_MARGIN_AFTER_CHANGE = 0
+        const val BOTTOM_MARGIN_AFTER_CHANGE = 0
+    }
 }

@@ -61,7 +61,7 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
     private fun updateResumeMainInfo(resumeInfo: ResumeInfo) {
         Glide.with(this)
             .load(resumeInfo.imageUrl)
-            .into(photo)
+            .into(photo_resume)
         last_visit.text = resumeInfo.lastVisit
         user_name.text = resumeInfo.username
         min_salary.text = resumeInfo.minSalary
