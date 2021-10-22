@@ -31,10 +31,10 @@ class WorkPlaceAdapter :
                 val params =
                     job_title.layoutParams as LinearLayout.LayoutParams
                 params.setMargins(
-                    LEFT_MARGIN_AFTER_CHANGE,
-                    TOP_MARGIN_AFTER_CHANGE,
-                    RIGHT_MARGIN_AFTER_CHANGE,
-                    BOTTOM_MARGIN_AFTER_CHANGE
+                    MARGIN_CHANGE_DP,
+                    ZERO_MARGIN_DP,
+                    ZERO_MARGIN_DP,
+                    ZERO_MARGIN_DP
                 )
                 job_title.layoutParams = params
                 place_description.layoutParams = params
@@ -56,9 +56,7 @@ class WorkPlaceAdapter :
     class WorkPlaceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     companion object {
-        const val LEFT_MARGIN_AFTER_CHANGE = 24
-        const val RIGHT_MARGIN_AFTER_CHANGE = 0
-        const val TOP_MARGIN_AFTER_CHANGE = 0
-        const val BOTTOM_MARGIN_AFTER_CHANGE = 0
+        const val MARGIN_CHANGE_DP = 24
+        const val ZERO_MARGIN_DP = 0
     }
 }
