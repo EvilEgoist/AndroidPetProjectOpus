@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="6dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="6dp"
+    android:background="@color/gray_200">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_left_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/root_right_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="37dp" />
+
+    <TextView
+        android:id="@+id/filter_settings_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/filter_settings"
+        android:textAppearance="@style/FilterTitleTextAppearance"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_fields"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/filter_settings_title" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/more"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/activity_fields" />
+
+    <TextView
+        android:id="@+id/search_skills"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/required_skills"
+        android:textAppearance="@style/FilterSubtitleTextAppearance"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/more" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/skills_search"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/shape_search_view_lists"
+        app:layout_constraintEnd_toEndOf="@+id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/search_skills"
+        app:queryHint="Search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/skills"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/skills_search" />
+
+    <TextView
+        android:id="@+id/choosen_skills_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/chosen_skills"
+        android:textAppearance="@style/FilterTitleTextAppearance"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/skills" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chosen_skills"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/choosen_skills_title" />
+
+    <TextView
+        android:id="@+id/salary_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/filter_salary_title"
+        android:textAppearance="@style/FilterSubtitleTextAppearance"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/chosen_skills" />
+
+    <TextView
+        android:id="@+id/from_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/filter_from_interval_title"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/salary_title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/start_salary_filter"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="@dimen/filter_edit_text_width"
+        android:layout_height="@dimen/filter_edit_text_height"
+        android:layout_marginStart="6dp"
+        app:endIconMode="none"
+        app:hintEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/from_title"
+        app:layout_constraintStart_toEndOf="@id/from_title"
+        app:layout_constraintTop_toTopOf="@id/from_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/start_salary"
+            style="@style/TextFormStyle"
+            android:layout_width="@dimen/filter_edit_text_width"
+            android:layout_height="@dimen/filter_edit_text_height"
+            android:gravity="end"
+            android:hint="@string/filter_start_salary_hint"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/currency1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="@string/filter_rub_title"
+        app:layout_constraintBottom_toBottomOf="@+id/from_title"
+        app:layout_constraintStart_toEndOf="@id/start_salary_filter"
+        app:layout_constraintTop_toTopOf="@+id/from_title" />
+
+    <TextView
+        android:id="@+id/to_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/filter_to_interval_title"
+        app:layout_constraintStart_toEndOf="@id/currency1"
+        app:layout_constraintTop_toBottomOf="@id/salary_title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/end_salary_filter"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="@dimen/filter_edit_text_width"
+        android:layout_height="@dimen/filter_edit_text_height"
+        android:layout_marginStart="6dp"
+        app:endIconMode="none"
+        app:hintEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@id/to_title"
+        app:layout_constraintStart_toEndOf="@id/to_title"
+        app:layout_constraintTop_toTopOf="@id/to_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/end_salary"
+            style="@style/TextFormStyle"
+            android:layout_width="@dimen/filter_edit_text_width"
+            android:layout_height="@dimen/filter_edit_text_height"
+            android:gravity="end"
+            android:hint="@string/filter_end_salary_hint"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/currency2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="@string/filter_rub_title"
+        app:layout_constraintBottom_toBottomOf="@+id/to_title"
+        app:layout_constraintStart_toEndOf="@id/end_salary_filter"
+        app:layout_constraintTop_toTopOf="@+id/to_title" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
