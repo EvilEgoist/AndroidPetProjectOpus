@@ -21,7 +21,7 @@ import kotlinx.coroutines.Dispatchers
 
 class FilterScreenFragment : Fragment(R.layout.fragment_filter) {
 
-    private var viewModel: FilterScreenViewModel = FilterScreenViewModel(
+    private val viewModel: FilterScreenViewModel = FilterScreenViewModel(
         activityFieldInteractor = ActivityFieldInteractor(Dispatchers.Default),
         skillsInteractor = SkillsInteractor(Dispatchers.Default)
     )
