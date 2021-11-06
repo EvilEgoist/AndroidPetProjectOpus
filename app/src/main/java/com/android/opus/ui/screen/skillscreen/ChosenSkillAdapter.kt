@@ -26,8 +26,8 @@ class ChosenSkillAdapter(
 
     inner class ChosenSkillViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: SkillsScreenField) {
-            itemView.item_chosen_skill.text = item.title
-            itemView.item_chosen_skill.setOnClickListener {onClickListener.invoke(item.id) }
+            itemView.skill.text = item.title
+            itemView.skill.setOnClickListener {onClickListener.invoke(item.id) }
         }
     }
 }

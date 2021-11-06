@@ -24,7 +24,7 @@
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"
-        android:layout_height="@dimen/search_view_height"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/search_view_style"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,6 @@
         app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
         app:layout_constraintTop_toBottomOf="@+id/caption_under_title"
         app:layout_constraintBottom_toTopOf="@id/offeredSkills"
-        app:layout_constraintVertical_bias="0.0"
         android:queryHint="Search" />
 
     <TextView
@@ -40,8 +39,6 @@
         style="@style/AppTitleStyleBlack"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="1dp"
         android:gravity="top"
         android:text="@string/app_name"
@@ -69,9 +66,11 @@
     <View
         android:id="@+id/separator"
         android:layout_width="0dp"
-        android:layout_height="@dimen/screen_separator_height"
         android:layout_marginTop="10dp"
-        android:background="@drawable/screen_separator"
+        android:layout_height="@dimen/divider_description_size"
+        android:background="@drawable/gradient_horizontal_divider"
+        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
