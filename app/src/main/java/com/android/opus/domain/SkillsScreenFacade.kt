@@ -39,6 +39,10 @@ object SkillsScreenFacade{
         SkillsScreenField(27, 27,"Some data 14"),
     )
 
+    init {
+        refreshDisplayableList()
+    }
+
     fun getResult(): List<SkillsScreenField>? {
         return displayableDataList
     }
@@ -114,7 +118,9 @@ object SkillsScreenFacade{
     fun removeData(skillId: Int) {
         for (i in 0 until chosenSkillsDataList.size)
             if (chosenSkillsDataList[i].id == skillId) {
-                if (displayableDataList.size < 12) displayableDataList.add(chosenSkillsDataList[i])
+                if (displayableDataList.size < 12) {
+                    displayableDataList.add(chosenSkillsDataList[i])
+                }
                 else {
                     addedSkillsMap.remove(chosenSkillsDataList[i].mapKey)
                     nonAddedSkillsMap.add(chosenSkillsDataList[i])

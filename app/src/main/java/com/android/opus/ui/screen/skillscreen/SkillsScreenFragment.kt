@@ -5,15 +5,21 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.android.opus.R
 import com.android.opus.domain.SkillsScreenFacade
+import com.android.opus.domain.SkillsScreenInteractor
 import com.android.opus.model.SkillsScreenField
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
 import kotlinx.android.synthetic.main.activity_skills_screen.*
+import kotlinx.coroutines.Dispatchers
 
 
 class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
     android.widget.SearchView.OnQueryTextListener,
     android.widget.SearchView.OnCloseListener{
+
+    private val viewModel = SkillsScreenViewModel(
+        SkillsScreenInteractor(dispatcher = Dispatchers.Default)
+    )
 
     private val chosenSkillAdapter = ChosenSkillAdapter{ Id -> SkillsScreenFacade.removeData(Id);
         updateAdapter(SkillsScreenFacade.getResult());
@@ -26,7 +32,7 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSCAdapter()
-        updateAdapter(SkillsScreenFacade.refreshDisplayableList())
+        viewModel.skillsScreenFields.observe(this.viewLifecycleOwner, this::updateAdapter)
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
         searchView?.setOnCloseListener (this)
@@ -60,7 +66,9 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         if (query != null) {
-            if (query!="") searchSkill(query)
+            if (query!="") {
+                searchSkill(query)
+            }
         }
         searchView.clearFocus();
         return true
