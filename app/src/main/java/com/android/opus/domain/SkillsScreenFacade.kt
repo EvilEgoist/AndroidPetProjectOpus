@@ -67,7 +67,7 @@ object SkillsScreenFacade{
     }
 
 
-    fun addData(skillId: Int) {
+    fun addData(skillId: Int):ArrayList<SkillsScreenField> {
         for (i in 0 until displayableDataList.size)
             if (displayableDataList[i].id == skillId) {
                 chosenSkillsDataList.add(displayableDataList[i])
@@ -80,6 +80,7 @@ object SkillsScreenFacade{
             addedSkillsMap[addedSkillsMap.size] = nonAddedSkillsMap[0]
             nonAddedSkillsMap.removeAt(0)
         }
+        return displayableDataList
     }
 
     fun searchItem(query: String): ArrayList<SkillsScreenField> {
@@ -115,7 +116,7 @@ object SkillsScreenFacade{
         return chosenSkillsDataList
     }
 
-    fun removeData(skillId: Int) {
+    fun removeData(skillId: Int): ArrayList<SkillsScreenField> {
         for (i in 0 until chosenSkillsDataList.size)
             if (chosenSkillsDataList[i].id == skillId) {
                 if (displayableDataList.size < 12) {
@@ -128,5 +129,6 @@ object SkillsScreenFacade{
                 chosenSkillsDataList.removeAt(i)
                 break
             }
+        return chosenSkillsDataList
     }
 }

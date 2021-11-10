@@ -3,6 +3,7 @@ package com.android.opus.ui.screen.skillscreen
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.observe
 import com.android.opus.R
 import com.android.opus.domain.SkillsScreenFacade
 import com.android.opus.domain.SkillsScreenInteractor
@@ -21,18 +22,15 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
         SkillsScreenInteractor(dispatcher = Dispatchers.Default)
     )
 
-    private val chosenSkillAdapter = ChosenSkillAdapter{ Id -> SkillsScreenFacade.removeData(Id);
-        updateAdapter(SkillsScreenFacade.getResult());
-        updateAdapterOfCS((SkillsScreenFacade.getNewData()))}
+    private val chosenSkillAdapter = ChosenSkillAdapter{ id -> viewModel.removeSkill(id) }
 
-    private val SCAdapter = SkillsScreenAdapter { skillId -> SkillsScreenFacade.addData(skillId);
-        updateAdapter(SkillsScreenFacade.getResult());
-        updateAdapterOfCS(SkillsScreenFacade.getNewData()) }
+    private val SCAdapter = SkillsScreenAdapter { skillId -> viewModel.addSkill(skillId) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSCAdapter()
-        viewModel.skillsScreenFields.observe(this.viewLifecycleOwner, this::updateAdapter)
+        viewModel.loadedSkills.observe(this.viewLifecycleOwner, this::updateAdapter)
+        viewModel.chosenSkills.observe(this.viewLifecycleOwner, this::updateAdapterOfCS)
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
         searchView?.setOnCloseListener (this)
@@ -67,7 +65,7 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
     override fun onQueryTextSubmit(query: String?): Boolean {
         if (query != null) {
             if (query!="") {
-                searchSkill(query)
+                viewModel.searchSkill(query)
             }
         }
         searchView.clearFocus();
@@ -76,7 +74,9 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
 
     override fun onQueryTextChange(query: String?): Boolean {
         if (query != null) {
-            if (query!="") searchSkill(query)
+            if (query!="") {
+                viewModel.searchSkill(query)
+            }
         }
         return true
     }
@@ -84,12 +84,8 @@ class SkillsScreenFragment : Fragment(R.layout.activity_skills_screen),
     override fun onClose(): Boolean {
         searchView.setIconified(false);
         searchView.clearFocus();
-        updateAdapter(SkillsScreenFacade.refreshDisplayableList())
+        viewModel.refreshFacade()
         return true
-    }
-
-    private fun searchSkill(query: String){
-        updateAdapter(SkillsScreenFacade.searchItem(query))
     }
 
     companion object {
