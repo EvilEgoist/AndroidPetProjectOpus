@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/yellow">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/rootLeftBorder"
@@ -19,57 +19,56 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/vertical_border_screen_margins" />
 
-
     <TextView
         android:id="@+id/appTitleForm"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_form"
-        android:text="@string/app_name"
         android:layout_marginTop="24dp"
+        android:text="@string/app_name"
         android:textAppearance="@style/AppTitleAppearance.SecondAppTitleAppearance"
         app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/infoTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/info_title_field_of_activity"
+        android:text="@string/add_photo"
         android:textAppearance="@style/SubtitleTextAppearance.SecondSubtitleAppearance"
         app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
         app:layout_constraintTop_toBottomOf="@id/appTitleForm" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemsFieldOfActivity"
-        android:layout_width="0dp"
-        android:overScrollMode="never"
-        android:layout_height="0dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="51dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnBase"
-        app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
-        app:layout_constraintStart_toEndOf="@id/rootLeftBorder"
-        app:layout_constraintTop_toBottomOf="@id/infoTitle" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/mainPhoto"
+        android:layout_width="@dimen/main_photo_size"
+        android:layout_height="@dimen/main_photo_size"
+        android:src="@drawable/ic_empty_photo"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="@dimen/border_main_photo_width"
+        app:civ_circle_background_color="@color/gray_200"
+        app:layout_constraintBottom_toTopOf="@+id/enter_btn"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/rootRightBorder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/rootLeftBorder"
+        app:layout_constraintTop_toBottomOf="@+id/infoTitle"
+        app:layout_constraintVertical_bias="0.2" />
 
-
-    <TextView
-        android:id="@+id/btnBase"
-        android:textAppearance="@style/ButtonTextStyle"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/enter_btn"
+        style="@style/ButtonTextStyle.LightText"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_btn"
         android:layout_marginBottom="51dp"
-        android:background="@drawable/shape_btn_enter_with_stroke"
+        android:background="@drawable/shape_btn_enter_black"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:gravity="center"
         android:text="@string/continue_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
         app:layout_constraintStart_toStartOf="@id/rootLeftBorder" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

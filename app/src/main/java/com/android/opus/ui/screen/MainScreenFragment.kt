@@ -244,7 +244,7 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
     private fun hideMainStateShowSignUpState() {
         greetingTitle?.setText(R.string.sign_up_screen_greeting_title)
         signGooglBtnText?.setText(R.string.sign_up_with_google)
-        enterBtn?.setText(R.string.sign_up_enter)
+        enterBtn?.setText(R.string.continue_text)
 
         hideMainStateViews()
         showViewsByStateGroup(signUpFormGroup)
