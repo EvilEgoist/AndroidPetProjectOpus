@@ -204,7 +204,7 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
     private fun initViews(view: View) {
         topBarrier = view.findViewById(R.id.top_barrier)
 
-        appTitle = view.findViewById(R.id.appTitleForm)
+        appTitle = view.findViewById(R.id.app_title_form)
         greetingTitle = view.findViewById(R.id.greeting_title_form)
 
         loginEmailInputForm = view.findViewById(R.id.login_email_layout)

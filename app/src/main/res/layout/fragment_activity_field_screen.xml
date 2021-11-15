@@ -6,14 +6,14 @@
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rootLeftBorder"
+        android:id="@+id/root_left_border"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="@dimen/vertical_border_screen_margins" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rootRightBorder"
+        android:id="@+id/root_right_border"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -21,28 +21,28 @@
 
 
     <TextView
-        android:id="@+id/appTitleForm"
+        android:id="@+id/app_title_form"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_form"
         android:text="@string/app_name"
         android:layout_marginTop="24dp"
         android:textAppearance="@style/AppTitleAppearance.SecondAppTitleAppearance"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
-        android:id="@+id/infoTitle"
+        android:id="@+id/info_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/info_title_field_of_activity"
         android:textAppearance="@style/SubtitleTextAppearance.SecondSubtitleAppearance"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
-        app:layout_constraintTop_toBottomOf="@id/appTitleForm" />
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/app_title_form" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemsFieldOfActivity"
@@ -52,9 +52,9 @@
         android:layout_marginTop="48dp"
         android:layout_marginBottom="51dp"
         app:layout_constraintBottom_toTopOf="@+id/btnBase"
-        app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
-        app:layout_constraintStart_toEndOf="@id/rootLeftBorder"
-        app:layout_constraintTop_toBottomOf="@id/infoTitle" />
+        app:layout_constraintEnd_toStartOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/info_title" />
 
 
     <TextView
@@ -68,8 +68,8 @@
         android:gravity="center"
         android:text="@string/continue_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder" />
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

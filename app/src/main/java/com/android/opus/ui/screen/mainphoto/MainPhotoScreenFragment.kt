@@ -27,7 +27,7 @@ class MainPhotoScreenFragment : Fragment(R.layout.fragment_main_photo_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initStoragePermissions()
-        mainPhoto.setOnClickListener {
+        photo.setOnClickListener {
             if (isStoragePermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 && isStoragePermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE)
             ) {
@@ -49,7 +49,7 @@ class MainPhotoScreenFragment : Fragment(R.layout.fragment_main_photo_screen) {
     }
 
     private fun updateImage(imageUri: Uri?) {
-        Glide.with(this).load(imageUri).into(mainPhoto)
+        Glide.with(this).load(imageUri).into(photo)
     }
 
     private fun initStoragePermissions() {

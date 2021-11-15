@@ -8,14 +8,14 @@
     android:background="@raw/background">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rootLeftBorder"
+        android:id="@+id/root_left_border"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="@dimen/vertical_border_screen_margins" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rootRightBorder"
+        android:id="@+id/root_right_border"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -31,15 +31,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/appTitleForm"
+        android:id="@+id/app_title_form"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_form"
         android:layout_marginTop="120dp"
         android:text="@string/app_name"
         android:textAppearance="@style/AppTitleAppearance"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/top_barrier"
         app:layout_goneMarginTop="24dp" />
 
@@ -49,10 +49,10 @@
         android:layout_height="wrap_content"
         android:text="@string/main_screen_greeting_title"
         android:textAppearance="@style/SubtitleTextAppearance"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
-        app:layout_constraintTop_toBottomOf="@id/appTitleForm" />
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
+        app:layout_constraintTop_toBottomOf="@id/app_title_form" />
 
 
     <androidx.constraintlayout.widget.Group
@@ -72,8 +72,8 @@
         app:errorIconDrawable="@drawable/ic_error"
         app:errorIconTint="@color/red"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/greeting_title_form">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -96,9 +96,9 @@
         app:errorIconDrawable="@drawable/ic_error"
         app:errorIconTint="@color/red"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/login_email_layout"
         app:passwordToggleDrawable="@drawable/selector_show_password">
 
@@ -134,8 +134,8 @@
         app:errorIconDrawable="@drawable/ic_error"
         app:errorIconTint="@color/red"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/greeting_title_form">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -158,8 +158,8 @@
         app:errorIconDrawable="@drawable/ic_error"
         app:errorIconTint="@color/red"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/sign_up_name_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -182,8 +182,8 @@
         app:errorIconDrawable="@drawable/ic_error"
         app:errorIconTint="@color/red"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/sign_up_surname_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -207,9 +207,9 @@
         app:errorIconDrawable="@drawable/ic_error"
         app:errorIconTint="@color/red"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/sign_up_email_layout"
         app:passwordToggleDrawable="@drawable/selector_show_password">
 
@@ -233,8 +233,8 @@
         app:endIconTint="@color/green"
         app:errorIconTint="@color/red"
         app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/sign_up_first_password_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -259,8 +259,8 @@
         android:paddingEnd="16dp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/enter_btn"
-        app:layout_constraintEnd_toStartOf="@id/rootRightBorder"
-        app:layout_constraintStart_toEndOf="@id/rootLeftBorder">
+        app:layout_constraintEnd_toStartOf="@id/root_right_border"
+        app:layout_constraintStart_toEndOf="@id/root_left_border">
 
         <ImageView
             android:layout_width="@dimen/ic_googl_size"
@@ -286,8 +286,8 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:text="@string/sign_up"
         app:layout_constraintBottom_toTopOf="@id/enter_btn"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder" />
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border" />
 
     <TextView
         android:id="@+id/enter_btn"
@@ -299,7 +299,7 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:text="@string/enter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
-        app:layout_constraintStart_toStartOf="@id/rootLeftBorder" />
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
+        app:layout_constraintStart_toStartOf="@id/root_left_border" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
