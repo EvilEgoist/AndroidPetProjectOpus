@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
 import com.android.opus.common.CommonSkillsAdapter
 import com.android.opus.common.DisplayableItem
-import com.android.opus.common.DisplayableItemsDiffUtilCallback
+import com.android.opus.common.adapters.diff.DisplayableItemsDiffUtilCallback
 import com.android.opus.model.Resume
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
@@ -27,7 +27,12 @@ class ResumeDelegateAdapter(
 
     fun setData(items: List<DisplayableItem>) {
         val diffResult =
-            DiffUtil.calculateDiff(DisplayableItemsDiffUtilCallback(this.items.orEmpty(), items))
+            DiffUtil.calculateDiff(
+                DisplayableItemsDiffUtilCallback(
+                    this.items.orEmpty(),
+                    items
+                )
+            )
         this.items = items
         diffResult.dispatchUpdatesTo(this)
     }

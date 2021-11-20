@@ -13,7 +13,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.android.opus.R
 import com.android.opus.common.DisplayableItem
-import com.android.opus.common.DisplayableItemsDiffUtilCallback
+import com.android.opus.common.adapters.diff.DisplayableItemsDiffUtilCallback
 import com.android.opus.model.Vacancy
 import com.google.android.material.chip.Chip
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
@@ -29,7 +29,12 @@ class VacancyDelegateAdapter(
     }
 
     fun setData(items: List<DisplayableItem>) {
-        val diffResult = DiffUtil.calculateDiff(DisplayableItemsDiffUtilCallback(this.items.orEmpty(), items))
+        val diffResult = DiffUtil.calculateDiff(
+            DisplayableItemsDiffUtilCallback(
+                this.items.orEmpty(),
+                items
+            )
+        )
         this.items = items
         diffResult.dispatchUpdatesTo(this)
     }
