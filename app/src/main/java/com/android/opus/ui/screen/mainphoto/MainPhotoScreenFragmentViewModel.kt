@@ -26,15 +26,16 @@ class MainPhotoScreenFragmentViewModel(
         }
     }
 
-    fun loadPickedImage(data: Intent?) {
+    fun loadPickedImageIntoImagePicker(data: Intent?) {
         imagePicker.loadData(data)
-        imageUri.postValue(imagePicker.getSingleImage())
     }
 
     fun loadCroppedImage(data: Intent?) {
-        imageUri.postValue(imageCropper.parseData(data))
+        val image = imageCropper.parseData(data)
+        imageUri.postValue(image)
     }
 
     fun getImageRequestCode() = ImagePicker.REQUEST_CODE_CHOOSE
+
     fun getImageCropCode() = ImageCropper.REQUEST_CODE_CROP
 }

@@ -26,8 +26,8 @@ class MainPhotoScreenFragment : Fragment(R.layout.fragment_main_photo_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initStoragePermissions()
         photo.setOnClickListener {
+            initStoragePermissions()
             if (isStoragePermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 && isStoragePermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE)
             ) {
@@ -40,7 +40,7 @@ class MainPhotoScreenFragment : Fragment(R.layout.fragment_main_photo_screen) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == viewModel.getImageRequestCode() && resultCode == Activity.RESULT_OK) {
-            viewModel.loadPickedImage(data)
+            viewModel.loadPickedImageIntoImagePicker(data)
             viewModel.cropImage()
         }
         if (requestCode == viewModel.getImageCropCode() && resultCode == Activity.RESULT_OK) {

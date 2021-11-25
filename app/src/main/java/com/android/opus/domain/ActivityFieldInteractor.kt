@@ -7,7 +7,7 @@ import kotlinx.coroutines.withContext
 class ActivityFieldInteractor(
     private val dispatcher: CoroutineDispatcher,
 ) {
-    suspend fun loadActivityFieldList() : List<FieldOfActivity>? =
+    suspend fun loadActivityFieldList() : List<FieldOfActivity> =
         withContext(dispatcher) {
             FieldOfActivityMockData.getResult()
         }

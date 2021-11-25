@@ -146,12 +146,18 @@ class EditProfileScreenFragment : Fragment(R.layout.fragment_edit_profile) {
 
     private fun updateProfileInputResult(result: EditProfileResult) {
         when (result) {
-            EditProfileResult.Error.Name -> edit_first_name.error = ""
-            EditProfileResult.Error.Surname -> edit_second_name.error = " "
-            EditProfileResult.Error.Patronymic -> edit_patronymic.error = " "
+            EditProfileResult.Error.Name -> edit_first_name_layout.error = " "
+            EditProfileResult.Error.Surname -> edit_second_name_layout.error = " "
+            EditProfileResult.Error.Patronymic -> edit_patronymic_layout.error = " "
+            EditProfileResult.Success.SuccessBaseUserInput -> clearErrors()
         }
     }
 
+    private fun clearErrors() {
+        edit_first_name_layout.isErrorEnabled = false
+        edit_second_name_layout.isErrorEnabled = false
+        edit_patronymic_layout.isErrorEnabled = false
+    }
 
     private fun setUpLoadedSkillsAdapter() {
         edit_profile_loaded_skills?.layoutManager = ChipsLayoutManager.newBuilder(requireContext())

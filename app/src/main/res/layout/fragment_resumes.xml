@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
-            android:text="@string/vacancies"
+            android:text="@string/resumes"
             android:textColor="@color/light_background"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +73,7 @@
         app:layout_constraintGuide_end="@dimen/border_list_screen_margins" />
 
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/vacancySearch"
+        android:id="@+id/resume_search"
         style="@style/AppSearchView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintStart_toStartOf="@id/root_left_border"
-        app:layout_constraintTop_toBottomOf="@id/vacancySearch" />
+        app:layout_constraintTop_toBottomOf="@id/resume_search" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerViewContainer"
@@ -104,7 +104,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintStart_toStartOf="@id/root_left_border"
-        app:layout_constraintTop_toBottomOf="@id/vacancySearch">
+        app:layout_constraintTop_toBottomOf="@id/resume_search">
 
         <LinearLayout
             android:layout_width="match_parent"

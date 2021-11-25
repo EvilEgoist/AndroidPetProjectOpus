@@ -17,7 +17,7 @@ class CheckCorrectUserData {
             .matcher(email).matches()
 
         fun isValidPassword(password: String): Boolean {
-            val pattern: Pattern = Pattern.compile("^[A-Za-z0-9]{6,}$")
+            val pattern: Pattern = Pattern.compile("^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{8,}\$")
             return password.isNotEmpty() && pattern.matcher(password).matches()
         }
 

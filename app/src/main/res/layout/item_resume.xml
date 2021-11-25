@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textAppearance="@style/DescriptionActiveTextAppearance.TitleAppearance"
+                android:textAppearance="@style/ResumeVacancyTextAppearance"
                 tools:text="Дарт Вейдер" />
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textAppearance="@style/DescriptionTextAppearance.TitleSecondTextColorAppearance"
+                android:textAppearance="@style/ResumeVacancyDescriptionTextAppearance"
                 tools:text="Дарт Вейдер" />
         </LinearLayout>
     </LinearLayout>
@@ -58,65 +58,65 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/work_experience"
-                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance" />
+                android:textAppearance="@style/ResumeVacancyTextAppearance.Subtitles" />
 
             <TextView
                 android:id="@+id/experience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/DescriptionActiveTextAppearance.MainAppearance"
+                android:fontFamily="@font/work_sans_regular"
+                android:textAppearance="@style/ResumeVacancyTextAppearance.ThirdTitle"
                 tools:text="300 0000" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="@dimen/resume_margins_between_titles"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/salary"
-                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance" />
+                android:textAppearance="@style/ResumeVacancyTextAppearance.Subtitles" />
 
             <TextView
                 android:id="@+id/salary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/DescriptionActiveTextAppearance.MainAppearance"
+                android:fontFamily="@font/work_sans_regular"
+                android:textAppearance="@style/ResumeVacancyTextAppearance.ThirdTitle"
                 tools:text="30 000" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="@dimen/resume_margins_between_titles"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/level"
-                android:textAppearance="@style/DescriptionTitleTextAppearance.SubtitleAppearance" />
+                android:textAppearance="@style/ResumeVacancyTextAppearance.Subtitles" />
 
             <TextView
                 android:id="@+id/level"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/DescriptionActiveTextAppearance.MainAppearance"
+                android:fontFamily="@font/work_sans_regular"
+                android:textAppearance="@style/ResumeVacancyTextAppearance.ThirdTitle"
                 tools:text="Middle" />
         </LinearLayout>
 
@@ -130,7 +130,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="24dp"
-        android:textAppearance="@style/DescriptionTextAppearance.SecondTextAppearance"
+        android:textAppearance="@style/ResumeVacancyDescriptionTextAppearance"
         tools:text="Работаю за еду, готов работать удалленно, люблю сладких дамочек, которые готовы работать со сладким мальчиком, я очень красивый и всегда иду на контакт, но если вы буде..." />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -146,9 +146,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/item_vacancy_inside_middle_margin"
+        android:layout_marginEnd="@dimen/border_item_vacancy_top_margins"
+        android:layout_marginBottom="@dimen/border_item_vacancy_top_margins"
         android:text="@string/watch_more"
-        android:textAppearance="@style/DescriptionTextAppearance.SecondTextAppearance" />
+        android:textAppearance="@style/ResumeVacancyTextHelperAppearance" />
 </LinearLayout>

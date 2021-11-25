@@ -9,16 +9,18 @@ import android.widget.TextView
 import androidx.core.view.marginEnd
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import coil.transform.CircleCropTransformation
 import com.android.opus.R
 import com.android.opus.common.DisplayableItem
 import com.android.opus.common.adapters.diff.DisplayableItemsDiffUtilCallback
+import com.android.opus.common.adapters.skills.CommonSkillsAdapter
 import com.android.opus.model.Vacancy
-import com.google.android.material.chip.Chip
+import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
+import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
+import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import kotlinx.android.synthetic.main.item_vacancy.view.*
+import kotlinx.android.synthetic.main.item_vacancy.view.salary
 
 class VacancyDelegateAdapter(
     onVacancyAction: (Int) -> Unit,
@@ -44,6 +46,8 @@ private class VacancyDelegate(
     private val onVacancyAction: (Int) -> Unit
 ) : AbsListItemAdapterDelegate<Vacancy, DisplayableItem, VacancyDelegate.ViewHolder>() {
 
+    val viewPool = RecyclerView.RecycledViewPool()
+
     override fun isForViewType(item: DisplayableItem, items: List<DisplayableItem>, position: Int): Boolean {
         return item is Vacancy
     }
@@ -53,31 +57,32 @@ private class VacancyDelegate(
     )
 
     override fun onBindViewHolder(item: Vacancy, viewHolder: ViewHolder, payloads: List<Any>) {
-        viewHolder.bind(item, onVacancyAction)
+        with(viewHolder.itemView){
+            Glide.with(context)
+                .load(item.imageUrl)
+                .into(employer_image)
+            title_vacancy.text = item.titleVacancy
+            employer_name.text = item.employerName
+            salary.text = item.salary
+            vacancy_description.text = item.description
+            skills.setRecycledViewPool(viewPool)
+            skills.adapter = CommonSkillsAdapter().apply {
+                submitList(item.skills)
+            }
+            watch_more_vacancy.setOnClickListener { onVacancyAction.invoke(item.id) }
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: Vacancy, onVacancyAction: (Int) -> Unit) {
-            itemView.titleVacancy.text = item.titleVacancy
-            itemView.employerName.text = item.employerName
-            itemView.salary.text = item.salary
-            itemView.employerImage.load(item.imageUrl) {
-                transformations(CircleCropTransformation())
+        init {
+            with(itemView) {
+                skills.layoutManager = ChipsLayoutManager.newBuilder(itemView.context)
+                    .setScrollingEnabled(false)
+                    .setOrientation(ChipsLayoutManager.HORIZONTAL)
+                    .setRowStrategy(ChipsLayoutManager.STRATEGY_DEFAULT)
+                    .build()
+                skills.addItemDecoration(SpacingItemDecoration(8, 2))
             }
-            itemView.vacancyDescription.text = item.description
-
-            for ((index, skill) in item.skills.withIndex()) {
-                if (index == 4) {
-                    break
-                }
-                val view = Chip(itemView.context)
-                view.text = skill.title
-                view.id = View.generateViewId()
-                view.isEnabled = false
-                itemView.skillsGroup.addView(view)
-            }
-
-            itemView.setOnClickListener { onVacancyAction.invoke(item.id) }
         }
     }
 }

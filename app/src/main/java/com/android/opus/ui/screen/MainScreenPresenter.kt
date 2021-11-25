@@ -63,9 +63,20 @@ class MainScreenPresenter(
                 is RequestResult.Error.Email -> view?.showEmailError()
                 is RequestResult.Error.Password -> view?.showPasswordError()
                 is RequestResult.Error.ConfirmedPassword -> view?.showConfirmError()
-                is RequestResult.Success.ConfirmedPassword -> view?.showConfirmSuccess()
             }
 
+        }
+    }
+
+    fun passwordConfirmCheck(firstPassword: String, secondPassword: String) {
+        presenterScope.launch {
+            val passwordConfirmCheckResult =
+                interactor.passwordConfirmCheck(firstPassword, secondPassword)
+
+            when (passwordConfirmCheckResult) {
+                is RequestResult.Error.ConfirmedPassword -> view?.showConfirmError()
+                is RequestResult.Success.ConfirmedPassword -> view?.showConfirmSuccess()
+            }
         }
     }
 

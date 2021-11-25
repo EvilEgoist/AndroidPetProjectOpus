@@ -11,7 +11,8 @@ class ResumeInfoViewModel(
     private val interactor: ResumeMainInfoInteractor,
 ) : ViewModel() {
 
-    val resume = MutableLiveData<ResumeInfo>();
+    val resume = MutableLiveData<ResumeInfo>()
+    val email = MutableLiveData<String>()
 
     init {
        loadResume()
@@ -20,6 +21,12 @@ class ResumeInfoViewModel(
     fun loadResume() {
         viewModelScope.launch {
             resume.postValue(interactor.loadMainInfo())
+        }
+    }
+
+    fun loadEmail() {
+        viewModelScope.launch {
+            email.postValue(resume.value?.email)
         }
     }
 }

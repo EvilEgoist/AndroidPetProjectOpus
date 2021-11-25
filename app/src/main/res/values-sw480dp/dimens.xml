@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="vertical_border_screen_margins">36dp</dimen>
     <dimen name="button_text_size">24dp</dimen>
     <dimen name="greeting_text_size">24dp</dimen>
 
     <dimen name="min_height_check_box">32dp</dimen>
-    <dimen name="check_box_field_of_activity_text_size">14dp</dimen>
+    <dimen name="check_box_field_of_activity_text_size">16dp</dimen>
 
     <dimen name="header_description_text_size">20sp</dimen>
     <dimen name="title_description_text_size">18sp</dimen>
     <dimen name="main_text_description_size">16sp</dimen>
-    <dimen name="minimum_text_size">14sp</dimen>
+    <dimen name="minimum_text_size">16sp</dimen>
     <dimen name="header_active_text_size">24sp</dimen>
 
     <dimen name="skill_text_size">16sp</dimen>
+    <dimen name="item_activity_field_top_margin">10dp</dimen>
+    <dimen name="spacing_decor">40dp</dimen>
+
+    <dimen name="resume_margins_between_titles">48dp</dimen>
+    <dimen name="resume_info_margins_between_titles">60dp</dimen>
+    <dimen name="resume_info_margin_start_experience_title">66dp</dimen>
 </resources>

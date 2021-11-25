@@ -13,7 +13,6 @@ import com.android.opus.domain.ProfileInteractor
 import com.android.opus.domain.SkillsInteractor
 import com.android.opus.model.*
 import com.android.opus.ui.screen.edit.CheckBaseProfileInfo
-import com.android.opus.ui.screen.edit.empty.profile.EditEmptyProfileScreenViewModel
 import kotlinx.coroutines.launch
 
 class EditProfileScreenViewModel(
@@ -30,9 +29,12 @@ class EditProfileScreenViewModel(
     val editSelfDescriptionState = MutableLiveData<Boolean>()
     val image = MutableLiveData<Uri>()
     val userBaseDataInput = MutableLiveData<EditProfileResult>()
+    private var userDataInputState: EditProfileResult =
+        EditProfileResult.Success.SuccessBaseUserInput
     private var loadedSkillsEditWorkPlace: List<Skill> = listOf()
 
     init {
+        userBaseDataInput.postValue(userDataInputState)
         editSelfDescriptionState.postValue(false)
         loadProfile()
         loadSkills()
@@ -87,29 +89,31 @@ class EditProfileScreenViewModel(
         endSalary: String,
         selfDescription: String
     ) {
-        val result = CheckBaseProfileInfo.checkCorrectBaseProfileEdit(
-            name,
-            surname,
-            patronymic
-        )
-        if (result == EditProfileResult.Success.SuccessBaseUserInput) {
-            profile.value?.firstName = name
-            profile.value?.secondName = surname
-            profile.value?.patronymic = patronymic
-            profile.value?.birthDate =
-                birthDay + EditEmptyProfileScreenViewModel.BIRTH_DELIM + birthMonth + EditEmptyProfileScreenViewModel.BIRTH_DELIM + birthYear
-            profile.value?.shortSelfDescription = shortSelfDescription
-            profile.value?.salaryStart = startSalary
-            profile.value?.salaryEnd = endSalary
-            profile.value?.selfDescription = selfDescription
-            profile.postValue(profile.value)
+        viewModelScope.launch {
+            userDataInputState = CheckBaseProfileInfo.checkCorrectBaseProfileEdit(
+                name,
+                surname,
+                patronymic
+            )
+            if (userDataInputState == EditProfileResult.Success.SuccessBaseUserInput) {
+                profile.value?.firstName = name
+                profile.value?.secondName = surname
+                profile.value?.patronymic = patronymic
+                profile.value?.birthDate =
+                    birthDay + BIRTH_DELIM + birthMonth + BIRTH_DELIM + birthYear
+                profile.value?.shortSelfDescription = shortSelfDescription
+                profile.value?.salaryStart = startSalary
+                profile.value?.salaryEnd = endSalary
+                profile.value?.selfDescription = selfDescription
+                profile.postValue(profile.value)
+            }
+            userBaseDataInput.postValue(userDataInputState)
         }
-        userBaseDataInput.postValue(result)
     }
 
     fun saveProfile() {
         viewModelScope.launch {
-            if (userBaseDataInput.value == EditProfileResult.Success.SuccessBaseUserInput) {
+            if (userDataInputState == EditProfileResult.Success.SuccessBaseUserInput) {
                 val workExperience: MutableList<WorkPlace> = mutableListOf()
                 for (i in editWorkExperience.value!!) {
                     if (i is EditWorkPlace) {
@@ -231,5 +235,8 @@ class EditProfileScreenViewModel(
             profile.postValue(profileToLoad)
             editWorkExperience.postValue(profileToLoad.workExperience)
         }
+    }
+    companion object {
+        const val BIRTH_DELIM = "/"
     }
 }

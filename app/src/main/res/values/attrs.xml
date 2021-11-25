@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditTextConfirmationState">
+        <attr name="state_confirmed" format="boolean" />
+        <attr name="state_error" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="InputLayoutConfirmationState">
+        <attr name="confirmIconDrawable" format="reference" />
+        <attr name="confirmIconTint" format="color" />
+    </declare-styleable>
+</resources>

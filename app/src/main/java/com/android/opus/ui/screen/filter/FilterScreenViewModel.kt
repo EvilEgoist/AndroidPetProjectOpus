@@ -18,19 +18,28 @@ class FilterScreenViewModel(
     private val skillsInteractor: SkillsInteractor
 ) : ViewModel() {
 
-    val activityFields = MutableLiveData<List<FieldOfActivity>?>()
+    val activityFields = MutableLiveData<List<FieldOfActivity>>()
     val chosenSkills = MutableLiveData<List<Skill>?>()
     val loadedSkills = MutableLiveData<List<Skill>?>()
+    private val allActivityFields = MutableLiveData<List<FieldOfActivity>>()
 
     fun loadActivityFieldList() {
         viewModelScope.launch {
-            activityFields.postValue(activityFieldInteractor.loadActivityFieldList())
+            val loadedActivityFields = activityFieldInteractor.loadActivityFieldList()
+            allActivityFields.postValue(loadedActivityFields)
+            activityFields.postValue(loadedActivityFields.take(MIN_DISPLAYABLE_ELEMENTS))
         }
     }
 
     fun loadSkills() {
         viewModelScope.launch {
             loadedSkills.postValue(skillsInteractor.loadSkillsScreenList())
+        }
+    }
+
+    fun loadAllActivityFields() {
+        viewModelScope.launch {
+            activityFields.postValue(allActivityFields.value)
         }
     }
 
@@ -72,5 +81,9 @@ class FilterScreenViewModel(
             chosenSkills.postValue(listChosenSkills)
             loadedSkills.postValue(listLoadedSkills)
         }
+    }
+
+    companion object {
+        const val MIN_DISPLAYABLE_ELEMENTS = 5
     }
 }

@@ -13,7 +13,7 @@ import com.android.opus.utils.bindFloatingActionButton
 import kotlinx.android.synthetic.main.fragment_vacanies.*
 import kotlinx.coroutines.Dispatchers
 
-class ResumeScreenFragment : Fragment(R.layout.fragment_vacanies) {
+class ResumeScreenFragment : Fragment(R.layout.fragment_resumes) {
     private var viewModel = ResumeScreenViewModel(
         ResumeInteractor(dispatcher = Dispatchers.IO)
     )

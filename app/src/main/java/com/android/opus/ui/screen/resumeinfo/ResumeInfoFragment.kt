@@ -1,7 +1,12 @@
 package com.android.opus.ui.screen.resumeinfo
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,8 +20,10 @@ import com.android.opus.model.WorkPlace
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_resume_info.*
 import kotlinx.coroutines.Dispatchers
+
 
 class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
 
@@ -33,7 +40,12 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
         setUpSkillsAdapter()
         setUpWorkPlaceAdapter()
 
+        fab_mail.setOnClickListener {
+            viewModel.loadEmail()
+        }
+
         viewModel.resume.observe(this.viewLifecycleOwner, this::updateResumeInfo)
+        viewModel.email.observe(this.viewLifecycleOwner, this::updateEmail)
     }
 
     private fun setUpSkillsAdapter() {
@@ -80,7 +92,22 @@ class ResumeInfoFragment : Fragment(R.layout.fragment_resume_info) {
         workPlaceAdapter.submitList(workExperience)
     }
 
+    private fun updateEmail(email: String) {
+        val snackBar = Snackbar.make(
+            requireView().findViewById(R.id.coordinator),
+            email,
+            Snackbar.LENGTH_INDEFINITE
+        )
+        snackBar.setAction(getString(R.string.copy)) {
+            val clipboard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clipData = ClipData.newPlainText(LABEL_TITLE, email)
+            clipboard.setPrimaryClip(clipData)
+        }
+        snackBar.show()
+    }
+
     companion object {
+        private const val LABEL_TITLE = "text"
         fun newInstance(): ResumeInfoFragment = ResumeInfoFragment()
     }
 }

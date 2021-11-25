@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/gray_200">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/root_left_border"
@@ -24,14 +24,14 @@
         android:id="@+id/app_title_form"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_form"
-        android:text="@string/app_name"
         android:layout_marginTop="24dp"
+        android:text="@string/app_name"
         android:textAppearance="@style/AppTitleAppearance.SecondAppTitleAppearance"
         app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/root_left_border"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/info_title"
@@ -47,22 +47,21 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemsFieldOfActivity"
         android:layout_width="0dp"
-        android:overScrollMode="never"
         android:layout_height="0dp"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="51dp"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toTopOf="@+id/btnBase"
-        app:layout_constraintEnd_toStartOf="@id/root_right_border"
+        app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintStart_toEndOf="@id/root_left_border"
         app:layout_constraintTop_toBottomOf="@id/info_title" />
 
-
     <TextView
         android:id="@+id/btnBase"
-        android:textAppearance="@style/ButtonTextStyle"
+        style="@style/BaseButton"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_btn"
-        android:layout_marginBottom="51dp"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/shape_btn_enter_with_stroke"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
@@ -70,6 +69,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/root_right_border"
         app:layout_constraintStart_toStartOf="@id/root_left_border" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

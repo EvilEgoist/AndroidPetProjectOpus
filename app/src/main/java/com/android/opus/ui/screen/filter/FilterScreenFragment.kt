@@ -40,6 +40,11 @@ class FilterScreenFragment : Fragment(R.layout.fragment_filter) {
         viewModel.loadActivityFieldList()
         viewModel.loadSkills()
 
+        more.setOnClickListener {
+            viewModel.loadAllActivityFields()
+            more.visibility = View.GONE
+        }
+
         setUpActivityFieldAdapter()
         setUpLoadedSkillsAdapter()
         setUpChosenSkillsAdapter()

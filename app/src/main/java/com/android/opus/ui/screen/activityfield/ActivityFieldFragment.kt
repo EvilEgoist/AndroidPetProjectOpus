@@ -1,20 +1,24 @@
 package com.android.opus.ui.screen.activityfield
 
 import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.opus.R
 import com.android.opus.domain.ActivityFieldInteractor
 import com.android.opus.model.FieldOfActivity
 import kotlinx.android.synthetic.main.fragment_activity_field_screen.*
 import kotlinx.coroutines.Dispatchers
+import kotlin.math.roundToInt
 
 class ActivityFieldFragment : Fragment(R.layout.fragment_activity_field_screen) {
 
-    private lateinit var viewModel : ActivityFieldViewModel
+    private lateinit var viewModel: ActivityFieldViewModel
     private val activityFieldAdapter = ActivityFieldAdapter()
 
     private var listener: BtnNextClickListener? = null
@@ -40,6 +44,19 @@ class ActivityFieldFragment : Fragment(R.layout.fragment_activity_field_screen) 
 
     private fun setUpActivityFieldAdapter() {
         itemsFieldOfActivity?.layoutManager = GridLayoutManager(requireContext(), 2)
+        itemsFieldOfActivity?.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State
+            ) {
+                if (parent.getChildLayoutPosition(view) % 2 == 1) {
+                    outRect.left = resources.getDimension(R.dimen.spacing_decor).toInt()
+                }
+            }
+
+        })
         itemsFieldOfActivity?.adapter = activityFieldAdapter
     }
 

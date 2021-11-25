@@ -1,21 +1,21 @@
 package com.android.opus.ui.screen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 
-
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.Fragment
 import com.android.opus.R
 import com.android.opus.domain.MainScreenInteractor
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.fragment_main_screen.*
 import kotlinx.coroutines.Dispatchers
 
-class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
+class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener,
+    View.OnFocusChangeListener {
 
     private val presenter = MainScreenPresenter(
         interactor = MainScreenInteractor(dispatcher = Dispatchers.Default),
@@ -23,28 +23,6 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
     )
 
     private var state: State = State.MAIN
-
-    private var topBarrier: View? = null
-
-    private var appTitle: TextView? = null
-    private var greetingTitle: TextView? = null
-
-    private var loginEmailInputForm: TextInputLayout? = null
-    private var loginFirstPasswordInputForm: TextInputLayout? = null
-
-    private var nameInputForm: TextInputLayout? = null
-    private var surnameInputForm: TextInputLayout? = null
-    private var signUpEmailInputForm: TextInputLayout? = null
-    private var signUpFirstPasswordInputForm: TextInputLayout? = null
-    private var signUpSecondPasswordInputForm: TextInputLayout? = null
-
-    private var signUpBtn: TextView? = null
-    private var signGooglBtnText: TextView? = null
-    private var signGooglBtn: View? = null
-    private var enterBtn: TextView? = null
-
-    private var loginFormGroup: Group? = null
-    private var signUpFormGroup: Group? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,30 +36,11 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         state = State.MAIN
 
-        initViews(view)
-        setBtnListeners()
-
+        setListeners()
         presenter.attachView(this)
     }
 
     override fun onDestroyView() {
-        topBarrier = null
-        appTitle = null
-        greetingTitle = null
-        nameInputForm = null
-        surnameInputForm = null
-        loginEmailInputForm = null
-        signUpEmailInputForm = null
-        loginFirstPasswordInputForm = null
-        signUpFirstPasswordInputForm = null
-        signUpSecondPasswordInputForm = null
-        signUpBtn = null
-        enterBtn = null
-        signGooglBtnText = null
-        signGooglBtn = null
-        loginFormGroup = null
-        signUpFormGroup = null
-
         presenter.detachView()
         super.onDestroyView()
     }
@@ -107,12 +66,12 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
                 R.id.enter_btn -> {
 
                     val email = getTitleFromTextInputEditTextInTextInputLayout(
-                            loginEmailInputForm,
-                            R.id.login_email
+                        login_email_layout,
+                        R.id.login_email
                     )
                     val password = getTitleFromTextInputEditTextInTextInputLayout(
-                            loginFirstPasswordInputForm,
-                            R.id.login_first_password
+                        login_first_password_layout,
+                        R.id.login_first_password
                     )
 
                     presenter.login(email = email, password = password)
@@ -124,24 +83,24 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
                 R.id.enter_btn -> {
 
                     val name = getTitleFromTextInputEditTextInTextInputLayout(
-                            nameInputForm,
-                            R.id.sign_up_name
+                        sign_up_name_layout,
+                        R.id.sign_up_name
                     )
                     val surname = getTitleFromTextInputEditTextInTextInputLayout(
-                            surnameInputForm,
-                            R.id.sign_up_surname
+                        sign_up_surname_layout,
+                        R.id.sign_up_surname
                     )
                     val email = getTitleFromTextInputEditTextInTextInputLayout(
-                            signUpEmailInputForm,
-                            R.id.sign_up_email
+                        sign_up_email_layout,
+                        R.id.sign_up_email
                     )
                     val firstPassword = getTitleFromTextInputEditTextInTextInputLayout(
-                            signUpFirstPasswordInputForm,
-                            R.id.sign_up_first_password
+                        sign_up_first_password_layout,
+                        R.id.sign_up_first_password
                     )
                     val secondPassword = getTitleFromTextInputEditTextInTextInputLayout(
-                            signUpSecondPasswordInputForm,
-                            R.id.sign_up_second_password
+                        sign_up_second_password_layout,
+                        R.id.sign_up_second_password
                     )
 
                     presenter.signUp(
@@ -157,130 +116,94 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
     }
 
     override fun showNameError() {
-        nameInputForm?.error = " "
+        sign_up_name_layout?.error = " "
     }
 
     override fun showSurnameError() {
-        surnameInputForm?.error = " "
+        sign_up_surname_layout?.error = " "
     }
 
     override fun showEmailError() {
         if (state == State.LOGIN) {
-            loginEmailInputForm?.error = " "
+            login_email_layout?.error = " "
         } else if (state == State.SIGN_UP) {
-            signUpEmailInputForm?.error = " "
+            sign_up_email_layout?.error = " "
         }
     }
 
     override fun showPasswordError() {
         if (state == State.LOGIN) {
-            loginFirstPasswordInputForm?.error = " "
+            login_first_password_layout?.error = " "
         } else if (state == State.SIGN_UP) {
-            signUpFirstPasswordInputForm?.error = " "
+            sign_up_first_password_layout?.error = " "
         }
     }
 
     override fun showConfirmError() {
-        signUpSecondPasswordInputForm?.errorIconDrawable = resources.getDrawable(R.drawable.ic_error)
-        signUpSecondPasswordInputForm?.error = " "
+        sign_up_second_password_layout?.errorIconDrawable =
+            resources.getDrawable(R.drawable.ic_error)
+        sign_up_second_password_layout?.error = " "
     }
 
     override fun showConfirmSuccess() {
-        signUpSecondPasswordInputForm?.errorIconDrawable = resources.getDrawable(R.drawable.ic_success)
-        signUpSecondPasswordInputForm?.error = " "
+        sign_up_second_password_layout?.errorIconDrawable =
+            resources.getDrawable(R.drawable.ic_success)
+        sign_up_second_password_layout?.error = " "
     }
 
     override fun clearErrorsInForms() {
-        loginEmailInputForm?.isErrorEnabled = false
-        loginFirstPasswordInputForm?.isErrorEnabled = false
-        nameInputForm?.isErrorEnabled = false
-        surnameInputForm?.isErrorEnabled = false
-        signUpEmailInputForm?.isErrorEnabled = false
-        signUpFirstPasswordInputForm?.isErrorEnabled = false
-        signUpSecondPasswordInputForm?.isErrorEnabled = false
+        login_email_layout?.isErrorEnabled = false
+        login_first_password_layout?.isErrorEnabled = false
+        sign_up_name_layout?.isErrorEnabled = false
+        sign_up_surname_layout?.isErrorEnabled = false
+        sign_up_email_layout?.isErrorEnabled = false
+        sign_up_first_password_layout?.isErrorEnabled = false
+        sign_up_second_password_layout?.isErrorEnabled = false
     }
 
-
-    private fun initViews(view: View) {
-        topBarrier = view.findViewById(R.id.top_barrier)
-
-        appTitle = view.findViewById(R.id.app_title_form)
-        greetingTitle = view.findViewById(R.id.greeting_title_form)
-
-        loginEmailInputForm = view.findViewById(R.id.login_email_layout)
-        loginFirstPasswordInputForm = view.findViewById(R.id.login_first_password_layout)
-
-        nameInputForm = view.findViewById(R.id.sign_up_name_layout)
-        surnameInputForm = view.findViewById(R.id.sign_up_surname_layout)
-        signUpEmailInputForm = view.findViewById(R.id.sign_up_email_layout)
-        signUpFirstPasswordInputForm = view.findViewById(R.id.sign_up_first_password_layout)
-        signUpSecondPasswordInputForm = view.findViewById(R.id.sign_up_second_password_layout)
-
-        signUpBtn = view.findViewById(R.id.sign_btn)
-        enterBtn = view.findViewById(R.id.enter_btn)
-        signGooglBtnText = view.findViewById(R.id.btn_googl_sign)
-        signGooglBtn = view.findViewById(R.id.btn_googl_sign_layout)
-        loginFormGroup = view.findViewById(R.id.login_group)
-        signUpFormGroup = view.findViewById(R.id.sign_up_layout_group)
+    private fun setListeners() {
+        sign_btn?.setOnClickListener(this)
+        btn_googl_sign_layout?.setOnClickListener(this)
+        enter_btn?.setOnClickListener(this)
+        sign_up_second_password?.onFocusChangeListener = this
     }
 
-    private fun setBtnListeners() {
-        signUpBtn?.setOnClickListener(this)
-        signGooglBtn?.setOnClickListener(this)
-        enterBtn?.setOnClickListener(this)
-    }
-
-    //упростить
     private fun hideMainStateShowLoginState() {
-        greetingTitle?.setText(R.string.login_screen_greeting_title)
-        signGooglBtnText?.setText(R.string.sign_in_with_google)
+        greeting_title_form?.setText(R.string.login_screen_greeting_title)
+        btn_googl_sign?.setText(R.string.sign_in_with_google)
 
         hideMainStateViews()
-        showViewsByStateGroup(loginFormGroup)
+        showViewsByStateGroup(login_group)
 
         state = State.LOGIN
     }
 
     private fun hideMainStateShowSignUpState() {
-        greetingTitle?.setText(R.string.sign_up_screen_greeting_title)
-        signGooglBtnText?.setText(R.string.sign_up_with_google)
-        enterBtn?.setText(R.string.continue_text)
+        greeting_title_form?.setText(R.string.sign_up_screen_greeting_title)
+        btn_googl_sign?.setText(R.string.sign_up_with_google)
+        enter_btn?.setText(R.string.continue_text)
 
         hideMainStateViews()
-        showViewsByStateGroup(signUpFormGroup)
+        showViewsByStateGroup(sign_up_layout_group)
 
         state = State.SIGN_UP
     }
 
-    private fun showMainState() {
-        topBarrier?.visibility = View.INVISIBLE
-
-        if (state == State.LOGIN) {
-            signUpFormGroup?.visibility = View.GONE
-        } else if (state == State.SIGN_UP) {
-            loginFormGroup?.visibility = View.GONE
-        }
-
-        greetingTitle?.setText(R.string.main_screen_greeting_title)
-        signUpBtn?.visibility = View.VISIBLE
-        state = State.MAIN
-    }
-
     private fun hideMainStateViews() {
-        enterBtn?.visibility = View.GONE
-        signUpBtn?.visibility = View.GONE
-        topBarrier?.visibility = View.GONE
+        enter_btn?.visibility = View.GONE
+        sign_btn?.visibility = View.GONE
+        top_barrier?.visibility = View.GONE
     }
 
     private fun showViewsByStateGroup(view: View?) {
         view?.visibility = View.VISIBLE
-        enterBtn?.visibility = View.VISIBLE
+        enter_btn?.visibility = View.VISIBLE
     }
 
     private fun getTitleFromTextInputEditTextInTextInputLayout(
-            view: TextInputLayout?,
-            id: Int): String
-    {
+        view: TextInputLayout?,
+        id: Int
+    ): String {
         val viewWithTitle: TextInputEditText? = view?.findViewById(id)
         return viewWithTitle?.text.toString()
     }
@@ -293,5 +216,27 @@ class MainScreenFragment : Fragment(), MainScreenView, View.OnClickListener {
 
     companion object {
         fun newInstance() = MainScreenFragment()
+    }
+
+    override fun onFocusChange(v: View?, hasFocus: Boolean) {
+        if (!hasFocus) {
+            when (v!!.id) {
+
+                R.id.sign_up_second_password -> {
+                    val firstPassword = getTitleFromTextInputEditTextInTextInputLayout(
+                        sign_up_first_password_layout,
+                        R.id.sign_up_first_password
+                    )
+                    val secondPassword = getTitleFromTextInputEditTextInTextInputLayout(
+                        sign_up_second_password_layout,
+                        R.id.sign_up_second_password
+                    )
+                    presenter.passwordConfirmCheck(
+                        firstPassword,
+                        secondPassword
+                    )
+                }
+            }
+        }
     }
 }

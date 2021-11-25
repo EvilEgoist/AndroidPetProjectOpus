@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/gray_200"
-    android:layout_marginBottom="30dp"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="30dp"
+    android:background="@color/gray_200"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,82 +25,61 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/titleVacancy"
+                android:id="@+id/title_vacancy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:fontFamily="@font/work_sans_bold"
-                android:maxLines="1"
-                android:textColor="@color/black"
-                android:textSize="@dimen/item_vacancy_job_position_text"
+                android:textAppearance="@style/ResumeVacancyTextAppearance"
                 tools:text="iOS разработчик" />
 
             <TextView
-                android:id="@+id/employerName"
+                android:id="@+id/employer_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:fontFamily="@font/lato"
                 android:maxWidth="120dp"
-                android:maxLines="2"
-                android:textColor="@color/black"
-                android:textSize="@dimen/item_vacancy_employ_name_text"
+                android:textAppearance="@style/ResumeVacancyTextAppearance.SecondTitle"
                 tools:text="iOS разработчик" />
 
             <TextView
                 android:id="@+id/salary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:fontFamily="@font/lato"
-                android:maxLines="1"
-                android:text="10 000 - 20 000руб"
-                android:textColor="@color/black"
-                android:textSize="@dimen/item_vacancy_salary_text" />
+                android:textAppearance="@style/ResumeVacancyTextAppearance.ThirdTitle"
+                tools:text="10 000 - 20 000руб" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/employerImage"
-            android:layout_width="45dp"
-            android:layout_height="45dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/employer_image"
+            android:layout_width="@dimen/resume_photo_size"
+            android:layout_height="@dimen/resume_photo_size" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/vacancyDescription"
+        android:id="@+id/vacancy_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/border_item_vacancy_margins"
         android:layout_marginTop="@dimen/item_vacancy_inside_middle_margin"
         android:layout_marginEnd="@dimen/border_item_vacancy_margins"
-        android:ellipsize="end"
-        android:fontFamily="@font/lato"
-        android:lineSpacingExtra="2dp"
-        android:maxLines="4"
-        android:text="Идейные соображения высшего порядка, а также реализация намеченных плановых заданий способствует подготовки и реализации форм развития. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки соответствующий условий активизации. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке дальнейших направлений развития. "
-        android:textColor="@color/second_text_color"
-        android:textSize="@dimen/item_vacancy_description_text" />
+        android:textAppearance="@style/ResumeVacancyDescriptionTextAppearance"
+        tools:text="Идейные соображения высшего порядка, а также реализация намеченных плановых заданий способствует подготовки и реализации форм развития. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки соответствующий условий активизации. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке дальнейших направлений развития. " />
 
-    <LinearLayout
-        android:id="@+id/skillsGroup"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/skills"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/border_item_vacancy_margins"
         android:layout_marginTop="@dimen/item_vacancy_inside_middle_margin"
-        android:layout_marginEnd="@dimen/border_item_vacancy_margins"
-        android:divider="@drawable/divider_skills_group"
-        android:orientation="horizontal"
-        android:showDividers="middle" />
+        android:layout_marginEnd="@dimen/border_item_vacancy_margins" />
 
     <TextView
-        android:id="@+id/watchMore"
+        android:id="@+id/watch_more_vacancy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="@dimen/item_vacancy_inside_middle_margin"
         android:layout_marginEnd="@dimen/border_item_vacancy_top_margins"
         android:layout_marginBottom="@dimen/border_item_vacancy_top_margins"
-        android:fontFamily="@font/lato"
-        android:text="Узнать больше"
-        android:textColor="@color/second_text_color"
-        android:textSize="@dimen/item_vacancy_watch_more_text" />
+        android:text="@string/watch_more"
+        android:textAppearance="@style/ResumeVacancyTextHelperAppearance" />
 </LinearLayout>
