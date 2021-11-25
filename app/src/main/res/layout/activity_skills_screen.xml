@@ -116,7 +116,7 @@
         android:background="@drawable/shape_btn_enter_with_stroke"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
-        android:text="@string/sign_up_enter"
+        android:text="@string/continue_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/rootRightBorder"
         app:layout_constraintStart_toStartOf="@id/rootLeftBorder" />
