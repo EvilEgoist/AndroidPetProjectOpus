@@ -9,6 +9,7 @@ import com.android.opus.R
 import com.android.opus.common.adapters.skills.CommonSkillsAdapter
 import com.android.opus.domain.ExpandedVacancyInteractor
 import com.android.opus.model.ExpandedVacancy
+import com.android.opus.model.ShortDescription
 import com.android.opus.model.Skill
 import com.beloo.widget.chipslayoutmanager.ChipsLayoutManager
 import com.beloo.widget.chipslayoutmanager.SpacingItemDecoration
@@ -79,7 +80,7 @@ class ExpandedVacancyFragment: Fragment(R.layout.fragment_expanded_vacancy) {
         company_description.text = expVacancy.companyDescr
     }
 
-    private fun updateAllAdapters(skills: List<Skill>?, responsibilities: List<String>, requirements: List<String>, conditions: List<String>) {
+    private fun updateAllAdapters(skills: List<Skill>?, responsibilities: List<ShortDescription>, requirements: List<ShortDescription>, conditions: List<ShortDescription>) {
         skillsAdapter.submitList(skills)
         responsibilitiesAdapter.submitList(responsibilities)
         requirementsAdapter.submitList(requirements)

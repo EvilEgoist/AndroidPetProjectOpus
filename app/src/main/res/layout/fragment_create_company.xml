@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/black"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="Личные данные"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:id="@+id/edit_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="20dp"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="СОХРАНИТЬ"
+                android:textColor="@color/yellow"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_success_edit_profile" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/edit_profile_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_200"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_photo"
+                    style="@style/CircleImageViewStyle"
+                    android:layout_width="@dimen/edit_profile_photo_size"
+                    android:layout_height="@dimen/edit_profile_photo_size"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp" />
+
+                <TextView
+                    android:id="@+id/edit_photo"
+                    style="@style/DescriptionActiveTextAppearance.MainAppearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/edit_title"
+                    android:textColor="@color/blue" />
+
+                <TextView
+                    android:id="@+id/delete_photo"
+                    style="@style/DescriptionActiveTextAppearance.MainAppearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/delete_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_company_name_layout"
+                    style="@style/InputTextLayout.Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/profile_edit_text_height"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_company_name"
+                        style="@style/EditTextLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/profile_edit_text_height"
+                        android:background="@drawable/shape_edit_text_top_rounded_light"
+                        android:hint="@string/company_name_title"
+                        android:padding="2dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_location_layout"
+                    style="@style/InputTextLayout.Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/profile_edit_text_height"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_location"
+                        style="@style/EditTextLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/profile_edit_text_height"
+                        android:background="@drawable/shape_edit_text_bottom_rounded_light"
+                        android:hint="@string/location_title"
+                        android:padding="2dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="@string/short_company_description_title"
+                    android:textAppearance="@style/EditProfileTextAppearance" />
+
+                <EditText
+                    android:id="@+id/edit_short_self_description"
+                    style="@style/EditTextDescriptionLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/shape_edit_text_rounded_light"
+                    android:hint="@string/hint_short_self_description"
+                    android:minHeight="95dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray_200"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/self_description_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/full_company_description_title"
+                    android:textAppearance="@style/DescriptionTitleTextAppearance.HeaderAppearance" />
+
+
+                <include layout="@layout/divider_horizontal" />
+
+                <TextView
+                    android:id="@+id/self_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:textAppearance="@style/DescriptionTextAppearance.SecondTextAppearance"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/edit_self_description"
+                    style="@style/EditTextDescriptionLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/shape_edit_text_rounded_light"
+                    android:hint="@string/hint_company_all_description"
+                    android:minHeight="224dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

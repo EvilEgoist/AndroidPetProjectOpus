@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_200"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/shape_edit_text_rounded_light"
+        android:hint="@string/company_name"
+        android:paddingStart="20dp"
+        android:textAppearance="@style/EditWorkPlaceTextAppearance.EditText" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/lato_semibold"
+        android:text="@string/your_responsibilities"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit_vacancy_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/shape_edit_text_rounded_light"
+        android:gravity="top"
+        android:hint="@string/hint_edit_company_description"
+        android:minHeight="180dp"
+        android:padding="16dp"
+        android:textColorHint="@color/second_text_color"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/work_current_time"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:button="@drawable/selector_check_box_edit_profile" />
+
+        <TextView
+            android:id="@+id/edit_full_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/lato_light"
+            android:text="@string/work_full_day_title"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/responsibilities_employee_title"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <include layout="@layout/divider_horizontal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/edit_responsibilities_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/requirements_title"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <include layout="@layout/divider_horizontal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/edit_requirements"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:overScrollMode="never"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/conditions_title"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <include layout="@layout/divider_horizontal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/conditions_list"
+        android:layout_width="match_parent"
+        android:overScrollMode="never"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/lato_semibold"
+        android:text="@string/tell_about_skills"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/skills_search"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/shape_edit_search_view"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        app:searchHintIcon="@drawable/ic_search"
+        app:searchIcon="@drawable/ic_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/edit_loaded_skills"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:overScrollMode="never"
+        android:layout_marginEnd="12dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/chosen_skills"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/edit_chosen_skills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:overScrollMode="never"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="20dp" />
+
+
+    <TextView
+        android:id="@+id/salary_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/filter_salary_title"
+        android:textAppearance="@style/FilterSubtitleTextAppearance" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp">
+
+        <TextView
+            android:id="@+id/from_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:text="@string/filter_from_interval_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/start_salary_filter"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/filter_edit_text_width"
+            android:layout_height="@dimen/filter_edit_text_height"
+            android:layout_marginStart="6dp"
+            app:endIconMode="none"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toBottomOf="@id/from_title"
+            app:layout_constraintStart_toEndOf="@id/from_title"
+            app:layout_constraintTop_toTopOf="@id/from_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/start_salary"
+                style="@style/TextFormStyle.EditTextSalary"
+                android:layout_width="@dimen/filter_edit_text_width"
+                android:layout_height="@dimen/filter_edit_text_height"
+                android:gravity="end"
+                android:hint="@string/filter_start_salary_hint"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/currency1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/filter_rub_title"
+            app:layout_constraintBottom_toBottomOf="@+id/from_title"
+            app:layout_constraintStart_toEndOf="@id/start_salary_filter"
+            app:layout_constraintTop_toTopOf="@+id/from_title" />
+
+        <TextView
+            android:id="@+id/to_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/filter_to_interval_title"
+            app:layout_constraintStart_toEndOf="@id/currency1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/end_salary_filter"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/filter_edit_text_width"
+            android:layout_height="@dimen/filter_edit_text_height"
+            android:layout_marginStart="6dp"
+            app:endIconMode="none"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toBottomOf="@id/to_title"
+            app:layout_constraintStart_toEndOf="@id/to_title"
+            app:layout_constraintTop_toTopOf="@id/to_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/end_salary"
+                style="@style/TextFormStyle.EditTextSalary"
+                android:layout_width="@dimen/filter_edit_text_width"
+                android:layout_height="@dimen/filter_edit_text_height"
+                android:gravity="end"
+                android:hint="@string/filter_end_salary_hint"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/currency2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/filter_rub_title"
+            app:layout_constraintBottom_toBottomOf="@+id/to_title"
+            app:layout_constraintStart_toEndOf="@id/end_salary_filter"
+            app:layout_constraintTop_toTopOf="@+id/to_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/level_work_title"
+        android:textAppearance="@style/EditProfileTextAppearance.TitleAppearanceLight" />
+
+    <RadioGroup
+        android:id="@+id/radio_level_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="36dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_junior"
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:background="@drawable/selector_level_radio_button"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/junior"
+            android:textColor="@drawable/selector_text_color"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radio_middle"
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_level_radio_button"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/middle"
+            android:textColor="@drawable/selector_text_color"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radio_senior"
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:background="@drawable/selector_level_radio_button"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/senior"
+            android:textColor="@drawable/selector_text_color"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+
+    <include layout="@layout/divider_horizontal" />
+
+</LinearLayout>

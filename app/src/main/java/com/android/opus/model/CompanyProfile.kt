@@ -2,9 +2,10 @@ package com.android.opus.model
 
 data class CompanyProfile(
     val id: Int,
-    val imageUrl: String,
-    val companyName: String,
-    val companyLocation: String,
-    val shortCompanyDescr: String,
-    val vacancies: List<ExpandedVacancy>
+    var imageUrl: String,
+    var companyName: String,
+    var companyLocation: String,
+    var shortCompanyDescr: String,
+    var companyFullDescription: String,
+    var vacancies: List<ExpandedVacancy>
 )

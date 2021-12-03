@@ -1,21 +1,23 @@
 package com.android.opus.model
 
-import com.android.opus.common.DisplayableItem
+import com.android.opus.common.adapters.vacancy.edit.VacancyDisplayableItem
 
 data class ExpandedVacancy(
         val id: Int,
         val titleVacancy: String,
-        val employerName: String,
+        var employerName: String,
         val salary: String,
-        val description: String,
-        val skills: List<Skill>,
+        var description: String,
+        var workFullDay: Boolean,
+        var level: String,
+        var skills: List<Skill>,
         val companyDescr: String,
         val location: String,
         val typeOfEmployment: String,
-        val responsibilities: List<String>,
-        val requirements: List<String>,
-        val conditions: List<String>
-): DisplayableItem {
+        var responsibilities: List<ShortDescription>,
+        var requirements: List<ShortDescription>,
+        var conditions: List<ShortDescription>
+): VacancyDisplayableItem {
 
         override fun id() = id
 
@@ -38,9 +40,9 @@ data class ExpandedVacancy(
                 private val companyDescr: String?,
                 private val location: String?,
                 private  val typeOfEmployment: String?,
-                private val responsibilities: List<String>,
-                private val requirements: List<String>,
-                private val conditions: List<String>
+                private val responsibilities: List<ShortDescription>,
+                private val requirements: List<ShortDescription>,
+                private val conditions: List<ShortDescription>
         ) {
                 override fun equals(other: Any?): Boolean {
                         if (other is VacancyContent) {
@@ -65,3 +67,4 @@ data class ExpandedVacancy(
                 }
         }
 }
+
