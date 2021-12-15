@@ -36,3 +36,20 @@ Still in work and is going to be in work for a very-very-very long time
 
 ![image](https://user-images.githubusercontent.com/79916148/146224674-36505497-8cda-442d-8330-fe4477400b18.png)
 
+![image](https://user-images.githubusercontent.com/79916148/146224943-863e2c14-f953-4849-9c5e-a637b3aec26c.png)
+
+![image](https://user-images.githubusercontent.com/79916148/146224983-0061b510-7fd0-457e-8504-b41510a14126.png)
+
+![image](https://user-images.githubusercontent.com/79916148/146225022-b0f7d8ae-94fc-43e2-9235-39a7076c1212.png)
+
+![image](https://user-images.githubusercontent.com/79916148/146225092-85eb4f78-a362-42b6-9e85-4755f989f266.png)
+
+![image](https://user-images.githubusercontent.com/79916148/146225170-a3a079cc-fd6a-4cb1-b62f-7b54a874019d.png)
+
+![image](https://user-images.githubusercontent.com/79916148/146225241-c5efe7b9-989d-4a0c-a798-9eff8387b350.png)
+
+![image](https://user-images.githubusercontent.com/79916148/146225354-cb246930-4778-4497-b7a4-c124a32f7aff.png)
+
+![image](https://user-images.githubusercontent.com/79916148/146225396-3dfdc9d7-a877-48ba-bf86-100354fa4648.png)
+
+
