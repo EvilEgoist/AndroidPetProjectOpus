@@ -1,6 +1,7 @@
 # AndroidPetProjectOpus
 Pet-project of social network.
 Still in work and is going to be in work for a very-very-very long time
+Development in the dev branch
 
 ![image](https://user-images.githubusercontent.com/79916148/146223548-0d6f2d64-9477-482a-ba3b-27bc2534b714.png)
 
