@@ -8,6 +8,7 @@ Still in work and is going to be in work for a very-very-very long time.
 
 ***
 #Скриншоты
+***
 ![image](https://user-images.githubusercontent.com/79916148/146223548-0d6f2d64-9477-482a-ba3b-27bc2534b714.png)
 
 ![image](https://user-images.githubusercontent.com/79916148/146223619-8ea43d3c-bc93-46d9-a345-0daa6dceee50.png)
