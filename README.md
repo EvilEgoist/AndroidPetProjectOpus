@@ -1,8 +1,13 @@
-# AndroidPetProjectOpus
-Pet-project of social network.
+# NetWork
+Это репозиторий android-приложения
 Still in work and is going to be in work for a very-very-very long time.
-Development in the dev branch
+***
+#Команда
+Свиридов Иван 3530202/90201
+Потыканенко Артём 3530202/90201
 
+***
+#Скриншоты
 ![image](https://user-images.githubusercontent.com/79916148/146223548-0d6f2d64-9477-482a-ba3b-27bc2534b714.png)
 
 ![image](https://user-images.githubusercontent.com/79916148/146223619-8ea43d3c-bc93-46d9-a345-0daa6dceee50.png)
@@ -53,4 +58,6 @@ Development in the dev branch
 
 ![image](https://user-images.githubusercontent.com/79916148/146225396-3dfdc9d7-a877-48ba-bf86-100354fa4648.png)
 
-
+***
+#Тестирование
+Тестирование этого проекта мы проводили методом "серого ящика", тк тестированием занимались сами разработчики. Однако мы тестировали не только свой, но  и код других разработчиков, ничего не зная об их реализации. Таким образом мы быстро находили ошибки и неэффективные моменты в коде.
